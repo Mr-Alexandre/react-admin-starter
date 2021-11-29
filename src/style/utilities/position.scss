@@ -1,0 +1,5 @@
+@each $position in $positions {
+  .u-position-#{$position} {
+    position: $position !important;
+  }
+}

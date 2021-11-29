@@ -1,0 +1,141 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "es2017": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "react",
+        "react-hooks",
+        "sonarjs",
+        "@typescript-eslint",
+        "import",
+        "jsx-a11y"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:sonarjs/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:import/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:jsx-a11y/recommended"
+    ],
+    "parserOptions": {
+        "project": "tsconfig.json",
+        "tsconfigRootDir": "."
+    },
+    "ignorePatterns": [
+        //    "*.spec.ts",
+        //    "*.spec.tsx",
+        //    "*.test.ts",
+        //    "*.test.tsx",
+        //    "__test__/*",
+        "src/decorators"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "@typescript-eslint/no-empty-interface": "off",
+        "react/display-name": "off",
+        "@typescript-eslint/unbound-method": "off",
+        "react/prop-types": "off",
+        "jsx-quotes": [
+            "error",
+            "prefer-double"
+        ],
+        "no-multi-spaces": "error",
+        "react/jsx-curly-spacing": [
+            2,
+            {
+                "when": "never"
+            }
+        ],
+        "react/jsx-tag-spacing": [
+            2,
+            {
+                "beforeSelfClosing": "always"
+            }
+        ],
+        "react/no-string-refs": [
+            2,
+            {
+                "noTemplateLiterals": true
+            }
+        ],
+        "react/jsx-wrap-multilines": [
+            2,
+            {
+                "declaration": "parens-new-line",
+                "assignment": "parens-new-line",
+                "return": "parens-new-line",
+                "arrow": "parens-new-line",
+                "condition": "parens-new-line",
+                "logical": "parens-new-line",
+                "prop": "parens-new-line"
+            }
+        ],
+        "react/self-closing-comp": [
+            "error",
+            {
+                "component": true,
+                "html": true
+            }
+        ],
+        "react/jsx-closing-bracket-location": [
+            2,
+            {
+                "nonEmpty": "tag-aligned",
+                "selfClosing": "tag-aligned"
+            }
+        ],
+        "react/jsx-no-bind": [
+            2,
+            {
+                "ignoreDOMComponents": false,
+                "ignoreRefs": true,
+                "allowArrowFunctions": true,
+                "allowFunctions": true,
+                "allowBind": false
+            }
+        ],
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ]
+    },
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [
+                ".ts",
+                ".tsx"
+            ]
+        },
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            },
+            "typescript": {
+                "alwaysTryTypes": true,
+                "project": "tsconfig.json"
+            }
+        }
+    }
+}

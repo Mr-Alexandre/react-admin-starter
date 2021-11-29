@@ -1,0 +1,11 @@
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-with-centered {
+  100% {
+    transform: rotate(360deg) translate(-50%, -50%);
+  }
+}

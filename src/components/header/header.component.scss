@@ -1,0 +1,14 @@
+.header {
+  $this: &;
+  padding: 20px 5px;
+  background-color: lightgray;
+
+  &__logo-box {
+    height: 40px;
+  }
+
+  &__logo {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}

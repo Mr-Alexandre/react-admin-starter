@@ -1,0 +1,96 @@
+@import "../tools/font-face";
+@import "../tools/font-style";
+
+$font-name: 'Manrope';
+$font-extraBold: 'Manrope';
+$font-bold: 'Manrope';
+$font-semiBold: 'Manrope';
+$font-medium: 'Manrope';
+$font-regular: 'Manrope';
+
+$font-icon: 'Halyk-market-icon';
+
+$font-size-base: 16px; // 1rem - 16px
+
+$font-size-h1: 56px;
+$font-size-h2: 48px;
+$font-size-h3: 40px;
+$font-size-h4: 28px;
+$font-size-h5: 24px;
+$font-size-h6: 20px;
+$font-size-h7: 16px;
+
+$font-size-subtitle-1: 16px;
+$font-size-subtitle-2: 14px;
+$font-size-subtitle-3: 12px;
+$font-size-subtitle-4: 10px;
+
+$font-size-p: 16px;
+$font-size-p-sm: 14px;
+$font-size-p-xs: 12px;
+
+$font-size-button: 16px;
+$font-size-button-sm: 14px;
+
+$font-size-menu: 14px;
+$font-size-toolbar: 14px;
+$font-size-icon-desk: 10px;
+
+$font-size-caption: 12px;
+$font-size-overline: 10px;
+$font-size-label: 10px;
+
+$font-size-form-label: 12px;
+$font-size-form-content: 14px;
+$font-size-form-hint: 12px;
+
+
+//text font
+//@include font-face(
+//				$font-extraBold,
+//				"../../fonts/Manrope/Manrope-ExtraBold/Manrope-ExtraBold",
+//				800,
+//				normal,
+//						(woff2, woff, ttf)
+//);
+//@include font-face(
+//				$font-bold,
+//				"../../fonts/Manrope/Manrope-Bold/Manrope-Bold",
+//				bold,
+//				normal,
+//						(woff2, woff, ttf)
+//);
+//@include font-face(
+//				$font-semiBold,
+//				"../../fonts/Manrope/Manrope-Semibold/Manrope-Semibold",
+//				600,
+//				normal,
+//						(woff2, woff, ttf)
+//);
+//
+//@include font-face(
+//				$font-medium,
+//				"../../fonts/Manrope/Manrope-Medium/Manrope-Medium",
+//				500,
+//				normal,
+//						(woff2, woff, ttf)
+//);
+//@include font-face(
+//				$font-regular,
+//				"../../fonts/Manrope/Manrope-Regular/Manrope-Regular",
+//				normal,
+//				normal,
+//						(woff2, woff, ttf)
+//);
+//text font end
+
+
+//icon font
+//@include font-face(
+//				$font-icon,
+//				"../../fonts/name-icon/fonts/name-icon",
+//				normal,
+//				normal,
+//						(eot, ttf, woff, svg)
+//);
+//icon font end

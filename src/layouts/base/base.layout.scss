@@ -1,0 +1,36 @@
+.base-layout {
+  $this: &;
+
+  &__header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &__container {
+    height: 100vh;
+    overflow: hidden;
+    padding-left: 200px;
+    padding-top: 80px;
+  }
+
+  &__side-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    margin-top: 80px;
+    background-color: darkgray;
+  }
+
+  &__main {
+    padding: 20px;
+    overflow: auto;
+    height: 100%;
+  }
+
+  &__content {
+  }
+}

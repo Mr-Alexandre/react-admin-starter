@@ -1,0 +1,33 @@
+.u-disable-pull-down-refresh {
+  @supports (overscroll-behavior: contain) {
+    //for chrome 63+
+    overscroll-behavior: contain;
+  }
+
+  @supports (not(overscroll-behavior: contain)) {
+    /* Sending body at the bottom of the stack */
+    z-index: 1;
+
+    &, .o-base-layout__container {
+      /* Break the flow */
+      position: absolute;
+      top: 0;
+
+      /* Give them all the available space */
+      width: 100%;
+      height: 100%;
+
+      /* Remove the margins if any */
+      margin: 0;
+
+      /* Allow them to scroll down the document */
+      overflow-y: hidden;
+    }
+
+    .o-base-layout__container {
+      /* Making the wrapper stack above the body */
+      z-index: 2
+    }
+  }
+}
+

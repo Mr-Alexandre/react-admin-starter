@@ -1,0 +1,8 @@
+.o-svg-icon {
+  &__change {
+
+    .t-dark & {
+      fill: $color-white;
+    }
+  }
+}

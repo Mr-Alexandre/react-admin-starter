@@ -1,0 +1,71 @@
+$color-white: #ffffff !default;
+$color-black: #000000 !default;
+
+$color-primary-10: #EAF6EF;
+$color-primary-50: #2AA65C;
+$color-primary-70: #00805F;
+
+$color-secondary-10: #FEECC7;
+$color-secondary-50: #FCB016;
+
+$color-success: #11D392;
+$color-success-bg: $color-primary-10;
+$color-warning: #FFCC01;
+$color-warning-bg: #FFF0DF;
+$color-error: #FF0000;
+$color-error-bg: #FFDFDF;
+$color-information: #00A9FF;
+$color-information-bg: #DFF0FF;
+
+$color-light: #FFFFFF;
+$color-dark: #071222;
+
+$color-neutral-10: #262F40;
+$color-neutral-20: #4C5566;
+$color-neutral-40: #626D84;
+$color-neutral-60: #9BA4B5;
+$color-neutral-70: #D3D7DE;
+$color-neutral-80: #E2E4E9;
+$color-neutral-90: #F6F7F8;
+
+$color-extra-10: #11D392;
+$color-extra-20: #FFCC01;
+$color-extra-30: #FD2D39;
+$color-extra-40: #AE01FF;
+$color-extra-50: #11BCD3;
+$color-extra-50: #11BCD3;
+$color-extra-60: #0085FF;
+
+$color-gradient-primary-50-primary-70-1: linear-gradient(90deg, $color-primary-50 0%, $color-primary-70 100%);
+$color-gradient-primary-50-primary-70-2: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(90deg, $color-primary-50 0%, $color-primary-70 100%);
+
+$colors: (
+  black: $color-black,
+  white: $color-white,
+  primary-10: $color-primary-10,
+  primary-50: $color-primary-50,
+  primary-70: $color-primary-70,
+  secondary-10: $color-secondary-10,
+  secondary-50: $color-secondary-50,
+  success: $color-success,
+  warning: $color-warning,
+  error: $color-error,
+  information: $color-information,
+  light: $color-light,
+  dark: $color-dark,
+  neutral-10: $color-neutral-10,
+  neutral-20: $color-neutral-20,
+  neutral-40: $color-neutral-40,
+  neutral-60: $color-neutral-60,
+  neutral-70: $color-neutral-70,
+  neutral-80: $color-neutral-80,
+  neutral-90: $color-neutral-90,
+  extra-10: $color-extra-10,
+  extra-20: $color-extra-20,
+  extra-30: $color-extra-30,
+  extra-40: $color-extra-40,
+  extra-50: $color-extra-50,
+  extra-60: $color-extra-60,
+  gradient-primary-50-primary-70-1: $color-gradient-primary-50-primary-70-1,
+  gradient-primary-50-primary-70-2: $color-gradient-primary-50-primary-70-2,
+)

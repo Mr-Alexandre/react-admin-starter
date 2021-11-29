@@ -1,0 +1,23 @@
+@import "../../style/imports";
+
+.side-nav {
+  &__menu {
+
+  }
+
+  &__list {
+    @include list-unstyled();
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    display: block;
+
+    a {
+      display: block;
+      padding: 4px 10px;
+      text-decoration: none;
+    }
+  }
+}

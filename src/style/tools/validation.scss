@@ -1,0 +1,17 @@
+@mixin validation-error() {
+  .has-error & {
+    @content;
+  }
+}
+
+@mixin validation-success() {
+  .has-success & {
+    @content;
+  }
+}
+
+@mixin validation-warning() {
+  .has-warning & {
+    @content;
+  }
+}

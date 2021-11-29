@@ -1,0 +1,35 @@
+@mixin font-extraBold() {
+  font-family: $font-extraBold;
+  font-weight: 800;
+  font-style: normal;
+}
+
+@mixin font-bold() {
+  font-family: $font-bold;
+  font-weight: bold;
+  font-style: normal;
+}
+
+@mixin font-semiBold() {
+  font-family: $font-semiBold;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@mixin font-medium() {
+  font-family: $font-medium;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin font-regular() {
+  font-family: $font-regular;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin font-inherit() {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+}

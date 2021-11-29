@@ -1,0 +1,5 @@
+@mixin native-app() {
+  .s-native-app & {
+    @content;
+  }
+}
