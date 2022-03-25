@@ -10,16 +10,16 @@ const Example = observer((props: Props) => {
 
 	const removeItem = (index: number): void => {
 		exampleService.removeItemList(index);
-	}
+	};
 
 	const clearList = (): void => {
 		exampleService.clearItemList();
-	}
+	};
 
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
 		const { value } = event.target;
 		setInputValue(value);
-	}
+	};
 
 	const handleInputKeyPress = (event: React.KeyboardEvent<HTMLInputElement>): void => {
 		const { code: keyName, currentTarget: { value } } = event;
@@ -31,11 +31,11 @@ const Example = observer((props: Props) => {
 		}
 		setInputValue('');
 		exampleService.addItemList(value);
-	}
+	};
 
 	const isValidValue = (value: string): boolean => {
 		return Boolean(value.trim());
-	}
+	};
 
 	return (
 		<div className="example">
@@ -63,8 +63,8 @@ const Example = observer((props: Props) => {
 				: null
 			}
 		</div>
-	)
-})
+	);
+});
 
 
 export default Example;

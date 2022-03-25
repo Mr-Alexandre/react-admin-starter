@@ -1,42 +1,36 @@
+import React, { FC, useState } from 'react';
 import './base.layout.scss';
-import React, { FC } from 'react';
+import { IBaseLayoutProps } from './base.interface';
+import { Layout } from 'antd';
+import { Outlet } from 'react-router-dom';
 import Header from '@components/header/header.component';
 import SideNav from '@components/side-nav/side-nav.component';
-import { IBaseLayoutProps } from './base.interface';
+import Breadcrumb from '@components/breadcrumb/breadcrumb.component';
 
-const BaseLayout: FC<IBaseLayoutProps> = (
-	{
-		children,
-		header: SelfHeader,
-		sideNav: SelfSideNav,
-	}
-) => {
+const { Sider, Content } = Layout;
+
+const BaseLayout: FC<IBaseLayoutProps> = () => {
+	const [isCollapsed, setCollapsed] = useState(false);
+
+	const toggle = (): void => {
+		setCollapsed(prevState => !prevState);
+	};
+
 	return (
-		<div className="base-layout">
-			<div className="base-layout__header">
-				{SelfHeader
-					? <SelfHeader />
-					: <Header />
-				}
-			</div>
-
-			<div className="base-layout__container">
-				<div className="base-layout__side-nav">
-					{SelfSideNav
-						? <SelfSideNav />
-						: <SideNav />
-					}
-				</div>
-
-				<main className="base-layout__main">
+		<Layout className="base-layout">
+			<SideNav className="base-layout__side-nav" isCollapsed={isCollapsed} />
+			<Layout className="base-layout__main">
+				<Header className="base-layout__header" isCollapsed={isCollapsed} toggleCollapse={toggle} />
+				<Content className="base-layout__container">
+					<Breadcrumb className="base-layout__breadcrumb" />
 					<div className="base-layout__content">
-						{children}
+						<Outlet />
 					</div>
-				</main>
-			</div>
-		</div>
-	)
-}
+				</Content>
+			</Layout>
+		</Layout>
+	);
+};
 
 
 export default BaseLayout;

@@ -1,0 +1,21 @@
+@import "../../style/imports";
+
+.sing-up {
+
+  &__form {
+    min-width: 400px;
+    background-color: $color-neutral-90;
+    padding: 20px;
+  }
+
+  &__header {
+    margin-bottom: 10px;
+  }
+
+  &__title {
+  }
+
+  &__btn {
+    margin-right: 10px;
+  }
+}

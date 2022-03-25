@@ -1,22 +1,18 @@
-import { ICanActivate, TCanActivateReturn } from '@route-guard/route-guard.interface';
-import { ExtractRouteParams, RouteComponentProps } from 'react-router';
-import { of, timeout } from 'rxjs';
-
+import { ICanActivate } from '@route-guard/route-guard.interface';
 
 export async function asyncDelay(ms: number) {
 	return await new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export function authGuard() {
-	const canActivate = (props: RouteComponentProps<ExtractRouteParams<string, string>>) => {
-		// await asyncDelay(500);
+export function authGuard(): ICanActivate {
+	const canActivate = (props: unknown) => {
 		if (localStorage.getItem('auth')) {
 			return true;
 		}
-		return '/';
-	}
+		return true;
+	};
 
-	return <ICanActivate> {
+	return {
 		canActivate: canActivate
-	}
+	};
 }

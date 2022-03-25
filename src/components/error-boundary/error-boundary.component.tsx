@@ -1,7 +1,7 @@
 import React, { ErrorInfo, ReactNode } from 'react';
 import {
-	TErrorBoundaryProps as Props,
-	TErrorBoundaryState as State
+	IErrorBoundaryProps as Props,
+	IErrorBoundaryState as State
 } from '@components/error-boundary/error-boundary.interface';
 
 class ErrorBoundary extends React.Component<Props, State> {
@@ -20,14 +20,27 @@ class ErrorBoundary extends React.Component<Props, State> {
 			error: error,
 			errorInfo: errorInfo
 		});
+		this.props?.onError?.(error, errorInfo);
 	}
 
 	render(): ReactNode {
-		if (this.state.hasError && this.props.fallback) {
+		if (!this.state.hasError) {
+			return this.props.children;
+		}
+		if (this.props.fallback) {
 			const Fallback = this.props.fallback;
 			return <Fallback />;
 		}
-		return this.props.children;
+		return (
+			<div>
+				<h2>Something went wrong.</h2>
+				<details style={{ whiteSpace: 'pre-wrap' }}>
+					{this.state.error && this.state.error.toString()}
+					<br />
+					{this.state.errorInfo?.componentStack}
+				</details>
+			</div>
+		);
 	}
 }
 

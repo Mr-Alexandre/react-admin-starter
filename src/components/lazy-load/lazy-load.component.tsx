@@ -1,6 +1,5 @@
-import React, { FC, lazy, Suspense } from 'react';
+import React, { FC, lazy, Suspense, useState } from 'react';
 import { ILazyLoadProps } from '@components/lazy-load/lazy-load.interface';
-import ErrorBoundary from '@components/error-boundary/error-boundary.component';
 
 const LazyLoad: FC<ILazyLoadProps> = (props) => {
 	const LazyComponent = lazy(props.loadComponent);
@@ -8,12 +7,10 @@ const LazyLoad: FC<ILazyLoadProps> = (props) => {
 	const Loading = props.fallback || Empty;
 
 	return (
-		<ErrorBoundary fallback={props.error}>
-			<Suspense fallback={props.fallback ? <Loading /> : null}>
-				<LazyComponent />
-			</Suspense>
-		</ErrorBoundary>
-	)
-}
+		<Suspense fallback={props.fallback ? <Loading /> : null}>
+			<LazyComponent />
+		</Suspense>
+	);
+};
 
 export default LazyLoad;

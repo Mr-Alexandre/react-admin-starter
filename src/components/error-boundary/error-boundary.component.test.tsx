@@ -1,11 +1,11 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
 import ErrorBoundary from '@components/error-boundary/error-boundary.component';
-import { TErrorBoundaryProps } from '@components/error-boundary/error-boundary.interface';
+import { IErrorBoundaryProps } from '@components/error-boundary/error-boundary.interface';
 
 describe('ErrorBoundary component', () => {
 	it('Renders correctly', () => {
-		const props: TErrorBoundaryProps = {}
+		const props: IErrorBoundaryProps = {}
 		const tree = renderer
 			.create(
 				<ErrorBoundary {...props}>

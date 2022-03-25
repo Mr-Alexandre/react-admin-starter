@@ -1,36 +1,33 @@
+@import "../../style/imports";
+
 .base-layout {
   $this: &;
 
-  &__header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
-
-  &__container {
-    height: 100vh;
-    overflow: hidden;
-    padding-left: 200px;
-    padding-top: 80px;
-  }
+  width: 100%;
+  height: 100%;
 
   &__side-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 100%;
-    margin-top: 80px;
-    background-color: darkgray;
+
   }
 
   &__main {
+
+  }
+
+  &__header {
+
+  }
+
+  &__container {
     padding: 20px;
-    overflow: auto;
-    height: 100%;
+  }
+
+  &__breadcrumb {
+    margin-bottom: 20px !important;
   }
 
   &__content {
+    background-color: $color-white;
+    padding: 20px;
   }
 }

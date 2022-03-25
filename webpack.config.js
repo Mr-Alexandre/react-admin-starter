@@ -1,7 +1,7 @@
-const {merge} = require("webpack-merge");
-const commonConfig = require("./config/webpack.common");
-const developmentConfig = require("./config/webpack.dev");
-const productionConfig = require("./config/webpack.prod");
+const {merge} = require('webpack-merge');
+const commonConfig = require('./config/webpack.common');
+const developmentConfig = require('./config/webpack.dev');
+const productionConfig = require('./config/webpack.prod');
 
 module.exports = env => {
 	switch (env.NODE_ENV) {
@@ -12,4 +12,4 @@ module.exports = env => {
 		default:
 			throw new Error('No matching configuration was found!');
 	}
-}
+};

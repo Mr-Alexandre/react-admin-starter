@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { ISecondaryDetailProps } from '@pages/secondary/detail/secondary-detail.interface';
 
-const SecondaryDetailPage: FC<ISecondaryDetailProps> = (props) => {
-	const id: string = props.match.params.id;
+const SecondaryDetailPage: FC<ISecondaryDetailProps> = () => {
+	const { id } = useParams();
 
 	return (
 		<>
@@ -15,6 +15,6 @@ const SecondaryDetailPage: FC<ISecondaryDetailProps> = (props) => {
 			</ul>
 		</>
 	);
-}
+};
 
 export default SecondaryDetailPage;

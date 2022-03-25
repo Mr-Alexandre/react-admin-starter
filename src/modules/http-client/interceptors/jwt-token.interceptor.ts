@@ -10,7 +10,7 @@ const jwtTokenInterceptor: THttpClientInterceptorFunction = () => {
 				(newConfig.headers as IHttpHeaders)['Authorization'] = `JWT ${token}`;
 				return newConfig;
 			}
-		}
+		},
 	}
 }
 
