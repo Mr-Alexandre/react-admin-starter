@@ -1,12 +1,12 @@
 import { Body, ContentType, Controller, Delete, Get, Param, Post, Put } from 'routing-controllers';
-import { TTest } from '@interfaces/test';
+import { ITest } from '@interfaces/test';
 
 @Controller()
 export default class TestController {
-	private data: TTest[] = [];
+	private data: ITest[] = [];
 
 	@Get('/test/')
-	getAll(): TTest[] {
+	getAll(): ITest[] {
 		return this.data;
 	}
 
@@ -14,15 +14,15 @@ export default class TestController {
 	@ContentType('text/plain')
 	getOne(
 		@Param('id') id: number
-	): TTest | undefined {
+	): ITest | undefined {
 		return this.data.find(item => item.id === id);
 	}
 
 	@Post('/test/')
 	@ContentType('text/plain')
 	post(
-		@Body() data: TTest
-	): TTest {
+		@Body() data: ITest
+	): ITest {
 		const index = this.data.push(data);
 		return this.data[index];
 	}
@@ -31,8 +31,8 @@ export default class TestController {
 	@ContentType('text/plain')
 	put(
 		@Param('id') id: number,
-		@Body() data: TTest
-	): TTest | undefined {
+		@Body() data: ITest
+	): ITest | undefined {
 		const item = this.data.find(item => item.id === id);
 		if (item) {
 			item.title = data.title;

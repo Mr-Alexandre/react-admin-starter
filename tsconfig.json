@@ -53,32 +53,50 @@
         "baseUrl": "./",
         /* Base directory to resolve non-absolute module names. */
         "paths": {
-            "@environment": [
-                "src/environments/environment.ts"
+            //root
+            "@public/*": [
+                "public/*"
+            ],
+
+            //src
+            "@assets/*": [
+                "src/assets/*"
             ],
             "@components/*": [
                 "src/components/*"
             ],
-            "@pages/*": [
-                "src/pages/*"
+            "@config/*": [
+                "src/config/*"
             ],
-            "@decorators/*": [
-                "src/decorators/*"
+            "@context/*": [
+                "src/context/*"
+            ],
+            "@domain/*": [
+                "src/domain/*"
+            ],
+            "@environment": [
+                "src/environments/index.ts"
+            ],
+            "@hooks/*": [
+                "src/hooks/*"
             ],
             "@interfaces/*": [
                 "src/interfaces/*"
             ],
-            "@services/*": [
-                "src/services/*"
+            "@modules/*": [
+                "src/modules/*"
             ],
-            "@configs/*": [
-                "src/configs/*"
+            "@pages/*": [
+                "src/pages/*"
             ],
             "@route-guard/*": [
                 "src/route-guard/*"
             ],
-            "@assets/*": [
-                "src/assets/*"
+            "@services/*": [
+                "src/services/*"
+            ],
+            "@style/*": [
+                "src/style/*"
             ],
             "@utils/*": [
                 "src/utils/*"

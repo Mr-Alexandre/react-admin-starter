@@ -3,3 +3,6 @@ dist
 server
 config
 webpack.config.js
+i18n.ts
+i18next-parser.config.js
+webpack-config

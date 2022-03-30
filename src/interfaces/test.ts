@@ -1,4 +1,4 @@
-export type TTest = {
-	id: number
-	title: number
+export interface ITest {
+	id: number;
+	title: number;
 }

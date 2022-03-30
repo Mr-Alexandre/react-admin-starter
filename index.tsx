@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from 'src/app';
-import './src/i18n';
+import App from 'src';
 
 ReactDOM.render(
 	<App />,

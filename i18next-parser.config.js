@@ -11,14 +11,28 @@ module.exports = {
 		default: ['JsxLexer'],
 	},
 
-	locales: ['en', 'ru'],
+	locales: [
+		'ru',
+		'en'
+	],
 	// An array of the locales in your applications
 
-	namespaceSeparator: '.',
+	contextSeparator: '.',
+	// Key separator used in your translation keys
+
+	keySeparator: '.',
+	// Key separator used in your translation keys
+	// If you want to use plain english keys, separators such as `.` and `:` will conflict. You might want to set `keySeparator: false` and `namespaceSeparator: false`. That way, `t('Status: Loading...')` will not think that there are a namespace and three separator dots for instance.
+
+	namespaceSeparator: ':',
 	// Namespace separator used in your translation keys
 	// If you want to use plain english keys, separators such as `.` and `:` will conflict. You might want to set `keySeparator: false` and `namespaceSeparator: false`. That way, `t('Status: Loading...')` will not think that there are a namespace and three separator dots for instance.
 
-	output: 'public/locale/$LOCALE/$NAMESPACE.json',
+	pluralSeparator: '_',
+	// Plural separator used in your translation keys
+	// If you want to use plain english keys, separators such as `_` might conflict. You might want to set `pluralSeparator` to a different string that does not occur in your keys.
+
+	output: 'public/locales/$LOCALE/$NAMESPACE.json',
 	// Supports $LOCALE and $NAMESPACE injection
 	// Supports JSON (.json) and YAML (.yml) file formats
 	// Where to write the locale files relative to process.cwd()

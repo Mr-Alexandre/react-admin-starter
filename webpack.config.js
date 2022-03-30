@@ -1,7 +1,7 @@
 const {merge} = require('webpack-merge');
-const commonConfig = require('./config/webpack.common');
-const developmentConfig = require('./config/webpack.dev');
-const productionConfig = require('./config/webpack.prod');
+const commonConfig = require('./webpack-config/webpack.common');
+const developmentConfig = require('./webpack-config/webpack.dev');
+const productionConfig = require('./webpack-config/webpack.prod');
 
 module.exports = env => {
 	switch (env.NODE_ENV) {

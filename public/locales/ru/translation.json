@@ -1,0 +1,46 @@
+{
+  "errors": {
+    "messages": {
+      "componentLoading": "Ошибка загрузки компонента"
+    }
+  },
+  "example": {
+    "form": {
+      "name": {
+        "placeholder": "Введите имя"
+      }
+    }
+  },
+  "header": {
+    "userMenu": {
+      "items": {
+        "personalArea": "Личный кабинет",
+        "logout": "Выйти"
+      }
+    }
+  },
+  "loading": {
+    "messages": {
+      "componentLoading": "Компонент загружается..."
+    }
+  },
+  "nav": {
+    "items": {
+      "home": "Главная",
+      "secondary": "Вторичная",
+      "post": "Посты"
+    },
+    "back": "Назад",
+    "backToHome": "Вернуться домой"
+  },
+  "global": {
+    "copyright": "L.A.V. react starter ©2022 Создано L.A.V.",
+    "detail": "Детади"
+  },
+  "secondaryDetail": {
+    "title": "Детали страницы с id: {{id}}"
+  },
+  "secondary": {
+    "title": "Вторичная страница"
+  }
+}

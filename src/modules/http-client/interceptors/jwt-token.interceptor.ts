@@ -1,4 +1,4 @@
-import { THttpClientInterceptorFunction } from '../http-client.interface';
+import { THttpClientInterceptorFunction } from '../interface';
 import { IHttpHeaders } from '@interfaces/http-headers';
 
 const jwtTokenInterceptor: THttpClientInterceptorFunction = () => {

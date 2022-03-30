@@ -4,7 +4,7 @@ import {
 	THttpClientInterceptor,
 	THttpClientInterceptorIds,
 	THttpClientRequestConfig
-} from './http-client.interface';
+} from './interface';
 
 export default class HttpClient implements IHttpClient {
 	private axiosInstance: AxiosInstance;

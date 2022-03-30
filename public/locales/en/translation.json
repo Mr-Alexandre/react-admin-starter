@@ -1,0 +1,46 @@
+{
+  "errors": {
+    "messages": {
+      "componentLoading": "Component loading error"
+    }
+  },
+  "example": {
+    "form": {
+      "name": {
+        "placeholder": "Enter name"
+      }
+    }
+  },
+  "header": {
+    "userMenu": {
+      "items": {
+        "personalArea": "Personal Area",
+        "logout": "Logout"
+      }
+    }
+  },
+  "loading": {
+    "messages": {
+      "componentLoading": "Component is loading..."
+    }
+  },
+  "nav": {
+    "items": {
+      "home": "Home",
+      "secondary": "Secondary",
+      "post": "Post"
+    },
+    "back": "Back",
+    "backToHome": "Back to Home"
+  },
+  "global": {
+    "copyright": "L.A.V. react starter ©2022 Created by L.A.V.",
+    "detail": "Detail"
+  },
+  "secondaryDetail": {
+    "title": "Detail page with id: {{id}}"
+  },
+  "secondary": {
+    "title": "Secondary page"
+  }
+}

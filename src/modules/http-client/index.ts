@@ -1,9 +1,9 @@
 import HttpClient from './http-client';
-import { environment } from '@environment';
+import { index } from '@environment';
 import jwtTokenInterceptor from './interceptors/jwt-token.interceptor';
 
 const httpClient = new HttpClient({
-	baseURL: environment.apiURL,
+	baseURL: index.apiURL,
 });
 httpClient.addInterceptor(jwtTokenInterceptor());
 

@@ -48,9 +48,10 @@
             "error",
             "single"
         ],
+        "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/no-empty-interface": "off",
-        "react/display-name": "off",
         "@typescript-eslint/unbound-method": "off",
+        "react/display-name": "off",
         "react/prop-types": "off",
         "jsx-quotes": [
             "error",
