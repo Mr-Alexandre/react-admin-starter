@@ -27,8 +27,8 @@ const LocaleProvider: FC = ({ children }) => {
 
 	const changeLocale = async (locale: ILocale) => {
 		setIsLoading(true);
-		setLocale(locale);
 		await i18n.changeLanguage(locale.code);
+		setLocale(locale);
 		setIsLoading(false);
 	};
 

@@ -5,6 +5,7 @@ import { observer } from 'mobx-react';
 import ExampleService from '@components/example/service';
 import { useTranslation } from 'react-i18next';
 import logo from '@public/images/logo.svg';
+import { DatePicker } from 'antd';
 
 const Example = observer((props: Props) => {
 	const [exampleService] = useState(() => new ExampleService());
@@ -44,6 +45,9 @@ const Example = observer((props: Props) => {
 		<div className="example">
 			<img src={logo} alt="logo" className="example__logo" />
 			<h4>Title: {props.title}</h4>
+			<div>
+				<DatePicker />
+			</div>
 			<input
 				type="text"
 				placeholder={t('example.form.name.placeholder', 'Enter name')}

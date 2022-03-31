@@ -6,10 +6,10 @@ import { EyeInvisibleOutlined, EyeTwoTone, LockOutlined, MailOutlined } from '@a
 import { sleep } from '@utils/async';
 
 const SignUpPage: FC = () => {
-	const [ isLoading, setLoading ] = useState(false);
+	const [isLoading, setLoading] = useState(false);
 	const navigate = useNavigate();
 
-	const onFinish = async (values: unknown) => {
+	const onFinish = async () => {
 		setLoading(true);
 		await sleep(2000);
 		navigate('/');

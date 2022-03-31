@@ -8,21 +8,28 @@ import { LocaleProvider, useLocaleContext } from '@context/locale';
 import { getAntLocaleByCode } from '@utils/locale';
 import { ConfigProvider, useConfigContext } from '@context/config';
 import { ConfigProvider as AntConfigProvider } from 'antd';
+import Bootstrap from '@components/bootstrap';
 
-const App: FC = () => {
+const Base: FC = () => {
 	const { locale } = useLocaleContext();
 	const { antLocales } = useConfigContext();
 
 	return (
+		<AntConfigProvider locale={getAntLocaleByCode(locale.code, antLocales)?.locale}>
+			<BrowserRouter>
+				<AppRouting />
+			</BrowserRouter>
+		</AntConfigProvider>
+	);
+};
+
+const App: FC = () => {
+	return (
 		<React.StrictMode>
-			<Suspense fallback={<p>Loading...</p>}>
+			<Suspense fallback={<Bootstrap />}>
 				<ConfigProvider>
 					<LocaleProvider>
-						<AntConfigProvider locale={getAntLocaleByCode(locale.code, antLocales)?.locale}>
-							<BrowserRouter>
-								<AppRouting />
-							</BrowserRouter>
-						</AntConfigProvider>
+						<Base />
 					</LocaleProvider>
 				</ConfigProvider>
 			</Suspense>

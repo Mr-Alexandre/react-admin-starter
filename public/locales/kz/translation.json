@@ -1,0 +1,46 @@
+{
+  "errors": {
+    "messages": {
+      "componentLoading": "Компонентті жүктеу қатесі"
+    }
+  },
+  "example": {
+    "form": {
+      "name": {
+        "placeholder": "Атын енгізіңіз"
+      }
+    }
+  },
+  "header": {
+    "userMenu": {
+      "items": {
+        "personalArea": "Жеке кабинет",
+        "logout": "Жүйеден шығу"
+      }
+    }
+  },
+  "loading": {
+    "messages": {
+      "componentLoading": "Компонент жүктелген..."
+    }
+  },
+  "nav": {
+    "items": {
+      "home": "Үйге",
+      "secondary": "Қайталама",
+      "post": "Пошта"
+    },
+    "back": "Артқа",
+    "backToHome": "Үйге оралу"
+  },
+  "global": {
+    "copyright": "L.A.V. react starter ©2022 Құрылды L.A.V.",
+    "detail": "Деталь"
+  },
+  "secondaryDetail": {
+    "title": "Идентификаторы бар толық бет: {{id}}"
+  },
+  "secondary": {
+    "title": "Қайталама бет"
+  }
+}

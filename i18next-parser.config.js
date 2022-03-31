@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-undef
 module.exports = {
 	createOldCatalogs: false, // save previous translation catalogs to the \_old folder
 
@@ -13,7 +12,8 @@ module.exports = {
 
 	locales: [
 		'ru',
-		'en'
+		'en',
+		'kz'
 	],
 	// An array of the locales in your applications
 
