@@ -25,7 +25,7 @@ class ExampleService {
 	}
 
 	constructor() {
-		makeObservable(this)
+		makeObservable(this);
 	}
 
 	@action

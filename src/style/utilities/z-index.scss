@@ -1,5 +1,5 @@
 @each $name, $value in $z-indexes {
-  .u-z-index-#{$name} {
-    z-index: $value !important;
-  }
+	.u-z-index-#{$name} {
+		z-index: $value !important;
+	}
 }

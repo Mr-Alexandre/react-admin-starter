@@ -1,77 +1,77 @@
 // Alignment
 
 .u-text-justify {
-  text-align: justify !important;
+	text-align: justify !important;
 }
 
 .u-text-wrap {
-  white-space: normal !important;
+	white-space: normal !important;
 }
 
 .u-text-nowrap {
-  white-space: nowrap !important;
+	white-space: nowrap !important;
 }
 
 .u-text-truncate {
-  @include text-truncate();
+	@include text-truncate();
 }
 
 // Responsive alignment
 
 @each $breakpoint in map-keys($grid-breakpoints) {
-  @include media-breakpoint-up($breakpoint) {
-    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+	@include media-breakpoint-up($breakpoint) {
+		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    .u-text#{$infix}-left {
-      text-align: left !important;
-    }
-    .u-text#{$infix}-right {
-      text-align: right !important;
-    }
-    .u-text#{$infix}-center {
-      text-align: center !important;
-    }
-  }
+		.u-text#{$infix}-left {
+			text-align: left !important;
+		}
+		.u-text#{$infix}-right {
+			text-align: right !important;
+		}
+		.u-text#{$infix}-center {
+			text-align: center !important;
+		}
+	}
 }
 
 // Transformation
 
 .u-text-lowercase {
-  text-transform: lowercase !important;
+	text-transform: lowercase !important;
 }
 
 .u-text-uppercase {
-  text-transform: uppercase !important;
+	text-transform: uppercase !important;
 }
 
 .u-text-capitalize {
-  text-transform: capitalize !important;
+	text-transform: capitalize !important;
 }
 
 // Weight and italics
 
 .u-font-weight-extraBold {
-  @include font-extraBold();
+	@include font-extraBold();
 }
 
 .u-font-weight-bold {
-  @include font-bold();
+	@include font-bold();
 }
 
 .u-font-weight-semiBold {
-  @include font-semiBold();
+	@include font-semiBold();
 }
 
 .u-font-weight-medium {
-  @include font-medium();
+	@include font-medium();
 }
 
 .u-font-weight-regular {
-  @include font-regular();
+	@include font-regular();
 }
 
 .u-font-inherit {
-  @include font-inherit();
+	@include font-inherit();
 }
 
 // Contextual colors
@@ -85,162 +85,160 @@
 // Misc
 
 .u-text-hide {
-  @include text-hide($ignore-warning: true);
+	@include text-hide($ignore-warning: true);
 }
 
 .u-text-decoration-none {
-  text-decoration: none !important;
+	text-decoration: none !important;
 }
 
 .u-text-break {
-  word-wrap: break-word !important;
+	word-wrap: break-word !important;
 }
 
 // Reset
 
 .u-text-reset {
-  color: inherit !important;
+	color: inherit !important;
 }
 
 .u-text-overflow-ellipsis {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 //indent
 @each $name, $value in $text-indents {
-  .u-text-indent-#{$name} {
-    &:before {
-      display: inline-block;
-      content: '';
-      width: $value;
-    }
-  }
+	.u-text-indent-#{$name} {
+		&:before {
+			display: inline-block;
+			content: '';
+			width: $value;
+		}
+	}
 }
-
 
 // Size
 //Heading
 .u-font-size-h1 {
-  @include font-h1-size(true);
+	@include font-h1-size(true);
 }
 
 .u-font-size-h2 {
-  @include font-h2-size(true);
+	@include font-h2-size(true);
 }
 
 .u-font-size-h3 {
-  @include font-h3-size(true);
+	@include font-h3-size(true);
 }
 
 .u-font-size-h4 {
-  @include font-h4-size(true);
+	@include font-h4-size(true);
 }
 
 .u-font-size-h5 {
-  @include font-h5-size(true);
+	@include font-h5-size(true);
 }
 
 .u-font-size-h6 {
-  @include font-h6-size(true);
+	@include font-h6-size(true);
 }
 
 //Heading end
 
-
 //Subtitle
 .u-font-size-subtitle-1 {
-  @include font-subtitle-1-size(true);
+	@include font-subtitle-1-size(true);
 }
 
 .u-font-size-subtitle-2 {
-  @include font-subtitle-2-size(true);
+	@include font-subtitle-2-size(true);
 }
 
 .u-font-size-subtitle-3 {
-  @include font-subtitle-3-size(true);
+	@include font-subtitle-3-size(true);
 }
 
 .u-font-size-subtitle-4 {
-  @include font-subtitle-4-size(true);
+	@include font-subtitle-4-size(true);
 }
 
 //Subtitle end
 
 //Paragraph
 .u-font-size-p {
-  @include font-p-size(true);
+	@include font-p-size(true);
 }
 
 .u-font-size-p-sm {
-  @include font-p-sm-size(true);
+	@include font-p-sm-size(true);
 }
 
 .u-font-size-p-xs {
-  @include font-p-xs-size(true);
+	@include font-p-xs-size(true);
 }
 
 //Paragraph end
 
 //Button
 .u-font-size-button {
-  @include font-button-size(true);
+	@include font-button-size(true);
 }
 
 .u-font-size-button-sm {
-  @include font-button-sm-size(true);
+	@include font-button-sm-size(true);
 }
 
 //Button end
 
 //Nav
 .u-font-size-menu {
-  @include font-menu-size(true);
+	@include font-menu-size(true);
 }
 
 .u-font-size-toolbar {
-  @include font-toolbar-size(true);
+	@include font-toolbar-size(true);
 }
 
 .u-font-size-icon-desk {
-  @include font-icon-desk-size(true);
+	@include font-icon-desk-size(true);
 }
 
 //Nav end
 
 //Caption
 .u-font-size-caption {
-  @include font-caption-size(true);
+	@include font-caption-size(true);
 }
 
 //Caption end
 
 //Overline
 .u-font-size-overline {
-  @include font-overline-size(true);
+	@include font-overline-size(true);
 }
 
 //Overline end
 
 //Label
 .u-font-size-label {
-  @include font-label-size(true);
+	@include font-label-size(true);
 }
 
 //Label end
 
 //Form
 .u-font-size-form-label {
-  @include font-form-label-size(true);
+	@include font-form-label-size(true);
 }
 
 .u-font-size-form-content {
-  @include font-form-content-size(true);
+	@include font-form-content-size(true);
 }
 
 .u-font-size-form-hint {
-  @include font-form-hint-size(true);
+	@include font-form-hint-size(true);
 }
 
 //Form end

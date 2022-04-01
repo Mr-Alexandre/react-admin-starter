@@ -1,7 +1,7 @@
 import { ICanActivate } from '@route-guard/interface';
 
 export async function asyncDelay(ms: number) {
-	return await new Promise(resolve => setTimeout(resolve, ms));
+	return await new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export function authGuard(): ICanActivate {
@@ -13,6 +13,6 @@ export function authGuard(): ICanActivate {
 	};
 
 	return {
-		canActivate: canActivate
+		canActivate: canActivate,
 	};
 }

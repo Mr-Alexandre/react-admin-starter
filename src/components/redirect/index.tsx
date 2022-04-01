@@ -9,9 +9,7 @@ const Redirect: FC<IRedirectProps> = ({ to }) => {
 		navigate(to);
 	}, []);
 
-	return (
-		<></>
-	);
+	return <></>;
 };
 
 export default Redirect;

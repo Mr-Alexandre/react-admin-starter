@@ -9,10 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 const { Sider } = Layout;
 
-const SideNav: FC<ISideNavProps> = ({
-	isCollapsed,
-	className
-}) => {
+const SideNav: FC<ISideNavProps> = ({ isCollapsed, className }) => {
 	const { t } = useTranslation();
 	const location = useLocation();
 
@@ -29,11 +26,11 @@ const SideNav: FC<ISideNavProps> = ({
 		{
 			href: '/post',
 			title: t('nav.items.post', 'Post'),
-		}
+		},
 	];
 
 	const getSelectedKeys = () => {
-		const match = items.find(item => {
+		const match = items.find((item) => {
 			if (item.exact) {
 				return new RegExp(location.pathname).exec(item.href);
 			}
@@ -43,7 +40,12 @@ const SideNav: FC<ISideNavProps> = ({
 	};
 
 	return (
-		<Sider className={joinClassName(className, 'side-nav')} trigger={null} collapsible collapsed={isCollapsed}>
+		<Sider
+			className={joinClassName(className, 'side-nav')}
+			trigger={null}
+			collapsible
+			collapsed={isCollapsed}
+		>
 			<div className="side-nav__logo" />
 			<Menu theme="dark" mode="inline" selectedKeys={getSelectedKeys()}>
 				{items.map((item) => (

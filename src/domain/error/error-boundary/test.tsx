@@ -5,13 +5,9 @@ import { IErrorBoundaryProps } from './interface';
 
 describe('ErrorBoundary component', () => {
 	it('Renders correctly', () => {
-		const props: IErrorBoundaryProps = {}
+		const props: IErrorBoundaryProps = {};
 		const tree = renderer
-			.create(
-				<ErrorBoundary {...props}>
-					content
-				</ErrorBoundary>
-			)
+			.create(<ErrorBoundary {...props}>content</ErrorBoundary>)
 			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
@@ -34,5 +30,4 @@ describe('ErrorBoundary component', () => {
 	//     ).root;
 	//   expect(instance.findByType(Fallback));
 	// });
-
 });

@@ -3,7 +3,7 @@ import {
 	IHttpClient,
 	THttpClientInterceptor,
 	THttpClientInterceptorIds,
-	THttpClientRequestConfig
+	THttpClientRequestConfig,
 } from './interface';
 
 export default class HttpClient implements IHttpClient {
@@ -13,31 +13,55 @@ export default class HttpClient implements IHttpClient {
 		this.axiosInstance = axios.create(options);
 	}
 
-	public get<T, R>(url: string, config?: THttpClientRequestConfig): Promise<R> {
+	public get<T, R>(
+		url: string,
+		config?: THttpClientRequestConfig
+	): Promise<R> {
 		return this.axiosInstance.get<T, R>(url, config);
 	}
 
-	public post<T, R>(url: string, data?: unknown, config?: THttpClientRequestConfig): Promise<R> {
+	public post<T, R>(
+		url: string,
+		data?: unknown,
+		config?: THttpClientRequestConfig
+	): Promise<R> {
 		return this.axiosInstance.post<T, R>(url, data, config);
 	}
 
-	public put<T, R>(url: string, data?: unknown, config?: THttpClientRequestConfig): Promise<R> {
+	public put<T, R>(
+		url: string,
+		data?: unknown,
+		config?: THttpClientRequestConfig
+	): Promise<R> {
 		return this.axiosInstance.put<T, R>(url, data, config);
 	}
 
-	public patch<T, R>(url: string, data?: unknown, config?: THttpClientRequestConfig): Promise<R> {
-		return this.axiosInstance.patch<T, R>(url, data, config)
+	public patch<T, R>(
+		url: string,
+		data?: unknown,
+		config?: THttpClientRequestConfig
+	): Promise<R> {
+		return this.axiosInstance.patch<T, R>(url, data, config);
 	}
 
-	public delete<T, R>(url: string, config?: THttpClientRequestConfig): Promise<R> {
+	public delete<T, R>(
+		url: string,
+		config?: THttpClientRequestConfig
+	): Promise<R> {
 		return this.axiosInstance.delete<T, R>(url, config);
 	}
 
-	public head<T, R>(url: string, config?: THttpClientRequestConfig): Promise<R> {
+	public head<T, R>(
+		url: string,
+		config?: THttpClientRequestConfig
+	): Promise<R> {
 		return this.axiosInstance.head<T, R>(url, config);
 	}
 
-	public options<T, R>(url: string, config?: THttpClientRequestConfig): Promise<R> {
+	public options<T, R>(
+		url: string,
+		config?: THttpClientRequestConfig
+	): Promise<R> {
 		return this.axiosInstance.options<T, R>(url, config);
 	}
 
@@ -45,20 +69,22 @@ export default class HttpClient implements IHttpClient {
 		return this.axiosInstance.request<T, R>(config);
 	}
 
-	public addInterceptor(interceptor: THttpClientInterceptor): THttpClientInterceptorIds {
+	public addInterceptor(
+		interceptor: THttpClientInterceptor
+	): THttpClientInterceptorIds {
 		if (interceptor?.request) {
 			this.axiosInstance.interceptors.request.use(
 				interceptor.request.onFulfilled,
-				interceptor.request.onRejected,
+				interceptor.request.onRejected
 			);
 		}
 		if (interceptor?.response) {
 			this.axiosInstance.interceptors.response.use(
 				interceptor.response.onFulfilled,
-				interceptor.response.onRejected,
+				interceptor.response.onRejected
 			);
 		}
-		return {}
+		return {};
 	}
 
 	public removeInterceptor(ids: THttpClientInterceptorIds): void {

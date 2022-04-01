@@ -11,7 +11,4 @@ const httpClientJsonPlaceholder = new HttpClient({
 	baseURL: 'https://jsonplaceholder.typicode.com',
 });
 
-export {
-	httpClient,
-	httpClientJsonPlaceholder
-}
+export { httpClient, httpClientJsonPlaceholder };

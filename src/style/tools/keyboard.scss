@@ -1,5 +1,5 @@
 @mixin active-keyboard() {
-  .s-active-keyboard & {
-    @content;
-  }
+	.s-active-keyboard & {
+		@content;
+	}
 }

@@ -3,8 +3,7 @@ import { IExampleContext } from './interface';
 
 const initialState: IExampleContext = {
 	example: true,
-	setExample: () => {
-	}
+	setExample: () => {},
 };
 
 const ExampleContext = createContext<IExampleContext>(initialState);
@@ -26,8 +25,4 @@ const ExampleProvider: FC = ({ children }) => {
 	);
 };
 
-
-export {
-	ExampleProvider,
-	useExampleContext
-};
+export { ExampleProvider, useExampleContext };

@@ -1,31 +1,30 @@
 @mixin scroll-primary() {
-  /* width */
-  &::-webkit-scrollbar {
-	width: 4px;
-	height: 4px;
-	position: absolute;
-  }
+	/* width */
+	&::-webkit-scrollbar {
+		width: 4px;
+		height: 4px;
+		position: absolute;
+	}
 
-  //scrollbar-color: red transparent;
-  //scrollbar-width: thin;
+	//scrollbar-color: red transparent;
+	//scrollbar-width: thin;
 
-  /* Track */
-  &::-webkit-scrollbar-track {
-	background: transparent;
-  }
+	/* Track */
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
 
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-	background: $color-neutral-70;
-	border-radius: $border-radius-md;
-  }
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+		background: $color-neutral-70;
+		border-radius: $border-radius-md;
+	}
 
-  /* Handle on hover */
-  &::-webkit-scrollbar-thumb:hover {
-  }
-
+	/* Handle on hover */
+	&::-webkit-scrollbar-thumb:hover {
+	}
 }
 
 .ps {
-  position: relative;
+	position: relative;
 }

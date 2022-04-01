@@ -1,4 +1,7 @@
-import { ILazyLoadProps, TLazyLoadFactory } from '@components/lazy-load/interface';
+import {
+	ILazyLoadProps,
+	TLazyLoadFactory,
+} from '@components/lazy-load/interface';
 import React from 'react';
 import LazyLoad from '@components/lazy-load/index';
 

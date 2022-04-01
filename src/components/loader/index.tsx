@@ -5,7 +5,9 @@ const Loader: FC = () => {
 	const { t } = useTranslation();
 
 	return (
-		<div>{t('loading.messages.componentLoading', 'Component is loading...')}</div>
+		<div>
+			{t('loading.messages.componentLoading', 'Component is loading...')}
+		</div>
 	);
 };
 

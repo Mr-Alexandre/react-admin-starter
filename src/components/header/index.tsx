@@ -1,6 +1,10 @@
 import React, { FC } from 'react';
 import './style.scss';
-import { MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined } from '@ant-design/icons';
+import {
+	MenuFoldOutlined,
+	MenuUnfoldOutlined,
+	UserOutlined,
+} from '@ant-design/icons';
 import { Avatar, Dropdown, Layout, Menu } from 'antd';
 import { IHeaderProps } from '@components/header/interface';
 import { joinClassName } from '@utils/class-name';
@@ -28,14 +32,17 @@ const UserMenu: FC = () => {
 const Header: FC<IHeaderProps> = ({
 	isCollapsed,
 	toggleCollapse,
-	className
+	className,
 }) => {
 	return (
 		<AntHeader className={joinClassName(className, 'header')}>
-			{React.createElement(isCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-				className: 'header__toggle-collapse',
-				onClick: toggleCollapse,
-			})}
+			{React.createElement(
+				isCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+				{
+					className: 'header__toggle-collapse',
+					onClick: toggleCollapse,
+				}
+			)}
 
 			<div className="header__right-section">
 				<LanguageToggle className="header__language" />
@@ -43,7 +50,10 @@ const Header: FC<IHeaderProps> = ({
 				<Dropdown overlay={<UserMenu />} trigger={['click']}>
 					<div className="header__user">
 						<p className="header__user-name">L.A.V.</p>
-						<Avatar className="header__user-avatar" icon={<UserOutlined />} />
+						<Avatar
+							className="header__user-avatar"
+							icon={<UserOutlined />}
+						/>
 					</div>
 				</Dropdown>
 			</div>

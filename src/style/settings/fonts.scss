@@ -1,5 +1,5 @@
-@import "../tools/font-face";
-@import "../tools/font-style";
+@import '../tools/font-face';
+@import '../tools/font-style';
 
 $font-name: 'Manrope';
 $font-extraBold: 'Manrope';
@@ -44,7 +44,6 @@ $font-size-form-label: 12px;
 $font-size-form-content: 14px;
 $font-size-form-hint: 12px;
 
-
 //text font
 //@include font-face(
 //				$font-extraBold,
@@ -83,7 +82,6 @@ $font-size-form-hint: 12px;
 //						(woff2, woff, ttf)
 //);
 //text font end
-
 
 //icon font
 //@include font-face(

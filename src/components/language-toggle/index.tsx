@@ -1,5 +1,8 @@
 import React, { FC, useCallback } from 'react';
-import { ILanguageToggleMenuProps, ILanguageToggleProps } from '@components/language-toggle/interface';
+import {
+	ILanguageToggleMenuProps,
+	ILanguageToggleProps,
+} from '@components/language-toggle/interface';
 import { Button, Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { MenuInfo } from 'rc-menu/lib/interface';
@@ -14,11 +17,11 @@ const LanguageMenu: FC<ILanguageToggleMenuProps> = ({ onClick }) => {
 
 	return (
 		<Menu onClick={onClick}>
-			{locales.filter(item => item.code !== locale.code).map(locale => (
-				<Menu.Item key={locale.code}>
-					{locale.name}
-				</Menu.Item>
-			))}
+			{locales
+				.filter((item) => item.code !== locale.code)
+				.map((locale) => (
+					<Menu.Item key={locale.code}>{locale.name}</Menu.Item>
+				))}
 		</Menu>
 	);
 };
@@ -27,7 +30,10 @@ const LanguageToggle: FC<ILanguageToggleProps> = ({ className }) => {
 	const { locale, setLocale, isLoading } = useLocaleContext();
 	const { locales } = useConfigContext();
 
-	const handleLanguageMenu = useCallback((event: MenuInfo) => changeLanguage(event.key), []);
+	const handleLanguageMenu = useCallback(
+		(event: MenuInfo) => changeLanguage(event.key),
+		[]
+	);
 
 	const changeLanguage = (languageKey: string) => {
 		setLocale(getLocaleByCode(languageKey, locales)!);

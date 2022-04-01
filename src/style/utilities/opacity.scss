@@ -1,5 +1,5 @@
 @each $name, $value in $opacities {
-  .u-opacity-#{$name} {
-    opacity: $value !important;
-  }
+	.u-opacity-#{$name} {
+		opacity: $value !important;
+	}
 }

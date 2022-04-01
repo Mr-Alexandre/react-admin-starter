@@ -19,7 +19,10 @@ const AuthLayout: FC<IAuthLayoutProps> = () => {
 				<Outlet />
 			</Content>
 			<Footer className="auth-layout__footer">
-				{t('global.copyright', 'L.A.V. react starter ©2022 Created by L.A.V.')}
+				{t(
+					'global.copyright',
+					'L.A.V. react starter ©2022 Created by L.A.V.'
+				)}
 			</Footer>
 		</Layout>
 	);

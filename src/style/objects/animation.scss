@@ -1,133 +1,142 @@
 .o-animation-fade-in {
-  &-enter, &-enter-active {
-    animation: keyframes-animation-fade-in 200ms ease-in-out forwards;
-  }
+	&-enter,
+	&-enter-active {
+		animation: keyframes-animation-fade-in 200ms ease-in-out forwards;
+	}
 
-  &-enter-to {
-  }
+	&-enter-to {
+	}
 
-  &-leave, &-leave-active {
-    animation: keyframes-animation-fade-in reverse 200ms ease-in-out forwards;
-  }
+	&-leave,
+	&-leave-active {
+		animation: keyframes-animation-fade-in reverse 200ms ease-in-out
+			forwards;
+	}
 
-  &-leave-to {
-  }
+	&-leave-to {
+	}
 }
 
 @keyframes keyframes-animation-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
-
 .o-animation-fade-in-right {
-  &-enter, &-enter-active {
-    animation: keyframes-animation-fade-in-right 200ms ease-in-out forwards;
-  }
+	&-enter,
+	&-enter-active {
+		animation: keyframes-animation-fade-in-right 200ms ease-in-out forwards;
+	}
 
-  &-enter-to {
-  }
+	&-enter-to {
+	}
 
-  &-leave, &-leave-active {
-    animation: keyframes-animation-fade-in-right reverse 200ms ease-in-out forwards;
-  }
+	&-leave,
+	&-leave-active {
+		animation: keyframes-animation-fade-in-right reverse 200ms ease-in-out
+			forwards;
+	}
 
-  &-leave-to {
-  }
+	&-leave-to {
+	}
 }
 
 @keyframes keyframes-animation-fade-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0%);
-  }
+	from {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0%);
+	}
 }
 
-
 .o-animation-zoom-in {
-  &-enter, &-enter-active {
-    animation: keyframes-animation-zoom-in 150ms ease-in-out forwards;
-  }
+	&-enter,
+	&-enter-active {
+		animation: keyframes-animation-zoom-in 150ms ease-in-out forwards;
+	}
 
-  &-enter-to {
-  }
+	&-enter-to {
+	}
 
-  &-leave, &-leave-active {
-    animation: keyframes-animation-zoom-in reverse 150ms ease-in-out forwards;
-  }
+	&-leave,
+	&-leave-active {
+		animation: keyframes-animation-zoom-in reverse 150ms ease-in-out
+			forwards;
+	}
 
-  &-leave-to {
-  }
+	&-leave-to {
+	}
 }
 
 @keyframes keyframes-animation-zoom-in {
-  from {
-    transform: translate(-50%, -50%) scale(0.9);
-  }
-  to {
-    transform: translate(-50%, -50%) scale(1);
-  }
+	from {
+		transform: translate(-50%, -50%) scale(0.9);
+	}
+	to {
+		transform: translate(-50%, -50%) scale(1);
+	}
 }
 
-
 .o-animation-fade-down {
-  &-enter, &-enter-active {
-    animation: keyframes-animation-fade-down 150ms ease-in-out forwards;
-  }
+	&-enter,
+	&-enter-active {
+		animation: keyframes-animation-fade-down 150ms ease-in-out forwards;
+	}
 
-  &-enter-to {
-  }
+	&-enter-to {
+	}
 
-  &-leave, &-leave-active {
-    animation: keyframes-animation-fade-down reverse 150ms ease-in-out forwards;
-  }
+	&-leave,
+	&-leave-active {
+		animation: keyframes-animation-fade-down reverse 150ms ease-in-out
+			forwards;
+	}
 
-  &-leave-to {
-  }
+	&-leave-to {
+	}
 }
 
 @keyframes keyframes-animation-fade-down {
-  from {
-    transform: translateY(-10%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0%);
-    opacity: 1;
-  }
+	from {
+		transform: translateY(-10%);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0%);
+		opacity: 1;
+	}
 }
 
-
 .o-animation-height {
-  $duration: 150ms;
+	$duration: 150ms;
 
-  &-enter {
-    opacity: 0;
-  }
+	&-enter {
+		opacity: 0;
+	}
 
-  &-enter-active {
-    transition: opacity #{$duration} ease-in-out #{$duration / 2}, max-height #{$duration} ease-in-out;
-  }
+	&-enter-active {
+		transition: opacity #{$duration} ease-in-out #{$duration / 2},
+			max-height #{$duration} ease-in-out;
+	}
 
-  &-enter-to {
-  }
+	&-enter-to {
+	}
 
-  &-leave {
-  }
+	&-leave {
+	}
 
-  &-leave-active {
-    transition: opacity #{$duration} ease, max-height #{$duration} ease;
-  }
+	&-leave-active {
+		transition: opacity #{$duration} ease, max-height #{$duration} ease;
+	}
 
-  &-leave-to {
-    opacity: 0;
-  }
+	&-leave-to {
+		opacity: 0;
+	}
 }

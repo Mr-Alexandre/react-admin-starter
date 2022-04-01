@@ -5,7 +5,7 @@ const PostPage: FC = () => {
 		<>
 			<p>Post page</p>
 		</>
-	)
-}
+	);
+};
 
 export default PostPage;

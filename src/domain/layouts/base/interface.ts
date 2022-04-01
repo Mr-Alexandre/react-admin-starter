@@ -1,2 +1,1 @@
-export interface IBaseLayoutProps {
-}
+export interface IBaseLayoutProps {}

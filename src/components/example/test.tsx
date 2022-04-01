@@ -8,9 +8,7 @@ describe('Example component', () => {
 		const props: IExampleProps = {
 			title: 'Test text',
 		};
-		const tree = renderer
-			.create(<Example {...props} />)
-			.toJSON();
+		const tree = renderer.create(<Example {...props} />).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });

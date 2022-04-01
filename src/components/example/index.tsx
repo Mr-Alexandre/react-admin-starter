@@ -20,13 +20,20 @@ const Example = observer((props: Props) => {
 		exampleService.clearItemList();
 	};
 
-	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+	const handleInputChange = (
+		event: React.ChangeEvent<HTMLInputElement>
+	): void => {
 		const { value } = event.target;
 		setInputValue(value);
 	};
 
-	const handleInputKeyPress = (event: React.KeyboardEvent<HTMLInputElement>): void => {
-		const { code: keyName, currentTarget: { value } } = event;
+	const handleInputKeyPress = (
+		event: React.KeyboardEvent<HTMLInputElement>
+	): void => {
+		const {
+			code: keyName,
+			currentTarget: { value },
+		} = event;
 		if (keyName !== 'Enter') {
 			return;
 		}
@@ -66,13 +73,11 @@ const Example = observer((props: Props) => {
 					</li>
 				))}
 			</ul>
-			{exampleService.list.length
-				? <button onClick={clearList}>Clear list</button>
-				: null
-			}
+			{exampleService.list.length ? (
+				<button onClick={clearList}>Clear list</button>
+			) : null}
 		</div>
 	);
 });
-
 
 export default Example;

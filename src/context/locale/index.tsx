@@ -8,8 +8,7 @@ import { useConfigContext } from '../config';
 
 const initialState: ILocaleContext = {
 	locale: getLocaleByCode(FALLBACK_LOCALE_CODE, LOCALES)!,
-	setLocale: () => {
-	},
+	setLocale: () => {},
 	isLoading: false,
 };
 
@@ -45,7 +44,4 @@ const LocaleProvider: FC = ({ children }) => {
 	);
 };
 
-export {
-	LocaleProvider,
-	useLocaleContext
-};
+export { LocaleProvider, useLocaleContext };

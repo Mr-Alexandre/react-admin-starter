@@ -1,17 +1,17 @@
 @mixin theme-light() {
-  .t-light & {
-    @content;
-  }
+	.t-light & {
+		@content;
+	}
 }
 
 @mixin theme-dark() {
-  .t-dark & {
-    @content;
-  }
+	.t-dark & {
+		@content;
+	}
 }
 
 @mixin theme-unset() {
-  :not(.t-light):not(.t-dark) {
-    @content;
-  }
+	:not(.t-light):not(.t-dark) {
+		@content;
+	}
 }

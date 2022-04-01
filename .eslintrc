@@ -11,7 +11,8 @@
         "sonarjs",
         "@typescript-eslint",
         "import",
-        "jsx-a11y"
+        "jsx-a11y",
+        "prettier"
     ],
     "extends": [
         "eslint:recommended",
@@ -25,19 +26,16 @@
         "plugin:import/errors",
         "plugin:import/warnings",
         "plugin:import/typescript",
-        "plugin:jsx-a11y/recommended"
+        "plugin:jsx-a11y/recommended",
+        "prettier"
     ],
     "parserOptions": {
         "project": "tsconfig.json",
         "tsconfigRootDir": "."
     },
     "ignorePatterns": [
-        //    "*.spec.ts",
-        //    "*.spec.tsx",
-        //    "*.test.ts",
-        //    "*.test.tsx",
-        //    "__test__/*",
-        "src/decorators"
+        "test.ts",
+        "test.tsx"
     ],
     "rules": {
         "indent": [

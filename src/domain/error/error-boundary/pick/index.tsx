@@ -9,9 +9,7 @@ const ErrorBoundaryPick: FC<IErrorBoundaryPickProps> = (props) => {
 		}
 	};
 
-	return (
-		<ErrorBoundary onError={handleError} {...props} />
-	);
+	return <ErrorBoundary onError={handleError} {...props} />;
 };
 
 export default ErrorBoundaryPick;

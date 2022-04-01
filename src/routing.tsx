@@ -42,13 +42,15 @@ export const routes: IRoute[] = [
 						path: ':id',
 						element: (
 							<LazyLoad
-								loadComponent={() => import('@pages/secondary/detail')}
+								loadComponent={() =>
+									import('@pages/secondary/detail')
+								}
 								fallback={LoaderComponent}
 								error={ErrorComponent}
 							/>
 						),
 					},
-				]
+				],
 			},
 			{
 				path: 'post',
@@ -64,8 +66,8 @@ export const routes: IRoute[] = [
 			{
 				path: '*',
 				element: <NotFoundPage />,
-			}
-		]
+			},
+		],
 	},
 	{
 		element: <AuthLayout />,
@@ -92,14 +94,14 @@ export const routes: IRoute[] = [
 			},
 			{
 				path: '*',
-				element: <Redirect to="/sign-in" />
-			}
-		]
+				element: <Redirect to="/sign-in" />,
+			},
+		],
 	},
 	{
 		path: '*',
 		element: <NotFoundPage />,
-	}
+	},
 ];
 
 const AppRouting: FC = () => {
@@ -111,7 +113,7 @@ const AppRouting: FC = () => {
 		{
 			path: '',
 			children: routes,
-		}
+		},
 	];
 
 	return useRoutes(localeRoutes);

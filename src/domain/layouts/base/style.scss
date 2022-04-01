@@ -1,33 +1,30 @@
-@import "../../../style/imports";
+@import '../../../style/imports';
 
 .base-layout {
-  $this: &;
+	$this: &;
 
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 
-  &__side-nav {
+	&__side-nav {
+	}
 
-  }
+	&__main {
+	}
 
-  &__main {
+	&__header {
+	}
 
-  }
+	&__container {
+		padding: 20px;
+	}
 
-  &__header {
+	&__breadcrumb {
+		margin-bottom: 20px !important;
+	}
 
-  }
-
-  &__container {
-    padding: 20px;
-  }
-
-  &__breadcrumb {
-    margin-bottom: 20px !important;
-  }
-
-  &__content {
-    background-color: $color-white;
-    padding: 20px;
-  }
+	&__content {
+		background-color: $color-white;
+		padding: 20px;
+	}
 }

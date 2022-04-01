@@ -13,14 +13,21 @@ const BaseLayout: FC<IBaseLayoutProps> = () => {
 	const [isCollapsed, setCollapsed] = useState(false);
 
 	const toggle = (): void => {
-		setCollapsed(prevState => !prevState);
+		setCollapsed((prevState) => !prevState);
 	};
 
 	return (
 		<Layout className="base-layout">
-			<SideNav className="base-layout__side-nav" isCollapsed={isCollapsed} />
+			<SideNav
+				className="base-layout__side-nav"
+				isCollapsed={isCollapsed}
+			/>
 			<Layout className="base-layout__main">
-				<Header className="base-layout__header" isCollapsed={isCollapsed} toggleCollapse={toggle} />
+				<Header
+					className="base-layout__header"
+					isCollapsed={isCollapsed}
+					toggleCollapse={toggle}
+				/>
 				<Content className="base-layout__container">
 					<Breadcrumb className="base-layout__breadcrumb" />
 					<div className="base-layout__content">
@@ -31,6 +38,5 @@ const BaseLayout: FC<IBaseLayoutProps> = () => {
 		</Layout>
 	);
 };
-
 
 export default BaseLayout;

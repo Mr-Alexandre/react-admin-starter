@@ -26,7 +26,4 @@ const ConfigProvider: FC = ({ children }) => {
 	);
 };
 
-export {
-	ConfigProvider,
-	useConfigContext
-};
+export { ConfigProvider, useConfigContext };

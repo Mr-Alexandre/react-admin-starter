@@ -1,2 +1,1 @@
-export interface IAuthLayoutProps {
-}
+export interface IAuthLayoutProps {}

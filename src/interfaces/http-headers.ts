@@ -1,3 +1,3 @@
 export interface IHttpHeaders {
-	[key: string]: string
+	[key: string]: string;
 }

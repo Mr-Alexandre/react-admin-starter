@@ -1,19 +1,19 @@
 @each $name in map-keys($icon-sizes) {
-  .o-icon-#{$name} {
-    font-size: map-get($icon-sizes, $name);
-  }
+	.o-icon-#{$name} {
+		font-size: map-get($icon-sizes, $name);
+	}
 }
 
 .o-icon-box {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 }
 
 @each $name in map-keys($icon-boxes) {
-  .o-icon-box-#{$name} {
-    width: map-get($icon-boxes, $name);
-    height: map-get($icon-boxes, $name);
-    font-size: map-get($icon-boxes, $name);
-  }
+	.o-icon-box-#{$name} {
+		width: map-get($icon-boxes, $name);
+		height: map-get($icon-boxes, $name);
+		font-size: map-get($icon-boxes, $name);
+	}
 }

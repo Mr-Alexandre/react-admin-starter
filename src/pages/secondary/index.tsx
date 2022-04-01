@@ -13,7 +13,9 @@ const SecondaryPage: FC = () => {
 					<Link to="/">{t('nav.backToHome', 'Back to Home')}</Link>
 				</li>
 				<li>
-					<Link to="/secondary/45">{t('global.detail', 'Detail')}</Link>
+					<Link to="/secondary/45">
+						{t('global.detail', 'Detail')}
+					</Link>
 				</li>
 			</ul>
 		</>

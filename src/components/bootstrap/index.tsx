@@ -9,7 +9,10 @@ const Bootstrap: FC = () => {
 		<div className="bootstrap">
 			<div className="bootstrap__box">
 				<img src={logo} alt="logo" className="bootstrap__logo" />
-				<Spin className="bootstrap__loader" indicator={<LoadingOutlined spin />} />
+				<Spin
+					className="bootstrap__loader"
+					indicator={<LoadingOutlined spin />}
+				/>
 			</div>
 		</div>
 	);

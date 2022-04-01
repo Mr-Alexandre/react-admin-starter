@@ -9,9 +9,11 @@ const SecondaryDetailPage: FC<ISecondaryDetailProps> = () => {
 
 	return (
 		<>
-			<h1>{t('secondaryDetail.title', 'Detail page with id: {{id}}', {
-				id
-			})}</h1>
+			<h1>
+				{t('secondaryDetail.title', 'Detail page with id: {{id}}', {
+					id,
+				})}
+			</h1>
 			<ul>
 				<li>
 					<Link to="/secondary">{t('nav.back', 'Back')}</Link>

@@ -2,7 +2,12 @@ import React, { FC, useState } from 'react';
 import './style.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Checkbox, Form, Input } from 'antd';
-import { EyeInvisibleOutlined, EyeTwoTone, LockOutlined, MailOutlined } from '@ant-design/icons';
+import {
+	EyeInvisibleOutlined,
+	EyeTwoTone,
+	LockOutlined,
+	MailOutlined,
+} from '@ant-design/icons';
 import { sleep } from '@utils/async';
 
 const SignInPage: FC = () => {
@@ -25,18 +30,23 @@ const SignInPage: FC = () => {
 				<header className="sing-in__header">
 					<h3 className="sing-in__title">Authorization</h3>
 				</header>
-				<Form.Item
-					name="email"
-				>
-					<Input prefix={<MailOutlined className="site-form-item-icon" />} placeholder="Email" />
+				<Form.Item name="email">
+					<Input
+						prefix={
+							<MailOutlined className="site-form-item-icon" />
+						}
+						placeholder="Email"
+					/>
 				</Form.Item>
-				<Form.Item
-					name="password"
-				>
+				<Form.Item name="password">
 					<Input.Password
-						prefix={<LockOutlined className="site-form-item-icon" />}
+						prefix={
+							<LockOutlined className="site-form-item-icon" />
+						}
 						placeholder="Password"
-						iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+						iconRender={(visible) =>
+							visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+						}
 					/>
 				</Form.Item>
 				<Form.Item>

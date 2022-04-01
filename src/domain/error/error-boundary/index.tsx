@@ -1,5 +1,8 @@
 import React, { ErrorInfo, ReactNode } from 'react';
-import { IErrorBoundaryProps as Props, IErrorBoundaryState as State } from './interface';
+import {
+	IErrorBoundaryProps as Props,
+	IErrorBoundaryState as State,
+} from './interface';
 
 class ErrorBoundary extends React.Component<Props, State> {
 	constructor(props: Props) {
@@ -15,7 +18,7 @@ class ErrorBoundary extends React.Component<Props, State> {
 		this.setState({
 			hasError: true,
 			error: error,
-			errorInfo: errorInfo
+			errorInfo: errorInfo,
 		});
 		this.props?.onError?.(error, errorInfo);
 	}

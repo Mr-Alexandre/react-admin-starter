@@ -4,9 +4,7 @@ import Error from './index';
 
 describe('ComponentLoadError component', () => {
 	it('Renders correctly', () => {
-		const tree = renderer
-			.create(<Error />)
-			.toJSON();
+		const tree = renderer.create(<Error />).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });

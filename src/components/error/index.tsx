@@ -7,7 +7,9 @@ const Error: FC = () => {
 	return (
 		<div>
 			{t('errors.messages.componentLoading', 'Component loading error')}
-			<span role="img" aria-label="sadness">😔</span>
+			<span role="img" aria-label="sadness">
+				😔
+			</span>
 		</div>
 	);
 };

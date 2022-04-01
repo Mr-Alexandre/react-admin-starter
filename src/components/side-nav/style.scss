@@ -1,11 +1,11 @@
-@import "../../style/imports";
+@import '../../style/imports';
 
 .side-nav {
-  $this: &;
+	$this: &;
 
-  &__logo {
-    height: 32px;
-    margin: 16px;
-    background: rgba(255, 255, 255, 0.3);
-  }
+	&__logo {
+		height: 32px;
+		margin: 16px;
+		background: rgba(255, 255, 255, 0.3);
+	}
 }

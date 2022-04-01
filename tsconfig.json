@@ -147,6 +147,7 @@
         "plugins": [],
         "lib": [
             "dom",
+            "dom.iterable",
             "ESNext"
         ]
     },

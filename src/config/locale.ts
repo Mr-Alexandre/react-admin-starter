@@ -17,13 +17,13 @@ export const LOCALES: ILocale[] = [
 	{
 		code: 'kz',
 		name: 'Kazakh',
-	}
+	},
 ];
 
 export const ANT_LOCALES: IAntLocale[] = [
 	{
 		code: 'ru',
-		locale: ruRu
+		locale: ruRu,
 	},
 	{
 		code: 'en',
@@ -32,5 +32,5 @@ export const ANT_LOCALES: IAntLocale[] = [
 	{
 		code: 'kz',
 		locale: kkKZ,
-	}
+	},
 ];

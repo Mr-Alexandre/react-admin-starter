@@ -1,21 +1,21 @@
 @function generatePrefix($value) {
-  @if ($value != '' or $value != ' ') {
-    @return $value + '-';
-  }
-  @return '';
+	@if ($value != '' or $value != ' ') {
+		@return $value + '-';
+	}
+	@return '';
 }
 
 @function generatePostfix($value) {
-  @if ($value != '' or $value != ' ') {
-    @return '-' + $value;
-  }
-  @return '';
+	@if ($value != '' or $value != ' ') {
+		@return '-' + $value;
+	}
+	@return '';
 }
 
 @function getPercent($value, $max) {
-  @return 100% / ($max /$value)
+	@return 100% / ($max / $value);
 }
 
 @function breakpoint-infix-reverse($name, $breakpoints: $grid-breakpoints) {
-  @return if(breakpoint-min($name, $breakpoints) == null, "", "#{$name}-");
+	@return if(breakpoint-min($name, $breakpoints) == null, '', '#{$name}-');
 }

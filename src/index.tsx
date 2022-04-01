@@ -15,7 +15,9 @@ const Base: FC = () => {
 	const { antLocales } = useConfigContext();
 
 	return (
-		<AntConfigProvider locale={getAntLocaleByCode(locale.code, antLocales)?.locale}>
+		<AntConfigProvider
+			locale={getAntLocaleByCode(locale.code, antLocales)?.locale}
+		>
 			<BrowserRouter>
 				<AppRouting />
 			</BrowserRouter>
