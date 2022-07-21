@@ -1,7 +1,7 @@
-import React, { ErrorInfo } from 'react';
+import { ErrorInfo, ReactNode } from 'react';
 
 export interface IErrorBoundaryProps {
-	readonly fallback?: React.ElementType;
+	readonly fallback?: NonNullable<ReactNode> | null;
 	readonly onError?: (error: Error | null, info: ErrorInfo | null) => void;
 }
 

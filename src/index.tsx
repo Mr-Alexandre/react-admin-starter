@@ -9,6 +9,9 @@ import { getAntLocaleByCode } from '@utils/locale';
 import { ConfigProvider, useConfigContext } from '@context/config';
 import { ConfigProvider as AntConfigProvider } from 'antd';
 import Bootstrap from '@components/bootstrap';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 const Base: FC = () => {
 	const { locale } = useLocaleContext();
@@ -31,7 +34,9 @@ const App: FC = () => {
 			<Suspense fallback={<Bootstrap />}>
 				<ConfigProvider>
 					<LocaleProvider>
-						<Base />
+						<QueryClientProvider client={queryClient}>
+							<Base />
+						</QueryClientProvider>
 					</LocaleProvider>
 				</ConfigProvider>
 			</Suspense>

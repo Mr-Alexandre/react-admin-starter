@@ -1,17 +1,15 @@
-import React, { FC, useCallback } from 'react';
-import {
-	ILanguageToggleMenuProps,
-	ILanguageToggleProps,
-} from '@components/language-toggle/interface';
+import React, { FC, PropsWithChildren, useCallback } from 'react';
+import { ILanguageToggleProps, } from '@components/language-toggle/interface';
 import { Button, Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { MenuInfo } from 'rc-menu/lib/interface';
-import { joinClassName } from '@utils/class-name';
 import { useLocaleContext } from '@context/locale';
 import { getLocaleByCode } from '@utils/locale';
 import { useConfigContext } from '@context/config';
+import classNames from 'classnames';
+import { MenuProps } from 'antd/lib/menu';
 
-const LanguageMenu: FC<ILanguageToggleMenuProps> = ({ onClick }) => {
+const LanguageMenu: FC<PropsWithChildren<MenuProps>> = ({ onClick }) => {
 	const { locale } = useLocaleContext();
 	const { locales } = useConfigContext();
 
@@ -35,13 +33,13 @@ const LanguageToggle: FC<ILanguageToggleProps> = ({ className }) => {
 		[]
 	);
 
-	const changeLanguage = (languageKey: string) => {
-		setLocale(getLocaleByCode(languageKey, locales)!);
+	const changeLanguage = async (languageKey: string) => {
+		await setLocale(getLocaleByCode(languageKey, locales)!);
 	};
 
 	return (
 		<Dropdown
-			className={joinClassName(className)}
+			className={classNames(className)}
 			overlay={<LanguageMenu onClick={handleLanguageMenu} />}
 			trigger={['click']}
 			disabled={isLoading}

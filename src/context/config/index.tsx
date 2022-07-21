@@ -1,4 +1,4 @@
-import React, { createContext, FC, useContext } from 'react';
+import React, { createContext, FC, PropsWithChildren, useContext } from 'react';
 import { IConfigContext } from './interface';
 import { ANT_LOCALES, FALLBACK_LOCALE_CODE, LOCALES } from '@config/locale';
 
@@ -12,7 +12,7 @@ const ConfigContext = createContext<IConfigContext>(initialState);
 
 const useConfigContext = () => useContext(ConfigContext);
 
-const ConfigProvider: FC = ({ children }) => {
+const ConfigProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
 	return (
 		<ConfigContext.Provider
 			value={{

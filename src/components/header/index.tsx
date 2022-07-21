@@ -1,15 +1,11 @@
 import React, { FC } from 'react';
 import './style.scss';
-import {
-	MenuFoldOutlined,
-	MenuUnfoldOutlined,
-	UserOutlined,
-} from '@ant-design/icons';
 import { Avatar, Dropdown, Layout, Menu } from 'antd';
 import { IHeaderProps } from '@components/header/interface';
-import { joinClassName } from '@utils/class-name';
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from '@components/language-toggle';
+import classNames from 'classnames';
+import { MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined } from '@ant-design/icons';
 
 const { Header: AntHeader } = Layout;
 
@@ -35,7 +31,7 @@ const Header: FC<IHeaderProps> = ({
 	className,
 }) => {
 	return (
-		<AntHeader className={joinClassName(className, 'header')}>
+		<AntHeader className={classNames(className, 'header')}>
 			{React.createElement(
 				isCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
 				{

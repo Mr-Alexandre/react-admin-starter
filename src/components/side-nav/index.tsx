@@ -4,8 +4,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { ISideNavProps } from '@components/side-nav/interface';
-import { joinClassName } from '@utils/class-name';
 import { useTranslation } from 'react-i18next';
+import classNames from 'classnames';
 
 const { Sider } = Layout;
 
@@ -27,6 +27,10 @@ const SideNav: FC<ISideNavProps> = ({ isCollapsed, className }) => {
 			href: '/post',
 			title: t('nav.items.post', 'Post'),
 		},
+		{
+			href: '/example',
+			title: t('nav.items.example', 'Example'),
+		},
 	];
 
 	const getSelectedKeys = () => {
@@ -41,7 +45,7 @@ const SideNav: FC<ISideNavProps> = ({ isCollapsed, className }) => {
 
 	return (
 		<Sider
-			className={joinClassName(className, 'side-nav')}
+			className={classNames(className, 'side-nav')}
 			trigger={null}
 			collapsible
 			collapsed={isCollapsed}

@@ -4,13 +4,6 @@
       "componentLoading": "Ошибка загрузки компонента"
     }
   },
-  "example": {
-    "form": {
-      "name": {
-        "placeholder": "Введите имя"
-      }
-    }
-  },
   "header": {
     "userMenu": {
       "items": {
@@ -28,14 +21,37 @@
     "items": {
       "home": "Главная",
       "secondary": "Вторичная",
-      "post": "Посты"
+      "post": "Посты",
+      "example": "Пример"
     },
     "back": "Назад",
     "backToHome": "Вернуться домой"
   },
+  "example": {
+    "form": {
+      "name": {
+        "placeholder": "Введите имя"
+      }
+    },
+    "pages": {
+      "index": {
+        "title": "Посты"
+      }
+    }
+  },
   "global": {
+    "filters": "Фильтры",
+    "retry": "Повторить",
     "copyright": "L.A.V. react starter ©2022 Создано L.A.V.",
     "detail": "Детади"
+  },
+  "error": {
+    "messages": {
+      "baseResult": {
+        "title": "Произошла ошибка",
+        "subtitle": "Произошла непредвиденная ошибка, проверьте подключение к Интернету и повторите попытку."
+      }
+    }
   },
   "secondaryDetail": {
     "title": "Детали страницы с id: {{id}}"

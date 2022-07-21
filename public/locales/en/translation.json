@@ -4,13 +4,6 @@
       "componentLoading": "Component loading error"
     }
   },
-  "example": {
-    "form": {
-      "name": {
-        "placeholder": "Enter name"
-      }
-    }
-  },
   "header": {
     "userMenu": {
       "items": {
@@ -28,14 +21,37 @@
     "items": {
       "home": "Home",
       "secondary": "Secondary",
-      "post": "Post"
+      "post": "Post",
+      "example": "Example"
     },
     "back": "Back",
     "backToHome": "Back to Home"
   },
+  "example": {
+    "form": {
+      "name": {
+        "placeholder": "Enter name"
+      }
+    },
+    "pages": {
+      "index": {
+        "title": "Posts"
+      }
+    }
+  },
   "global": {
+    "filters": "Filters",
+    "retry": "Retry",
     "copyright": "L.A.V. react starter ©2022 Created by L.A.V.",
     "detail": "Detail"
+  },
+  "error": {
+    "messages": {
+      "baseResult": {
+        "title": "An error has occurred",
+        "subtitle": "An unexpected error occurred, please check your internet connection and try again"
+      }
+    }
   },
   "secondaryDetail": {
     "title": "Detail page with id: {{id}}"

@@ -1,8 +1,11 @@
 import React, { FC } from 'react';
-import Example from '@components/example';
 
 const HomePage: FC = () => {
-	return <Example title="text" />;
+	return (
+		<>
+			<h1>Home Page</h1>
+		</>
+	);
 };
 
 export default HomePage;

@@ -86,9 +86,6 @@
             "@modules/*": [
                 "src/modules/*"
             ],
-            "@pages/*": [
-                "src/pages/*"
-            ],
             "@route-guard/*": [
                 "src/route-guard/*"
             ],
@@ -152,6 +149,6 @@
         ]
     },
     "exclude": [
-        "node_modules/*"
+        "node_modules"
     ]
 }

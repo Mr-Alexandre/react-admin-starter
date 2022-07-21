@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
-import { IExampleProps as Props } from '@components/example/interface';
-import '@components/example/style.scss';
+import { IExampleProps as Props } from '@domain/example/components/example-todo/interface';
+import '@domain/example/components/example-todo/style.scss';
 import { observer } from 'mobx-react';
-import ExampleService from '@components/example/service';
+import ExampleTodoModel from '@domain/example/components/example-todo/model';
 import { useTranslation } from 'react-i18next';
 import logo from '@public/images/logo.svg';
 import { DatePicker } from 'antd';
 
-const Example = observer((props: Props) => {
-	const [exampleService] = useState(() => new ExampleService());
+const ExampleTodo = observer((props: Props) => {
+	const [model] = useState(() => new ExampleTodoModel());
 	const [inputValue, setInputValue] = useState('');
 	const { t } = useTranslation();
 
 	const removeItem = (index: number): void => {
-		exampleService.removeItemList(index);
+		model.removeItemList(index);
 	};
 
 	const clearList = (): void => {
-		exampleService.clearItemList();
+		model.clearItemList();
 	};
 
 	const handleInputChange = (
@@ -41,7 +41,7 @@ const Example = observer((props: Props) => {
 			return;
 		}
 		setInputValue('');
-		exampleService.addItemList(value);
+		model.addItemList(value);
 	};
 
 	const isValidValue = (value: string): boolean => {
@@ -63,7 +63,7 @@ const Example = observer((props: Props) => {
 				onKeyPress={handleInputKeyPress}
 			/>
 			<ul>
-				{exampleService.list.map((item, index) => (
+				{model.list.map((item, index) => (
 					<li
 						role="presentation"
 						key={index}
@@ -73,11 +73,11 @@ const Example = observer((props: Props) => {
 					</li>
 				))}
 			</ul>
-			{exampleService.list.length ? (
+			{model.list.length ? (
 				<button onClick={clearList}>Clear list</button>
 			) : null}
 		</div>
 	);
 });
 
-export default Example;
+export default ExampleTodo;

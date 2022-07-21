@@ -4,13 +4,6 @@
       "componentLoading": "Компонентті жүктеу қатесі"
     }
   },
-  "example": {
-    "form": {
-      "name": {
-        "placeholder": "Атын енгізіңіз"
-      }
-    }
-  },
   "header": {
     "userMenu": {
       "items": {
@@ -28,14 +21,37 @@
     "items": {
       "home": "Үйге",
       "secondary": "Қайталама",
-      "post": "Пошта"
+      "post": "Пошта",
+      "example": "Example"
     },
     "back": "Артқа",
     "backToHome": "Үйге оралу"
   },
+  "example": {
+    "form": {
+      "name": {
+        "placeholder": "Атын енгізіңіз"
+      }
+    },
+    "pages": {
+      "index": {
+        "title": "Хабарлар"
+      }
+    }
+  },
   "global": {
+    "filters": "Сүзгілер",
+    "retry": "Қайталап көріңіз",
     "copyright": "L.A.V. react starter ©2022 Құрылды L.A.V.",
     "detail": "Деталь"
+  },
+  "error": {
+    "messages": {
+      "baseResult": {
+        "title": "Қате кетті",
+        "subtitle": "Күтпеген қате орын алды, Интернет қосылымыңызды тексеріп, әрекетті қайталаңыз"
+      }
+    }
   },
   "secondaryDetail": {
     "title": "Идентификаторы бар толық бет: {{id}}"

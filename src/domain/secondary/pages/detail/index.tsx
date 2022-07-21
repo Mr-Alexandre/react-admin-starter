@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ISecondaryDetailProps } from '@pages/secondary/detail/interface';
+import { ISecondaryDetailProps } from '@domain/secondary/pages/detail/interface';
 import { useTranslation } from 'react-i18next';
 
 const SecondaryDetailPage: FC<ISecondaryDetailProps> = () => {

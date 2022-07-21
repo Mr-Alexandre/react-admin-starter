@@ -1,8 +1,5 @@
 import React, { ErrorInfo, ReactNode } from 'react';
-import {
-	IErrorBoundaryProps as Props,
-	IErrorBoundaryState as State,
-} from './interface';
+import { IErrorBoundaryProps as Props, IErrorBoundaryState as State, } from './interface';
 
 class ErrorBoundary extends React.Component<Props, State> {
 	constructor(props: Props) {
@@ -28,8 +25,7 @@ class ErrorBoundary extends React.Component<Props, State> {
 			return this.props.children;
 		}
 		if (this.props.fallback) {
-			const Fallback = this.props.fallback;
-			return <Fallback />;
+			return this.props.fallback;
 		}
 		return (
 			<div>

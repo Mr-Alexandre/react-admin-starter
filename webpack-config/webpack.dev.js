@@ -1,5 +1,5 @@
-const webpack = require('webpack');
 const ip = require('ip');
+const paths = require('./paths');
 
 module.exports = (env) => ({
 	mode: 'development',
@@ -7,14 +7,15 @@ module.exports = (env) => ({
 	devServer: {
 		historyApiFallback: true,
 		open: true,
-		compress: true,
 		hot: true,
 		host: ip.address(),
 		port: 8080,
-		overlay: {
-			warnings: true,
-			errors: true
-		},
+		overlay: true,
+		// static: [
+		// 	{
+		// 		directory: paths.root,
+		// 	},
+		// ],
 	},
 	module: {
 		rules: [
@@ -45,7 +46,5 @@ module.exports = (env) => ({
 			},
 		]
 	},
-	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
-	],
+	plugins: [],
 });

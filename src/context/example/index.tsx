@@ -1,4 +1,4 @@
-import React, { createContext, FC, useContext, useState } from 'react';
+import React, { createContext, FC, PropsWithChildren, useContext, useState } from 'react';
 import { IExampleContext } from './interface';
 
 const initialState: IExampleContext = {
@@ -10,7 +10,7 @@ const ExampleContext = createContext<IExampleContext>(initialState);
 
 const useExampleContext = () => useContext(ExampleContext);
 
-const ExampleProvider: FC = ({ children }) => {
+const ExampleProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
 	const [example, setExample] = useState(initialState.example);
 
 	return (

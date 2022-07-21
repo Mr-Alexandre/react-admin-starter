@@ -1,6 +1,6 @@
 import { action, computed, makeObservable, observable } from 'mobx';
 
-class ExampleService {
+class ExampleTodoModel {
 	private _id: number = Math.random();
 
 	@computed
@@ -44,4 +44,4 @@ class ExampleService {
 	}
 }
 
-export default ExampleService;
+export default ExampleTodoModel;

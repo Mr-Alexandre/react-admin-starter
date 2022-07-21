@@ -3,7 +3,7 @@ import LoaderComponent from '@components/loader';
 import ErrorComponent from '@components/error';
 import { useRoutes } from 'react-router-dom';
 import AuthLayout from '@domain/layouts/auth';
-import NotFoundPage from '@pages/not-found';
+import NotFoundPage from '@domain/404/pages';
 import LazyLoad from '@components/lazy-load';
 import Redirect from '@components/redirect';
 import { IRoute } from '@interfaces/route';
@@ -18,9 +18,9 @@ export const routes: IRoute[] = [
 				breadcrumb: 'Home',
 				element: (
 					<LazyLoad
-						loadComponent={() => import('@pages/home')}
-						fallback={LoaderComponent}
-						error={ErrorComponent}
+						loadComponent={() => import('@domain/home/pages')}
+						fallback={<LoaderComponent />}
+						error={<ErrorComponent />}
 					/>
 				),
 			},
@@ -32,9 +32,9 @@ export const routes: IRoute[] = [
 						index: true,
 						element: (
 							<LazyLoad
-								loadComponent={() => import('@pages/secondary')}
-								fallback={LoaderComponent}
-								error={ErrorComponent}
+								loadComponent={() => import('@domain/secondary/pages')}
+								fallback={<LoaderComponent />}
+								error={<ErrorComponent />}
 							/>
 						),
 					},
@@ -43,10 +43,10 @@ export const routes: IRoute[] = [
 						element: (
 							<LazyLoad
 								loadComponent={() =>
-									import('@pages/secondary/detail')
+									import('@domain/secondary/pages/detail')
 								}
-								fallback={LoaderComponent}
-								error={ErrorComponent}
+								fallback={<LoaderComponent />}
+								error={<ErrorComponent />}
 							/>
 						),
 					},
@@ -57,9 +57,20 @@ export const routes: IRoute[] = [
 				breadcrumb: 'Post',
 				element: (
 					<LazyLoad
-						loadComponent={() => import('@pages/post')}
-						fallback={LoaderComponent}
-						error={ErrorComponent}
+						loadComponent={() => import('@domain/post/pages')}
+						fallback={<LoaderComponent />}
+						error={<ErrorComponent />}
+					/>
+				),
+			},
+			{
+				path: 'example',
+				breadcrumb: 'Example',
+				element: (
+					<LazyLoad
+						loadComponent={() => import('@domain/example/pages')}
+						fallback={<LoaderComponent />}
+						error={<ErrorComponent />}
 					/>
 				),
 			},
@@ -76,9 +87,9 @@ export const routes: IRoute[] = [
 				path: 'sign-in',
 				element: (
 					<LazyLoad
-						loadComponent={() => import('@pages/sign-in')}
-						fallback={LoaderComponent}
-						error={ErrorComponent}
+						loadComponent={() => import('@domain/auth/pages/sign-in')}
+						fallback={<LoaderComponent />}
+						error={<ErrorComponent />}
 					/>
 				),
 			},
@@ -86,9 +97,9 @@ export const routes: IRoute[] = [
 				path: 'sign-up',
 				element: (
 					<LazyLoad
-						loadComponent={() => import('@pages/sign-up')}
-						fallback={LoaderComponent}
-						error={ErrorComponent}
+						loadComponent={() => import('@domain/auth/pages/sign-up')}
+						fallback={<LoaderComponent />}
+						error={<ErrorComponent />}
 					/>
 				),
 			},
@@ -105,18 +116,7 @@ export const routes: IRoute[] = [
 ];
 
 const AppRouting: FC = () => {
-	const localeRoutes: IRoute[] = [
-		{
-			path: ':lang',
-			children: routes,
-		},
-		{
-			path: '',
-			children: routes,
-		},
-	];
-
-	return useRoutes(localeRoutes);
+	return useRoutes(routes);
 };
 
 export default AppRouting;
