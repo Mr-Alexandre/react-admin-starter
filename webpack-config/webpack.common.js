@@ -28,8 +28,13 @@ module.exports = (env) => {
 					type: 'asset/resource'
 				},
 				{
-					test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+					test: /\.(woff(2)?|eot|ttf|otf|)$/,
 					type: 'asset/inline'
+				},
+				{
+					test: /\.svg$/,
+					issuer: /\.[jt]sx?$/,
+					use: ['@svgr/webpack'],
 				},
 				...config.fileReplacements,
 			],

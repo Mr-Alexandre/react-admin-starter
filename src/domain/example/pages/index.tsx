@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Button, Result } from 'antd';
 import { useTranslation } from 'react-i18next';
-import './style.scss';
+import styles from './index.module.scss';
 import { useQuery } from 'react-query';
 import { IPost } from '@domain/example/interfaces/post';
 import { fetchPostList } from '../services/api';
@@ -45,10 +45,10 @@ const ExamplePage: FC = () => {
 
 	return (
 		<>
-			<header className="example-page__header">
-				<h2 className="example-page__header-title">{t('example.pages.index.title', 'Posts')}</h2>
+			<header className={styles.examplePage__header}>
+				<h2 className={styles.examplePage__headerTitle}>{t('example.pages.index.title', 'Posts')}</h2>
 
-				<div className="example-page__header-controls">
+				<div className={styles.examplePage__headerControls}>
 					<Button key="1" type="primary">{t('global.filters', 'Filters')}</Button>
 				</div>
 			</header>
@@ -56,7 +56,7 @@ const ExamplePage: FC = () => {
 			{!error
 				? (
 					// <Table
-					// 	className="example-page__table"
+					// 	className={styles.examplePage__table}
 					// 	pagination={false}
 					// 	dataSource={dataSource}
 					// 	columns={columns}
@@ -67,13 +67,13 @@ const ExamplePage: FC = () => {
 					// 	})}
 					// />
 					<VirtualTable
-						className="example-page__table"
+						className={styles.examplePage__table}
 						pagination={false}
 						dataSource={dataSource}
 						columns={columns}
 						loading={isLoading}
 						scroll={{ y: 400 }}
-						onRow={(record, rowIndex) => ({
+						onRow={() => ({
 							onClick: handleRowClick
 						})}
 					/>

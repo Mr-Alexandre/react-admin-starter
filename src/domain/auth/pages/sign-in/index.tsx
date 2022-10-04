@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import './style.scss';
+import styles from './index.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Checkbox, Form, Input } from 'antd';
 import {
@@ -14,21 +14,21 @@ const SignInPage: FC = () => {
 	const [isLoading, setLoading] = useState(false);
 	const navigate = useNavigate();
 
-	const onFinish = async (values: unknown) => {
+	const onFinish = async () => {
 		setLoading(true);
 		await sleep(2000);
 		navigate('/');
 	};
 
 	return (
-		<div className="sing-in">
+		<div className={styles.singIn}>
 			<Form
-				className="sing-in__form"
+				className={styles.singIn__form}
 				initialValues={{ remember: true }}
 				onFinish={onFinish}
 			>
-				<header className="sing-in__header">
-					<h3 className="sing-in__title">Authorization</h3>
+				<header className={styles.singIn__header}>
+					<h3 className={styles.singIn__title}>Authorization</h3>
 				</header>
 				<Form.Item name="email">
 					<Input
@@ -61,7 +61,7 @@ const SignInPage: FC = () => {
 					<Button
 						type="primary"
 						htmlType="submit"
-						className="sing-in__btn"
+						className={styles.singIn__btn}
 						loading={isLoading}
 					>
 						Sign in

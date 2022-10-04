@@ -1,0 +1,7 @@
+@import "../../grid";
+
+:export {
+	@each $key, $value in $grid-breakpoints {
+		#{unquote($key)}: $value;
+	}
+}

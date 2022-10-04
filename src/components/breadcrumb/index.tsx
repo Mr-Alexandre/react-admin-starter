@@ -4,13 +4,14 @@ import { Breadcrumb as AntBreadcrumb } from 'antd';
 import useBreadcrumbs from 'use-react-router-breadcrumbs';
 import { routes } from '../../routing';
 import classNames from 'classnames';
+import styles from './index.module.scss';
 
 const Breadcrumb: FC<IBreadcrumbProps> = ({ className }) => {
 	const breadcrumbs = useBreadcrumbs(routes);
 	breadcrumbs.splice(0, breadcrumbs.length > 1 ? 1 : 0);
 
 	return (
-		<AntBreadcrumb className={classNames(className, 'breadcrumb')}>
+		<AntBreadcrumb className={classNames(className, styles.breadcrumb)}>
 			{breadcrumbs.map((item) => (
 				<AntBreadcrumb.Item key={item.key}>
 					{item.breadcrumb}

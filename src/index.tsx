@@ -1,8 +1,7 @@
 import React, { FC, Suspense } from 'react';
 import AppRouting from './routing';
 import { BrowserRouter } from 'react-router-dom';
-import './style.scss';
-import './styles/index.scss';
+import './styles/global.scss';
 import 'i18n.config';
 import { LocaleProvider, useLocaleContext } from '@context/locale';
 import { getAntLocaleByCode } from '@utils/locale';

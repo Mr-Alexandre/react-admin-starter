@@ -1,0 +1,17 @@
+$z-index-header: 150;
+$z-index-navbar: 150;
+$z-index-modal: 500;
+$z-index-dropdown: 1000;
+
+$z-indexes: (
+	header: $z-index-header,
+	navbar: $z-index-navbar,
+	modal: $z-index-modal,
+	dropdown: $z-index-dropdown,
+);
+
+:export {
+	@each $key, $value in $z-indexes {
+		#{unquote($key)}: $value;
+	}
+}

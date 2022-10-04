@@ -1,0 +1,36 @@
+$color-white: #ffffff !default;
+$color-black: #000000 !default;
+
+$color-primary: #2aa65c;
+$color-secondary: #fcb016;
+
+$color-success: #11d392;
+$color-success-bg: $color-primary;
+$color-warning: #ffcc01;
+$color-warning-bg: #fff0df;
+$color-error: #ff0000;
+$color-error-bg: #ffdfdf;
+$color-information: #00a9ff;
+$color-information-bg: #dff0ff;
+
+$color-light: #ffffff;
+$color-dark: #071222;
+
+$colors: (
+	black: $color-black,
+	white: $color-white,
+	primary: $color-primary,
+	secondary: $color-secondary,
+	success: $color-success,
+	warning: $color-warning,
+	error: $color-error,
+	information: $color-information,
+	light: $color-light,
+	dark: $color-dark,
+);
+
+:export {
+	@each $key, $value in $colors {
+		#{unquote($key)}: $value;
+	}
+}

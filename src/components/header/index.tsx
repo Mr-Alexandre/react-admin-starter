@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './style.scss';
+import styles from './index.module.scss';
 import { Avatar, Dropdown, Layout, Menu } from 'antd';
 import { IHeaderProps } from '@components/header/interface';
 import { useTranslation } from 'react-i18next';
@@ -34,23 +34,23 @@ const Header: FC<IHeaderProps> = ({
 	className
 }) => {
 	return (
-		<AntHeader className={classNames(className, 'header')}>
+		<AntHeader className={classNames(className, styles.header)}>
 			{React.createElement(
 				isCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
 				{
-					className: 'header__toggle-collapse',
+					className: styles.header__toggleCollapse,
 					onClick: toggleCollapse
 				}
 			)}
 
-			<div className='header__right-section'>
-				<LanguageToggle className='header__language' />
+			<div className={styles.header__rightSection}>
+				<LanguageToggle className={styles.header__language} />
 
 				<Dropdown overlay={<UserMenu />} trigger={['click']}>
-					<div className='header__user'>
-						<p className='header__user-name'>L.A.V.</p>
+					<div className={styles.header__user}>
+						<p className={styles.header__userName}>L.A.V.</p>
 						<Avatar
-							className='header__user-avatar'
+							className={styles.header__userAvatar}
 							icon={<UserOutlined />}
 						/>
 					</div>

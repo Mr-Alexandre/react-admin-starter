@@ -1,0 +1,11 @@
+$border-radius: 8px;
+
+$border-radiuses: (
+	default: $border-radius,
+);
+
+:export {
+	@each $key, $value in $border-radiuses {
+		#{unquote($key)}: $value;
+	}
+}

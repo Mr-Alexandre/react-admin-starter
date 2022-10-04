@@ -28,6 +28,7 @@
             "@environment": ["src/environments/index.ts"],
             "@hooks/*": ["src/hooks/*"],
             "@interfaces/*": ["src/interfaces/*"],
+            "@layouts/*": ["src/layouts/*"],
             "@modules/*": ["src/modules/*"],
             "@route-guard/*": ["src/route-guard/*"],
             "@services/*": ["src/services/*"],

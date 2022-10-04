@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { IExampleProps as Props } from '@domain/example/components/example-todo/interface';
-import '@domain/example/components/example-todo/style.scss';
+import styles from './index.module.scss';
 import { observer } from 'mobx-react';
 import ExampleTodoModel from '@domain/example/components/example-todo/model';
 import { useTranslation } from 'react-i18next';
-import logo from '@public/images/logo.svg';
 
 const ExampleTodo = observer((props: Props) => {
 	const [model] = useState(() => new ExampleTodoModel());
@@ -48,8 +47,12 @@ const ExampleTodo = observer((props: Props) => {
 	};
 
 	return (
-		<div className='example'>
-			<img src={logo} alt='logo' className='example__logo' />
+		<div className={styles.example}>
+			<img
+				src='/public/images/logo.svg'
+				alt='logo'
+				className={styles.example__logo}
+			/>
 			<h4>Title: {props.title}</h4>
 			<input
 				type='text'

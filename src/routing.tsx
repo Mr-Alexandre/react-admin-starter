@@ -2,12 +2,12 @@ import React, { FC } from 'react';
 import LoaderComponent from '@components/loader';
 import ErrorComponent from '@components/error';
 import { useRoutes } from 'react-router-dom';
-import AuthLayout from '@domain/layouts/auth';
+import AuthLayout from '@layouts/auth';
 import NotFoundPage from '@domain/404/pages';
 import LazyLoad from '@components/lazy-load';
 import Redirect from '@components/redirect';
 import { IRoute } from '@interfaces/route';
-import BaseLayout from '@domain/layouts/base';
+import BaseLayout from '@layouts/base';
 
 export const routes: IRoute[] = [
 	{

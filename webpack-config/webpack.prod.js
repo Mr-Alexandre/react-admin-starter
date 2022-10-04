@@ -1,11 +1,9 @@
 const paths = require('./paths');
-const { merge } = require('webpack-merge');
-const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
-module.exports = (env) => ({
+module.exports = () => ({
 	mode: 'production',
 	devtool: false,
 	output: {
@@ -24,13 +22,13 @@ module.exports = (env) => ({
 					test: /[\\/]node_modules[\\/]/,
 					name: 'vendors',
 					chunks: 'all'
-				}
+				},
 				// Пример с выноской конкретной библиотеки
-				// antd: {
-				//   test: /node_modules\/(antd\/).*/,
-				//   name: "antd",
-				//   chunks: "all",
-				// },
+				antd: {
+					test: /node_modules\/(antd\/).*/,
+					name: 'antd',
+					chunks: 'all'
+				}
 			}
 		},
 		runtimeChunk: {
@@ -40,14 +38,31 @@ module.exports = (env) => ({
 	module: {
 		rules: [
 			{
-				test: /\.(scss|css)$/,
+				test: /\.(sa|sc|c)ss$/,
 				use: [
 					MiniCssExtractPlugin.loader,
 					{
 						loader: 'css-loader',
 						options: {
+							sourceMap: true,
 							importLoaders: 2,
-							sourceMap: false
+							modules: {
+								auto: true,
+								mode: (resourcePath) => {
+									if (/pure.(sa|sc|c)ss$/i.test(resourcePath)) {
+										return 'pure';
+									}
+
+									if (/global.(sa|sc|c)ss$/i.test(resourcePath)) {
+										return 'global';
+									}
+
+									return 'local';
+								},
+								exportGlobals: true,
+								localIdentName: '[name]__[local]--[hash:base64:5]',
+								exportLocalsConvention: 'dashes'
+							}
 						}
 					},
 					'postcss-loader',

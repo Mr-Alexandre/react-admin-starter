@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import './style.scss';
+import styles from './index.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Form, Input } from 'antd';
 import {
@@ -21,14 +21,14 @@ const SignUpPage: FC = () => {
 	};
 
 	return (
-		<div className="sing-up">
+		<div className={styles.singUp}>
 			<Form
-				className="sing-up__form"
+				className={styles.singUp__form}
 				initialValues={{ remember: true }}
 				onFinish={onFinish}
 			>
-				<header className="sing-up__header">
-					<h3 className="sing-up__title">Registration</h3>
+				<header className={styles.singUp__header}>
+					<h3 className={styles.singUp__title}>Registration</h3>
 				</header>
 				<Form.Item name="email">
 					<Input
@@ -65,7 +65,7 @@ const SignUpPage: FC = () => {
 					<Button
 						type="primary"
 						htmlType="submit"
-						className="sing-up__btn"
+						className={styles.singUp__btn}
 						loading={isLoading}
 					>
 						Sign up

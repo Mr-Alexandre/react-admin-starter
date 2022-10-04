@@ -1,4 +1,0 @@
-@mixin raw($string) {
-	$string: '*/#{$string}/*';
-	/*#{$string}*/
-}

@@ -3,17 +3,7 @@
 @import '~bootstrap/scss/mixins';
 
 @import 'grid';
-@import 'colors';
-@import 'spaces';
-@import 'z-index';
+@import 'colors.module';
+@import 'z-index.module';
 @import 'fonts';
-@import 'border';
-@import 'icon';
-@import 'utilities';
-@import 'layout';
-@import 'indents';
-@import 'opacity';
-@import 'sizes';
-@import 'text-indent';
-@import 'column';
-@import 'row';
+@import 'border.module';

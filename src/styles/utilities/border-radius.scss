@@ -1,5 +1,0 @@
-@each $name in map-keys($border-radiuses) {
-	.u-border-r-#{$name} {
-		border-radius: map-get($border-radiuses, $name);
-	}
-}

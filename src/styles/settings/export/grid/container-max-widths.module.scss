@@ -1,0 +1,7 @@
+@import "../../grid";
+
+:export {
+	@each $key, $value in $container-max-widths {
+		#{unquote($key)}: $value;
+	}
+}

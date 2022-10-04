@@ -1,16 +1,19 @@
 import React, { FC } from 'react';
-import logo from '@public/images/logo.svg';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import './style.scss';
+import styles from './index.module.scss';
 
 const Bootstrap: FC = () => {
 	return (
-		<div className="bootstrap">
-			<div className="bootstrap__box">
-				<img src={logo} alt="logo" className="bootstrap__logo" />
+		<div className={styles.bootstrap}>
+			<div className={styles.bootstrap__box}>
+				<img
+					src='/public/images/logo.svg'
+					alt='logo'
+					className={styles.bootstrap__logo}
+				/>
 				<Spin
-					className="bootstrap__loader"
+					className={styles.bootstrap__loader}
 					indicator={<LoadingOutlined spin />}
 				/>
 			</div>

@@ -16,6 +16,7 @@
     "scripts": {
         "dev": "webpack serve --progress --mode development --env NODE_ENV=development",
         "build": "webpack --progress --mode production --env NODE_ENV=production",
+        "start": "node serve.js",
         "test": "jest",
         "api": "nodemon --exec ts-node --project tsconfig-server.json server/index.ts",
         "extract-translations": "i18next",
@@ -73,6 +74,7 @@
         "react-test-renderer": "^18.2.0",
         "routing-controllers": "^0.9.0",
         "sass-loader": "^13.0.2",
+        "serve": "^14.0.1",
         "style-loader": "^3.3.1",
         "ts-jest": "^29.0.3",
         "ts-loader": "^9.2.5",

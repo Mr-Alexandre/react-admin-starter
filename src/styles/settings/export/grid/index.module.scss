@@ -1,0 +1,8 @@
+@import "../../grid";
+
+:export {
+	gridColumns: $grid-columns;
+	gridGutterWidth: $grid-gutter-width;
+	gridRowColumns: $grid-row-columns;
+	containerPaddingX: $container-padding-x;
+}

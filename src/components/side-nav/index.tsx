@@ -1,5 +1,5 @@
-import './style.scss';
 import React, { FC } from 'react';
+import styles from './index.module.scss';
 import { Link, useLocation } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
@@ -58,12 +58,12 @@ const SideNav: FC<ISideNavProps> = ({ isCollapsed, className }) => {
 
 	return (
 		<Sider
-			className={classNames(className, 'side-nav')}
+			className={classNames(className, styles.sideNav)}
 			trigger={null}
 			collapsible
 			collapsed={isCollapsed}
 		>
-			<div className="side-nav__logo" />
+			<div className={styles.sideNav__logo} />
 			<Menu
 				theme="dark"
 				mode="inline"

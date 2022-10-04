@@ -1,7 +1,0 @@
-$cursors: pointer, default, move, progress;
-
-@each $value in $cursors {
-	.u-cursor-#{$value} {
-		cursor: $value;
-	}
-}
