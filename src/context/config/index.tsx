@@ -1,9 +1,9 @@
 import React, { createContext, FC, PropsWithChildren, useContext } from 'react';
 import { IConfigContext } from './interface';
-import { ANT_LOCALES, FALLBACK_LOCALE_CODE, LOCALES } from '@config/locale';
+import { ANT_LOCALES, DEFAULT_LOCALE_CODE, LOCALES } from '../../../locale.config';
 
 const initialState: IConfigContext = {
-	fallbackLocaleCode: FALLBACK_LOCALE_CODE,
+	fallbackLocaleCode: DEFAULT_LOCALE_CODE,
 	locales: LOCALES,
 	antLocales: ANT_LOCALES,
 };
@@ -16,7 +16,7 @@ const ConfigProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
 	return (
 		<ConfigContext.Provider
 			value={{
-				fallbackLocaleCode: FALLBACK_LOCALE_CODE,
+				fallbackLocaleCode: DEFAULT_LOCALE_CODE,
 				locales: LOCALES,
 				antLocales: ANT_LOCALES,
 			}}

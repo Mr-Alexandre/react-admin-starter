@@ -1,5 +1,5 @@
 const paths = require('./paths');
-const {merge} = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -11,19 +11,19 @@ module.exports = (env) => ({
 	output: {
 		path: paths.build,
 		publicPath: '/',
-		filename: '[name].[contenthash].bundle.js',
+		filename: '[name].[contenthash].bundle.js'
 	},
 	optimization: {
 		minimize: true,
 		minimizer: [
-			new CssMinimizerPlugin(),
+			new CssMinimizerPlugin()
 		],
 		splitChunks: {
 			cacheGroups: {
 				vendor: {
 					test: /[\\/]node_modules[\\/]/,
 					name: 'vendors',
-					chunks: 'all',
+					chunks: 'all'
 				}
 				// Пример с выноской конкретной библиотеки
 				// antd: {
@@ -34,8 +34,8 @@ module.exports = (env) => ({
 			}
 		},
 		runtimeChunk: {
-			name: 'runtime',
-		},
+			name: 'runtime'
+		}
 	},
 	module: {
 		rules: [
@@ -47,22 +47,22 @@ module.exports = (env) => ({
 						loader: 'css-loader',
 						options: {
 							importLoaders: 2,
-							sourceMap: false,
-						},
+							sourceMap: false
+						}
 					},
 					'postcss-loader',
-					'sass-loader',
-				],
-			},
-		],
+					'sass-loader'
+				]
+			}
+		]
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
 			filename: '[name].[contenthash].css',
-			chunkFilename: '[id].css',
+			chunkFilename: '[id].css'
 		}),
 		new CompressionPlugin({
-			test: /\.js(\?.*)?$/i,
-		}),
-	],
+			test: /\.js(\?.*)?$/i
+		})
+	]
 });

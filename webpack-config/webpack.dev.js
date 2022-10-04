@@ -10,19 +10,26 @@ module.exports = (env) => ({
 		hot: true,
 		host: ip.address(),
 		port: 8080,
-		overlay: true,
-		// static: [
-		// 	{
-		// 		directory: paths.root,
-		// 	},
-		// ],
+		client: {
+			overlay: {
+				errors: true,
+				warnings: false
+			}
+		},
+		static: [
+			{
+				directory: paths.root,
+			},
+		],
 	},
 	module: {
 		rules: [
 			{
-				test: /\.(scss|css)$/,
+				test: /\.(sa|sc|c)ss$/,
 				use: [
-					'style-loader',
+					{
+						loader: 'style-loader'
+					},
 					{
 						loader: 'css-loader',
 						options: {
@@ -41,10 +48,10 @@ module.exports = (env) => ({
 						options: {
 							sourceMap: true
 						}
-					},
-				],
-			},
+					}
+				]
+			}
 		]
 	},
-	plugins: [],
+	plugins: []
 });

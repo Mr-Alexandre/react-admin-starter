@@ -1,5 +1,10 @@
+const { LOCALES, DEFAULT_LOCALE_NAMESPACE } = require('./locale.config');
+
 module.exports = {
 	createOldCatalogs: false, // save previous translation catalogs to the \_old folder
+
+	defaultNamespace: DEFAULT_LOCALE_NAMESPACE,
+	// Default namespace used in your i18next config
 
 	lexers: {
 		js: ['JsxLexer'], // if you're writing jsx inside .js files, change this to JsxLexer
@@ -10,14 +15,10 @@ module.exports = {
 		default: ['JsxLexer'],
 	},
 
-	locales: [
-		'ru',
-		'en',
-		'kz'
-	],
+	locales: LOCALES.map((locale) => locale.code),
 	// An array of the locales in your applications
 
-	contextSeparator: '.',
+	contextSeparator: '_',
 	// Key separator used in your translation keys
 
 	keySeparator: '.',
@@ -28,7 +29,7 @@ module.exports = {
 	// Namespace separator used in your translation keys
 	// If you want to use plain english keys, separators such as `.` and `:` will conflict. You might want to set `keySeparator: false` and `namespaceSeparator: false`. That way, `t('Status: Loading...')` will not think that there are a namespace and three separator dots for instance.
 
-	pluralSeparator: '_',
+	pluralSeparator: '-',
 	// Plural separator used in your translation keys
 	// If you want to use plain english keys, separators such as `_` might conflict. You might want to set `pluralSeparator` to a different string that does not occur in your keys.
 

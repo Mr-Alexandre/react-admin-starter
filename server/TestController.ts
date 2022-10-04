@@ -8,7 +8,7 @@ import {
 	Post,
 	Put,
 } from 'routing-controllers';
-import { ITest } from '@interfaces/test';
+import type { ITest } from '@interfaces/test';
 
 @Controller()
 export default class TestController {

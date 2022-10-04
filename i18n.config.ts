@@ -2,13 +2,14 @@ import i18n from 'i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
-import { FALLBACK_LOCALE_CODE, LOCALES } from '@config/locale';
+import { DEFAULT_LOCALE_CODE, DEFAULT_LOCALE_NAMESPACE, LOCALES } from './locale.config';
 
 i18n.use(Backend)
 	.use(LanguageDetector)
 	.use(initReactI18next)
 	.init({
-		fallbackLng: FALLBACK_LOCALE_CODE,
+		fallbackLng: DEFAULT_LOCALE_CODE,
+		defaultNS: DEFAULT_LOCALE_NAMESPACE,
 		debug: process.env.NODE_ENV === 'development',
 		supportedLngs: LOCALES.map((locale) => locale.code),
 		interpolation: {

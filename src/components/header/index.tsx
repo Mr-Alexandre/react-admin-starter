@@ -12,23 +12,26 @@ const { Header: AntHeader } = Layout;
 const UserMenu: FC = () => {
 	const { t } = useTranslation();
 
+	const menuItems = [
+		{
+			label: t('header.userMenu.items.personalArea', 'Personal Area'),
+			key: 'personal-area'
+		},
+		{
+			label: t('header.userMenu.items.logout', 'Logout'),
+			key: 'logout'
+		}
+	];
+
 	return (
-		<Menu>
-			<Menu.Item key="0">
-				{t('header.userMenu.items.personalArea', 'Personal Area')}
-			</Menu.Item>
-			<Menu.Divider />
-			<Menu.Item key="logout">
-				{t('header.userMenu.items.logout', 'Logout')}
-			</Menu.Item>
-		</Menu>
+		<Menu items={menuItems} />
 	);
 };
 
 const Header: FC<IHeaderProps> = ({
 	isCollapsed,
 	toggleCollapse,
-	className,
+	className
 }) => {
 	return (
 		<AntHeader className={classNames(className, 'header')}>
@@ -36,18 +39,18 @@ const Header: FC<IHeaderProps> = ({
 				isCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
 				{
 					className: 'header__toggle-collapse',
-					onClick: toggleCollapse,
+					onClick: toggleCollapse
 				}
 			)}
 
-			<div className="header__right-section">
-				<LanguageToggle className="header__language" />
+			<div className='header__right-section'>
+				<LanguageToggle className='header__language' />
 
 				<Dropdown overlay={<UserMenu />} trigger={['click']}>
-					<div className="header__user">
-						<p className="header__user-name">L.A.V.</p>
+					<div className='header__user'>
+						<p className='header__user-name'>L.A.V.</p>
 						<Avatar
-							className="header__user-avatar"
+							className='header__user-avatar'
 							icon={<UserOutlined />}
 						/>
 					</div>

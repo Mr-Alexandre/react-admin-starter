@@ -1,5 +1,5 @@
 import React, { FC, PropsWithChildren, useCallback } from 'react';
-import { ILanguageToggleProps, } from '@components/language-toggle/interface';
+import { ILanguageToggleProps } from '@components/language-toggle/interface';
 import { Button, Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { MenuInfo } from 'rc-menu/lib/interface';
@@ -12,15 +12,16 @@ import { MenuProps } from 'antd/lib/menu';
 const LanguageMenu: FC<PropsWithChildren<MenuProps>> = ({ onClick }) => {
 	const { locale } = useLocaleContext();
 	const { locales } = useConfigContext();
+	const menuItems = locales.filter((item) => item.code !== locale.code)
+		.map(item => {
+			return {
+				label: item.name,
+				key: item.code,
+			};
+		});
 
 	return (
-		<Menu onClick={onClick}>
-			{locales
-				.filter((item) => item.code !== locale.code)
-				.map((locale) => (
-					<Menu.Item key={locale.code}>{locale.name}</Menu.Item>
-				))}
-		</Menu>
+		<Menu onClick={onClick} items={menuItems} />
 	);
 };
 

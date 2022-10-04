@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { ISideNavProps } from '@components/side-nav/interface';
+import { ISideNavMenuItem, ISideNavProps } from '@components/side-nav/interface';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
@@ -12,29 +12,32 @@ const { Sider } = Layout;
 const SideNav: FC<ISideNavProps> = ({ isCollapsed, className }) => {
 	const { t } = useTranslation();
 	const location = useLocation();
-
-	const items = [
+	const menuItems: ISideNavMenuItem[] = [
 		{
 			href: '/',
 			exact: true,
 			title: t('nav.items.home', 'Home'),
+			icon: <UserOutlined />,
 		},
 		{
 			href: '/secondary',
 			title: t('nav.items.secondary', 'Secondary'),
+			icon: <UserOutlined />,
 		},
 		{
 			href: '/post',
 			title: t('nav.items.post', 'Post'),
+			icon: <UserOutlined />,
 		},
 		{
 			href: '/example',
 			title: t('nav.items.example', 'Example'),
+			icon: <UserOutlined />,
 		},
 	];
 
 	const getSelectedKeys = () => {
-		const match = items.find((item) => {
+		const match = menuItems.find((item) => {
 			if (item.exact) {
 				return new RegExp(location.pathname).exec(item.href);
 			}
@@ -42,6 +45,16 @@ const SideNav: FC<ISideNavProps> = ({ isCollapsed, className }) => {
 		});
 		return match ? [match.href] : [];
 	};
+
+	const getMenuItems = (items: ISideNavMenuItem[]) => {
+		return items.map(item => {
+			return {
+				label: <Link to={item.href}>{item.title}</Link>,
+				key: item.href,
+				icon: item.icon,
+			}
+		})
+	}
 
 	return (
 		<Sider
@@ -51,13 +64,12 @@ const SideNav: FC<ISideNavProps> = ({ isCollapsed, className }) => {
 			collapsed={isCollapsed}
 		>
 			<div className="side-nav__logo" />
-			<Menu theme="dark" mode="inline" selectedKeys={getSelectedKeys()}>
-				{items.map((item) => (
-					<Menu.Item key={item.href} icon={<UserOutlined />}>
-						<Link to={item.href}>{item.title}</Link>
-					</Menu.Item>
-				))}
-			</Menu>
+			<Menu
+				theme="dark"
+				mode="inline"
+				selectedKeys={getSelectedKeys()}
+				items={getMenuItems(menuItems)}
+			/>
 		</Sider>
 	);
 };

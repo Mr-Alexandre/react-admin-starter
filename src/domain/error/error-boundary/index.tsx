@@ -1,7 +1,7 @@
-import React, { ErrorInfo, ReactNode } from 'react';
+import React, { ErrorInfo, PropsWithChildren, ReactNode } from 'react';
 import { IErrorBoundaryProps as Props, IErrorBoundaryState as State, } from './interface';
 
-class ErrorBoundary extends React.Component<Props, State> {
+class ErrorBoundary extends React.Component<PropsWithChildren<Props>, State> {
 	constructor(props: Props) {
 		super(props);
 		this.state = {

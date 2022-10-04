@@ -5,7 +5,6 @@ import { observer } from 'mobx-react';
 import ExampleTodoModel from '@domain/example/components/example-todo/model';
 import { useTranslation } from 'react-i18next';
 import logo from '@public/images/logo.svg';
-import { DatePicker } from 'antd';
 
 const ExampleTodo = observer((props: Props) => {
 	const [model] = useState(() => new ExampleTodoModel());
@@ -32,7 +31,7 @@ const ExampleTodo = observer((props: Props) => {
 	): void => {
 		const {
 			code: keyName,
-			currentTarget: { value },
+			currentTarget: { value }
 		} = event;
 		if (keyName !== 'Enter') {
 			return;
@@ -49,14 +48,11 @@ const ExampleTodo = observer((props: Props) => {
 	};
 
 	return (
-		<div className="example">
-			<img src={logo} alt="logo" className="example__logo" />
+		<div className='example'>
+			<img src={logo} alt='logo' className='example__logo' />
 			<h4>Title: {props.title}</h4>
-			<div>
-				<DatePicker />
-			</div>
 			<input
-				type="text"
+				type='text'
 				placeholder={t('example.form.name.placeholder', 'Enter name')}
 				value={inputValue}
 				onChange={handleInputChange}
@@ -65,7 +61,7 @@ const ExampleTodo = observer((props: Props) => {
 			<ul>
 				{model.list.map((item, index) => (
 					<li
-						role="presentation"
+						role='presentation'
 						key={index}
 						onClick={() => removeItem(index)}
 					>

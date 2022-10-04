@@ -3,11 +3,11 @@ import { ILocale } from '@interfaces/locale';
 import { ILocaleContext } from './interface';
 import { useTranslation } from 'react-i18next';
 import { getLocaleByCode } from '@utils/locale';
-import { FALLBACK_LOCALE_CODE, LOCALES } from '@config/locale';
+import { DEFAULT_LOCALE_CODE, LOCALES } from '../../../locale.config';
 import { useConfigContext } from '../config';
 
 const initialState: ILocaleContext = {
-	locale: getLocaleByCode(FALLBACK_LOCALE_CODE, LOCALES)!,
+	locale: getLocaleByCode(DEFAULT_LOCALE_CODE, LOCALES)!,
 	setLocale: () => Promise.resolve(true),
 	isLoading: false,
 };
