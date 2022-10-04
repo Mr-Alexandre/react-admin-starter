@@ -1,7 +1,7 @@
-import { THttpClientInterceptorFunction } from '../interface';
+import { IHttpClientInterceptorFunction } from '../interface';
 import { IHttpHeaders } from '@interfaces/http-headers';
 
-const jwtTokenInterceptor: THttpClientInterceptorFunction = () => {
+const jwtTokenInterceptor: IHttpClientInterceptorFunction = () => {
 	return {
 		request: {
 			onFulfilled: (config) => {
@@ -11,8 +11,8 @@ const jwtTokenInterceptor: THttpClientInterceptorFunction = () => {
 					'Authorization'
 				] = `JWT ${token}`;
 				return newConfig;
-			},
-		},
+			}
+		}
 	};
 };
 

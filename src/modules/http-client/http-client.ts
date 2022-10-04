@@ -1,77 +1,82 @@
-import axios, { AxiosInstance } from 'axios';
-import {
+import { boundClass } from 'autobind-decorator';
+import type {
 	IHttpClient,
-	THttpClientInterceptor,
-	THttpClientInterceptorIds,
-	THttpClientRequestConfig,
-} from './interface';
+	IHttpClientInterceptor,
+	IHttpClientInterceptorIds,
+	IHttpClientRequestConfig,
+} from '@modules/http-client/interface';
+import { IHttpClientResponse } from '@modules/http-client/interface';
+import axios, { AxiosInstance } from 'axios';
 
-export default class HttpClient implements IHttpClient {
+@boundClass
+class HttpClient implements IHttpClient {
 	private axiosInstance: AxiosInstance;
 
-	constructor(options?: THttpClientRequestConfig) {
+	constructor(options?: IHttpClientRequestConfig) {
 		this.axiosInstance = axios.create(options);
 	}
 
-	public get<T, R>(
+	public get<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
 		url: string,
-		config?: THttpClientRequestConfig
+		config?: IHttpClientRequestConfig<D>
 	): Promise<R> {
-		return this.axiosInstance.get<T, R>(url, config);
+		return this.axiosInstance.get<T, R, D>(url, config);
 	}
 
-	public post<T, R>(
+	public post<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
 		url: string,
-		data?: unknown,
-		config?: THttpClientRequestConfig
+		data?: D,
+		config?: IHttpClientRequestConfig<D>
 	): Promise<R> {
-		return this.axiosInstance.post<T, R>(url, data, config);
+		return this.axiosInstance.post<T, R, D>(url, data, config);
 	}
 
-	public put<T, R>(
+	public put<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
 		url: string,
-		data?: unknown,
-		config?: THttpClientRequestConfig
+		data?: D,
+		config?: IHttpClientRequestConfig
 	): Promise<R> {
 		return this.axiosInstance.put<T, R>(url, data, config);
 	}
 
-	public patch<T, R>(
+	public patch<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
 		url: string,
-		data?: unknown,
-		config?: THttpClientRequestConfig
+		data?: D,
+		config?: IHttpClientRequestConfig
 	): Promise<R> {
 		return this.axiosInstance.patch<T, R>(url, data, config);
 	}
 
-	public delete<T, R>(
+	public delete<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
 		url: string,
-		config?: THttpClientRequestConfig
+		config?: IHttpClientRequestConfig<D>
 	): Promise<R> {
-		return this.axiosInstance.delete<T, R>(url, config);
+		return this.axiosInstance.delete<T, R, D>(url, config);
 	}
 
-	public head<T, R>(
+	public head<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
 		url: string,
-		config?: THttpClientRequestConfig
+		config?: IHttpClientRequestConfig<D>
 	): Promise<R> {
-		return this.axiosInstance.head<T, R>(url, config);
+		return this.axiosInstance.head<T, R, D>(url, config);
 	}
 
-	public options<T, R>(
+	public options<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
 		url: string,
-		config?: THttpClientRequestConfig
+		config?: IHttpClientRequestConfig<D>
 	): Promise<R> {
-		return this.axiosInstance.options<T, R>(url, config);
+		return this.axiosInstance.options<T, R, D>(url, config);
 	}
 
-	public request<T, R>(config: THttpClientRequestConfig) {
-		return this.axiosInstance.request<T, R>(config);
+	public request<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
+		config: IHttpClientRequestConfig<D>
+	): Promise<R> {
+		return this.axiosInstance.request<T, R, D>(config);
 	}
 
 	public addInterceptor(
-		interceptor: THttpClientInterceptor
-	): THttpClientInterceptorIds {
+		interceptor: IHttpClientInterceptor
+	): IHttpClientInterceptorIds {
 		if (interceptor?.request) {
 			this.axiosInstance.interceptors.request.use(
 				interceptor.request.onFulfilled,
@@ -87,7 +92,7 @@ export default class HttpClient implements IHttpClient {
 		return {};
 	}
 
-	public removeInterceptor(ids: THttpClientInterceptorIds): void {
+	public removeInterceptor(ids: IHttpClientInterceptorIds): void {
 		if (ids.request != null) {
 			this.axiosInstance.interceptors.request.eject(ids.request);
 		}
@@ -96,3 +101,5 @@ export default class HttpClient implements IHttpClient {
 		}
 	}
 }
+
+export default HttpClient;

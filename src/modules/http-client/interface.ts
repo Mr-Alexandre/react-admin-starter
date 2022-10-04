@@ -1,58 +1,81 @@
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export interface IHttpClient {
-	get<T, R>(url: string, config?: THttpClientRequestConfig): Promise<R>;
-
-	post<T, R>(
+	get<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
 		url: string,
-		data?: unknown,
-		config?: THttpClientRequestConfig
+		config?: IHttpClientRequestConfig<D>
 	): Promise<R>;
 
-	put<T, R>(
+	post<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
 		url: string,
-		data?: unknown,
-		config?: THttpClientRequestConfig
+		data?: D,
+		config?: IHttpClientRequestConfig<D>
 	): Promise<R>;
 
-	patch<T, R>(
+	put<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
 		url: string,
-		data?: unknown,
-		config?: THttpClientRequestConfig
+		data?: D,
+		config?: IHttpClientRequestConfig<D>
 	): Promise<R>;
 
-	delete<T, R>(url: string, config?: THttpClientRequestConfig): Promise<R>;
+	patch<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
+		url: string,
+		data?: D,
+		config?: IHttpClientRequestConfig<D>
+	): Promise<R>;
 
-	head<T, R>(url: string, config?: THttpClientRequestConfig): Promise<R>;
+	delete<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
+		url: string,
+		config?: IHttpClientRequestConfig<D>
+	): Promise<R>;
 
-	options<T, R>(url: string, config?: THttpClientRequestConfig): Promise<R>;
+	head<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
+		url: string,
+		config?: IHttpClientRequestConfig<D>
+	): Promise<R>;
 
-	request<T, R>(config: THttpClientRequestConfig): Promise<R>;
+	options<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
+		url: string,
+		config?: IHttpClientRequestConfig<D>
+	): Promise<R>;
+
+	request<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
+		config: IHttpClientRequestConfig<D>
+	): Promise<R>;
 
 	addInterceptor(
-		interceptor: THttpClientInterceptor
-	): THttpClientInterceptorIds;
+		interceptor: IHttpClientInterceptor
+	): IHttpClientInterceptorIds;
 
-	removeInterceptor(ids: THttpClientInterceptorIds): void;
+	removeInterceptor(ids: IHttpClientInterceptorIds): void;
 }
 
-export type THttpClientRequestConfig = AxiosRequestConfig;
-export type THttpClientResponse = AxiosResponse;
-export type THttpClientError = AxiosError;
+export interface IHttpClientRequestConfig<D = unknown>
+	extends AxiosRequestConfig<D> {
+}
 
-export type THttpClientInterceptorFunction = () => THttpClientInterceptor;
+export interface IHttpClientResponse<T = unknown> extends AxiosResponse<T> {
+}
 
-export type THttpClientInterceptor = {
-	request?: THttpClientInterceptorManager<THttpClientRequestConfig>;
-	response?: THttpClientInterceptorManager<THttpClientResponse>;
-};
+export interface IHttpClientError<T = unknown, D = unknown>
+	extends AxiosError<T, D> {
+}
 
-export type THttpClientInterceptorManager<T> = {
+export interface IHttpClientInterceptorFunction {
+	(): IHttpClientInterceptor;
+}
+
+export interface IHttpClientInterceptor {
+	request?: IHttpClientInterceptorManager<IHttpClientRequestConfig>;
+	response?: IHttpClientInterceptorManager<IHttpClientResponse>;
+}
+
+export interface IHttpClientInterceptorManager<T> {
 	onFulfilled?: (value: T) => T | Promise<T>;
 	onRejected?: (error: unknown) => unknown;
-};
+}
 
-export type THttpClientInterceptorIds = {
+export interface IHttpClientInterceptorIds {
 	request?: number;
 	response?: number;
-};
+}
