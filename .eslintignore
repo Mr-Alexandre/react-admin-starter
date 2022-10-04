@@ -6,3 +6,4 @@ webpack.config.js
 i18n.config.ts
 i18next-parser.config.js
 webpack-config
+reportWebVitals.js
