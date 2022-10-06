@@ -2,40 +2,38 @@ import React, { FC } from 'react';
 import { Button, Result } from 'antd';
 import { useTranslation } from 'react-i18next';
 import styles from './index.module.scss';
-import { useQuery } from 'react-query';
-import { IPost } from '@domain/example/interfaces/post';
-import { fetchPostList } from '../services/api';
 import VirtualTable from '@components/virtual-table';
+import { usePostList } from '@domain/example/hooks/post';
 
 const columns = [
 	{
 		title: 'ID',
 		dataIndex: 'id',
 		key: 'id',
-		width: 100,
+		width: 100
 	},
 	{
 		title: 'User ID',
 		dataIndex: 'userId',
 		key: 'userId',
-		width: 100,
+		width: 100
 	},
 	{
 		title: 'Title',
 		dataIndex: 'title',
-		key: 'title',
-	},
+		key: 'title'
+	}
 ];
 
 const ExamplePage: FC = () => {
 	const { t } = useTranslation();
-	const { isLoading, error, data } = useQuery<IPost[]>('get-posts', fetchPostList);
+	const { isLoading, error, data } = usePostList();
 	const dataSource = data?.map((post) => {
 		return {
 			key: post.id,
 			id: post.id,
 			userId: post.userId,
-			title: post.title,
+			title: post.title
 		};
 	}) || [];
 
@@ -85,7 +83,7 @@ const ExamplePage: FC = () => {
 						extra={[
 							<Button type="primary" key="console">
 								{t('global.retry', 'Retry')}
-							</Button>,
+							</Button>
 						]}
 					/>
 				)}

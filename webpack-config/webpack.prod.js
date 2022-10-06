@@ -2,6 +2,7 @@ const paths = require('./paths');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const baseCssModuleOptions = require('./css-loader.options');
 
 module.exports = () => ({
 	mode: 'production',
@@ -44,25 +45,7 @@ module.exports = () => ({
 					{
 						loader: 'css-loader',
 						options: {
-							sourceMap: true,
-							importLoaders: 2,
-							modules: {
-								auto: true,
-								mode: (resourcePath) => {
-									if (/pure.(sa|sc|c)ss$/i.test(resourcePath)) {
-										return 'pure';
-									}
-
-									if (/global.(sa|sc|c)ss$/i.test(resourcePath)) {
-										return 'global';
-									}
-
-									return 'local';
-								},
-								exportGlobals: true,
-								localIdentName: '[name]__[local]--[hash:base64:5]',
-								exportLocalsConvention: 'dashes'
-							}
+							...baseCssModuleOptions,
 						}
 					},
 					'postcss-loader',

@@ -5,7 +5,7 @@ const Error: FC = () => {
 	const { t } = useTranslation();
 
 	return (
-		<div>
+		<div data-testid="error">
 			{t('errors.messages.componentLoading', 'Component loading error')}
 			<span role="img" aria-label="sadness">
 				😔

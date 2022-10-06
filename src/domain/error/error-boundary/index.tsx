@@ -1,5 +1,5 @@
 import React, { ErrorInfo, PropsWithChildren, ReactNode } from 'react';
-import { IErrorBoundaryProps as Props, IErrorBoundaryState as State, } from './interface';
+import { IErrorBoundaryProps as Props, IErrorBoundaryState as State } from './interface';
 
 class ErrorBoundary extends React.Component<PropsWithChildren<Props>, State> {
 	constructor(props: Props) {
@@ -11,12 +11,16 @@ class ErrorBoundary extends React.Component<PropsWithChildren<Props>, State> {
 		};
 	}
 
-	componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-		this.setState({
+	static getDerivedStateFromError(error: Error) {
+		// Update state so the next render will show the fallback UI.
+		return {
 			hasError: true,
-			error: error,
-			errorInfo: errorInfo,
-		});
+			error
+		};
+	}
+
+	componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+		// You can also log the error to an error reporting service
 		this.props?.onError?.(error, errorInfo);
 	}
 
@@ -28,7 +32,7 @@ class ErrorBoundary extends React.Component<PropsWithChildren<Props>, State> {
 			return this.props.fallback;
 		}
 		return (
-			<div>
+			<div data-testid="error-boundary">
 				<h2>Something went wrong.</h2>
 				<details style={{ whiteSpace: 'pre-wrap' }}>
 					{this.state.error && this.state.error.toString()}

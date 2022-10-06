@@ -6,10 +6,7 @@ export async function asyncDelay(ms: number) {
 
 export function authGuard(): ICanActivate {
 	const canActivate = (props: unknown) => {
-		if (localStorage.getItem('auth')) {
-			return true;
-		}
-		return true;
+		return !!(localStorage.getItem('auth'));
 	};
 
 	return {

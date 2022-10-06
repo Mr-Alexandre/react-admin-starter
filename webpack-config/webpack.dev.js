@@ -1,5 +1,6 @@
 const ip = require('ip');
 const paths = require('./paths');
+const baseCssModuleOptions = require('./css-loader.options');
 
 module.exports = () => ({
 	mode: 'development',
@@ -33,25 +34,8 @@ module.exports = () => ({
 					{
 						loader: 'css-loader',
 						options: {
+							...baseCssModuleOptions,
 							sourceMap: true,
-							importLoaders: 1,
-							modules: {
-								auto: true,
-								mode: (resourcePath) => {
-									if (/pure.(sa|sc|c)ss$/i.test(resourcePath)) {
-										return "pure";
-									}
-
-									if (/global.(sa|sc|c)ss$/i.test(resourcePath)) {
-										return "global";
-									}
-
-									return "local";
-								},
-								exportGlobals: true,
-								localIdentName: "[name]__[local]--[hash:base64:5]",
-								exportLocalsConvention: 'dashes',
-							},
 						}
 					},
 					{

@@ -1,0 +1,25 @@
+.example-todo-page {
+	$this: &;
+
+	&__header {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 20px;
+
+		&-title {
+		}
+
+		&-controls {
+		}
+	}
+
+	&__table {
+		tbody {
+			tr {
+				cursor: pointer;
+			}
+		}
+	}
+}

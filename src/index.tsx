@@ -1,16 +1,18 @@
 import React, { FC, Suspense } from 'react';
-import AppRouting from './routing';
-import { BrowserRouter } from 'react-router-dom';
 import './styles/global.scss';
 import 'i18n.config';
+import AppRouting from './routing';
+import { BrowserRouter } from 'react-router-dom';
 import { LocaleProvider, useLocaleContext } from '@context/locale';
 import { getAntLocaleByCode } from '@utils/locale';
 import { ConfigProvider, useConfigContext } from '@context/config';
 import { ConfigProvider as AntConfigProvider } from 'antd';
 import Bootstrap from '@components/bootstrap';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { StoreProvider } from '@context/store';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import reactQueryConfig from '../react-query.config';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient(reactQueryConfig);
 
 const Base: FC = () => {
 	const { locale } = useLocaleContext();
@@ -34,7 +36,9 @@ const App: FC = () => {
 				<ConfigProvider>
 					<LocaleProvider>
 						<QueryClientProvider client={queryClient}>
-							<Base />
+							<StoreProvider>
+								<Base />
+							</StoreProvider>
 						</QueryClientProvider>
 					</LocaleProvider>
 				</ConfigProvider>

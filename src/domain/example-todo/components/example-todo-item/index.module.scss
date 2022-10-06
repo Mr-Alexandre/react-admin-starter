@@ -1,0 +1,24 @@
+.example-todo-item {
+	padding: 4px 8px;
+	background-color: darkgray;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	&__checkbox {
+		margin-right: 14px;
+		width: 19px;
+		height: 19px;
+	}
+
+	&__text {
+	}
+
+	&__remove-btn {
+		margin-left: 14px;
+	}
+
+	&__link {
+		margin-left: 14px;
+	}
+}

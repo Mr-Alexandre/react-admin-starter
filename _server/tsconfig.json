@@ -1,0 +1,36 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"baseUrl": "../",
+		"forceConsistentCasingInFileNames": true,
+		"strict": false,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"sourceMap": true,
+		"declaration": false,
+		"downlevelIteration": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"moduleResolution": "node",
+		"importHelpers": true,
+		"target": "es2015",
+		"module": "commonjs",
+		"lib": ["es2018", "dom"],
+		"esModuleInterop": true,
+		"paths": {
+			"@components/*": ["src/components/*"],
+			"@context/*": ["src/context/*"],
+			"@domain/*": ["src/domain/*"],
+			"@hooks/*": ["src/hooks/*"],
+			"@interfaces/*": ["src/interfaces/*"],
+			"@modules/*": ["src/modules/*"],
+			"@services/*": ["src/services/*"],
+			"@styles/*": ["src/styles/*"],
+			"@utils/*": ["src/utils/*"],
+			"@stores/*": ["src/stores/*"],
+			"@layouts/*": ["src/layouts/*"],
+			"@storybook/*": [".storybook/*"]
+		}
+	}
+}

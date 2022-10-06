@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import styles from './index.module.scss'
+import styles from './index.module.scss';
 import { IBaseLayoutProps } from './interface';
 import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
@@ -7,7 +7,7 @@ import Header from '@components/header';
 import SideNav from '@components/side-nav';
 import Breadcrumb from '@components/breadcrumb';
 
-const { Sider, Content } = Layout;
+const { Content } = Layout;
 
 const BaseLayout: FC<IBaseLayoutProps> = () => {
 	const [isCollapsed, setCollapsed] = useState(false);

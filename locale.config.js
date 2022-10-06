@@ -1,9 +1,8 @@
-// @ts-check
 const ruRu = require('antd/lib/locale/ru_RU');
 const enUs = require('antd/lib/locale/en_US');
 const kkKZ = require('antd/lib/locale/kk_KZ');
 
-/** @type {import("./locale-config")} */
+/** @type {import("./locale.config")} */
 const LOCALES = [
 	{
 		code: 'en',

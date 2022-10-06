@@ -8,8 +8,8 @@ const Bootstrap: FC = () => {
 		<div className={styles.bootstrap}>
 			<div className={styles.bootstrap__box}>
 				<img
-					src='/public/images/logo.svg'
-					alt='logo'
+					src="/public/images/logo.svg"
+					alt="logo"
 					className={styles.bootstrap__logo}
 				/>
 				<Spin

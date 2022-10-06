@@ -55,3 +55,6 @@ testem.log
 Thumbs.db
 .AppleDouble
 .LSOverride
+
+### StorybookJs ###
+storybook-static/
