@@ -1,6 +1,6 @@
 import React, { FC, Suspense } from 'react';
 import './styles/global.scss';
-import 'i18n.config';
+import i18n from 'i18n.config';
 import AppRouting from './routing';
 import { BrowserRouter } from 'react-router-dom';
 import { LocaleProvider, useLocaleContext } from '@context/locale';
@@ -11,6 +11,7 @@ import Bootstrap from '@components/bootstrap';
 import { StoreProvider } from '@context/store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import reactQueryConfig from '../react-query.config';
+import { I18nextProvider } from 'react-i18next';
 
 const queryClient = new QueryClient(reactQueryConfig);
 
@@ -33,15 +34,17 @@ const App: FC = () => {
 	return (
 		<React.StrictMode>
 			<Suspense fallback={<Bootstrap />}>
-				<ConfigProvider>
-					<LocaleProvider>
-						<QueryClientProvider client={queryClient}>
-							<StoreProvider>
-								<Base />
-							</StoreProvider>
-						</QueryClientProvider>
-					</LocaleProvider>
-				</ConfigProvider>
+				<I18nextProvider i18n={i18n}>
+					<ConfigProvider>
+						<LocaleProvider>
+							<QueryClientProvider client={queryClient}>
+								<StoreProvider>
+									<Base />
+								</StoreProvider>
+							</QueryClientProvider>
+						</LocaleProvider>
+					</ConfigProvider>
+				</I18nextProvider>
 			</Suspense>
 		</React.StrictMode>
 	);

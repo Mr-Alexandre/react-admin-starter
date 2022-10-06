@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Button, Result } from 'antd';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, withTranslation } from 'react-i18next';
 import styles from './index.module.scss';
 import VirtualTable from '@components/virtual-table';
 import { usePostList } from '@domain/example/hooks/post';
@@ -44,10 +44,10 @@ const ExamplePage: FC = () => {
 	return (
 		<>
 			<header className={styles.examplePage__header}>
-				<h2 className={styles.examplePage__headerTitle}>{t('example.pages.index.title', 'Posts')}</h2>
+				<h2 className={styles.examplePage__headerTitle}>{t('example:indexPage.title', 'Posts')}</h2>
 
 				<div className={styles.examplePage__headerControls}>
-					<Button key="1" type="primary">{t('global.filters', 'Filters')}</Button>
+					<Button key="1" type="primary">{t('example:indexPage.filters', 'Filters')}</Button>
 				</div>
 			</header>
 
@@ -78,11 +78,11 @@ const ExamplePage: FC = () => {
 				) : (
 					<Result
 						status="error"
-						title={t('error.messages.baseResult.title', 'An error has occurred')}
-						subTitle={t('error.messages.baseResult.subtitle', 'An unexpected error occurred, please check your internet connection and try again')}
+						title={t('common:error.messages.baseResult.title', 'An error has occurred')}
+						subTitle={t('common:error.messages.baseResult.subtitle', 'An unexpected error occurred, please check your internet connection and try again')}
 						extra={[
 							<Button type="primary" key="console">
-								{t('global.retry', 'Retry')}
+								{t('common:retry', 'Retry')}
 							</Button>
 						]}
 					/>
@@ -91,4 +91,4 @@ const ExamplePage: FC = () => {
 	);
 };
 
-export default ExamplePage;
+export default withTranslation(['common'])(ExamplePage);

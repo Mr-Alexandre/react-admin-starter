@@ -1,49 +1,38 @@
 {
-  "errors": {
-    "messages": {
-      "componentLoading": "Ошибка загрузки компонента"
-    }
-  },
-  "header": {
-    "userMenu": {
-      "items": {
-        "personalArea": "Личный кабинет",
-        "logout": "Выйти"
-      }
-    }
-  },
-  "loading": {
-    "messages": {
-      "componentLoading": "Компонент загружается..."
-    }
-  },
-  "nav": {
-    "items": {
-      "home": "Главная",
-      "secondary": "Вторичная",
-      "post": "Посты",
-      "example": "Пример"
+  "components": {
+    "error": {
+      "text": "Ошибка загрузки компонента"
     },
-    "back": "Назад",
-    "backToHome": "Вернуться домой"
-  },
-  "example": {
-    "form": {
-      "name": {
-        "placeholder": "Введите имя"
+    "example": {
+      "title": "Пример",
+      "storeTheme": {
+        "title": "Хранилище темы"
+      },
+      "toggleThemeBtn": {
+        "text": "Переключить тему"
       }
     },
-    "pages": {
-      "index": {
-        "title": "Посты"
+    "header": {
+      "menu": {
+        "options": {
+          "personalArea": "Личный кабинет",
+          "logout": "Выйти"
+        }
+      }
+    },
+    "loading": {
+      "text": "Компонент загружается..."
+    },
+    "sideNav": {
+      "menu": {
+        "options": {
+          "home": "Главная",
+          "secondary": "Вторичная",
+          "post": "Посты",
+          "example": "Пример"
+        }
       }
     }
-  },
-  "global": {
-    "filters": "Фильтры",
-    "retry": "Повторить",
-    "copyright": "L.A.V. react starter ©2022 Создано L.A.V.",
-    "detail": "Детади"
   },
   "error": {
     "messages": {
@@ -53,10 +42,18 @@
       }
     }
   },
-  "secondaryDetail": {
-    "title": "Детали страницы с id: {{id}}"
+  "retry": "Повторить",
+  "nav": {
+    "back": "Назад",
+    "backToHome": "Вернуться домой"
   },
-  "secondary": {
-    "title": "Вторичная страница"
+  "copyright": {
+    "text": "L.A.V. стартовый набор react ©2022 Создано L.A.V."
+  },
+  "theme": {
+    "options": {
+      "light": "светлая",
+      "dark": "темная"
+    }
   }
 }

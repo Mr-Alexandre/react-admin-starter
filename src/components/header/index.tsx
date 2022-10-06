@@ -14,11 +14,11 @@ const UserMenu: FC = () => {
 
 	const menuItems = [
 		{
-			label: t('header.userMenu.items.personalArea', 'Personal Area'),
+			label: t('common:components.header.menu.options.personalArea', 'Personal Area'),
 			key: 'personal-area'
 		},
 		{
-			label: t('header.userMenu.items.logout', 'Logout'),
+			label: t('common:components.header.menu.options.logout', 'Logout'),
 			key: 'logout'
 		}
 	];

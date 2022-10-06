@@ -10,6 +10,7 @@ i18n-test.config.ts
 i18next-parser.config.js
 locale.config.js
 jest.config.js
-jest.setup.ts
+jest.setup.js
 reportWebVitals.js
 serve.js
+src/test

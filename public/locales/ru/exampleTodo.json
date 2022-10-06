@@ -1,0 +1,34 @@
+{
+  "clearBtn": {
+    "text": "Очистить список"
+  },
+  "form": {
+    "name": {
+      "placeholder": "Введите имя"
+    }
+  },
+  "item": {
+    "remove": "Удалить",
+    "view": "Просмотр"
+  },
+  "detailPage": {
+    "loading": "Загрузка...",
+    "error": "Ошибка",
+    "data": {
+      "text": {
+        "label": "Текст"
+      },
+      "completed": {
+        "label": "Завершен",
+        "true": "да",
+        "false": "нет"
+      }
+    },
+    "empty": "список пуст"
+  },
+  "indexPage": {
+    "loading": "Загрузка...",
+    "error": "Ошибка",
+    "empty": "Пусто"
+  }
+}

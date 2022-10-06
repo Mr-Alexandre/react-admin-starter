@@ -1,0 +1,20 @@
+{
+  "form": {
+    "title": "Registration",
+    "email": {
+      "placeholder": "Email"
+    },
+    "password": {
+      "placeholder": "Password"
+    },
+    "retryPassword": {
+      "placeholder": "Retry Password"
+    },
+    "submitBtn": {
+      "text": "Registration"
+    },
+    "login": {
+      "text": "Or <1>login!</1>"
+    }
+  }
+}

@@ -3,7 +3,7 @@ import ExampleTodo from '@domain/example-todo/components/example-todo';
 import styles from './index.module.scss';
 import { IExampleTodoPageProps } from '@domain/example-todo/pages/interface';
 import { useTodoList } from '@domain/example-todo/hooks/todo';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, withTranslation } from 'react-i18next';
 
 const ExampleTodoPage: FC<IExampleTodoPageProps> = () => {
 	const { t } = useTranslation();
@@ -28,4 +28,4 @@ const ExampleTodoPage: FC<IExampleTodoPageProps> = () => {
 	return <div>{t('exampleTodo:indexPage.empty', 'Empty')}</div>;
 };
 
-export default ExampleTodoPage;
+export default withTranslation(['exampleTodo'])(ExampleTodoPage);

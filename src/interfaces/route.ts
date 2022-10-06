@@ -1,6 +1,4 @@
-import { RouteObject } from 'react-router-dom';
+import { BreadcrumbsRoute } from 'use-react-router-breadcrumbs';
 
-export interface IRoute extends RouteObject {
-	breadcrumb?: string;
-	children?: IRoute[];
+export interface IRoute extends BreadcrumbsRoute {
 }

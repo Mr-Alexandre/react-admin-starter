@@ -1,0 +1,17 @@
+{
+  "home": {
+    "leaf": "home",
+    "secondary": {
+      "leaf": "secondary",
+      "[id]": {
+        "leaf": "{{id}}"
+      }
+    },
+    "post": {
+      "leaf": "post"
+    },
+    "example": {
+      "leaf": "example"
+    }
+  }
+}

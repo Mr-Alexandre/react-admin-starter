@@ -16,22 +16,22 @@ const SideNav: FC<ISideNavProps> = ({ isCollapsed, className }) => {
 		{
 			href: '/',
 			exact: true,
-			title: t('nav.items.home', 'Home'),
+			title: t('common:components.sideNav.menu.options.home', 'Home'),
 			icon: <UserOutlined />,
 		},
 		{
 			href: '/secondary',
-			title: t('nav.items.secondary', 'Secondary'),
+			title: t('common:components.sideNav.menu.options.secondary', 'Secondary'),
 			icon: <UserOutlined />,
 		},
 		{
 			href: '/post',
-			title: t('nav.items.post', 'Post'),
+			title: t('common:components.sideNav.menu.options.post', 'Post'),
 			icon: <UserOutlined />,
 		},
 		{
 			href: '/example',
-			title: t('nav.items.example', 'Example'),
+			title: t('common:components.sideNav.menu.options.example', 'Example'),
 			icon: <UserOutlined />,
 		},
 	];

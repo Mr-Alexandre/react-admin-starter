@@ -2,17 +2,14 @@ import React, { FC, useState } from 'react';
 import styles from './index.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Checkbox, Form, Input } from 'antd';
-import {
-	EyeInvisibleOutlined,
-	EyeTwoTone,
-	LockOutlined,
-	MailOutlined,
-} from '@ant-design/icons';
+import { EyeInvisibleOutlined, EyeTwoTone, LockOutlined, MailOutlined } from '@ant-design/icons';
 import { sleep } from '@utils/async';
+import { Trans, useTranslation, withTranslation } from 'react-i18next';
 
-const SignInPage: FC = () => {
+const LoginPage: FC = () => {
 	const [isLoading, setLoading] = useState(false);
 	const navigate = useNavigate();
+	const { t } = useTranslation();
 
 	const onFinish = async () => {
 		setLoading(true);
@@ -28,14 +25,16 @@ const SignInPage: FC = () => {
 				onFinish={onFinish}
 			>
 				<header className={styles.singIn__header}>
-					<h3 className={styles.singIn__title}>Authorization</h3>
+					<h3 className={styles.singIn__title}>
+						{t('login:form.title', 'Authorization')}
+					</h3>
 				</header>
 				<Form.Item name="email">
 					<Input
 						prefix={
 							<MailOutlined className="site-form-item-icon" />
 						}
-						placeholder="Email"
+						placeholder={t('login:form.email.placeholder', 'Email')}
 					/>
 				</Form.Item>
 				<Form.Item name="password">
@@ -43,7 +42,7 @@ const SignInPage: FC = () => {
 						prefix={
 							<LockOutlined className="site-form-item-icon" />
 						}
-						placeholder="Password"
+						placeholder={t('login:form.password.placeholder', 'Password')}
 						iconRender={(visible) =>
 							visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
 						}
@@ -51,10 +50,14 @@ const SignInPage: FC = () => {
 				</Form.Item>
 				<Form.Item>
 					<Form.Item name="remember" valuePropName="checked" noStyle>
-						<Checkbox>Remember me</Checkbox>
+						<Checkbox>
+							{t('login:form.rememberMe.label', 'Remember me')}
+						</Checkbox>
 					</Form.Item>
 
-					<a>Forgot password</a>
+					<a>
+						{t('login:form.forgotPassword.text', 'Forgot password')}
+					</a>
 				</Form.Item>
 
 				<footer>
@@ -64,13 +67,15 @@ const SignInPage: FC = () => {
 						className={styles.singIn__btn}
 						loading={isLoading}
 					>
-						Sign in
+						{t('login:form.submitBtn.text', 'Login')}
 					</Button>
-					Or <Link to="/sign-up">register now!</Link>
+					<Trans i18nKey="login:form.registerNow.text">
+						Or <Link to="/registration">register now!</Link>
+					</Trans>
 				</footer>
 			</Form>
 		</div>
 	);
 };
 
-export default SignInPage;
+export default withTranslation(['login'])(LoginPage);

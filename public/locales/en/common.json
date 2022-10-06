@@ -1,49 +1,38 @@
 {
-  "errors": {
-    "messages": {
-      "componentLoading": "Component loading error"
-    }
-  },
-  "header": {
-    "userMenu": {
-      "items": {
-        "personalArea": "Personal Area",
-        "logout": "Logout"
-      }
-    }
-  },
-  "loading": {
-    "messages": {
-      "componentLoading": "Component is loading..."
-    }
-  },
-  "nav": {
-    "items": {
-      "home": "Home",
-      "secondary": "Secondary",
-      "post": "Post",
-      "example": "Example"
+  "components": {
+    "error": {
+      "text": "Component loading error"
     },
-    "back": "Back",
-    "backToHome": "Back to Home"
-  },
-  "example": {
-    "form": {
-      "name": {
-        "placeholder": "Enter name"
+    "example": {
+      "title": "Example",
+      "storeTheme": {
+        "title": "Store theme"
+      },
+      "toggleThemeBtn": {
+        "text": "Toggle theme"
       }
     },
-    "pages": {
-      "index": {
-        "title": "Posts"
+    "header": {
+      "menu": {
+        "options": {
+          "personalArea": "Personal Area",
+          "logout": "Logout"
+        }
+      }
+    },
+    "loading": {
+      "text": "Component is loading..."
+    },
+    "sideNav": {
+      "menu": {
+        "options": {
+          "home": "Home",
+          "secondary": "Secondary",
+          "post": "Post",
+          "example": "Example"
+        }
       }
     }
-  },
-  "global": {
-    "filters": "Filters",
-    "retry": "Retry",
-    "copyright": "L.A.V. react starter ©2022 Created by L.A.V.",
-    "detail": "Detail"
   },
   "error": {
     "messages": {
@@ -53,10 +42,18 @@
       }
     }
   },
-  "secondaryDetail": {
-    "title": "Detail page with id: {{id}}"
+  "retry": "Retry",
+  "nav": {
+    "back": "Back",
+    "backToHome": "Back to Home"
   },
-  "secondary": {
-    "title": "Secondary page"
+  "copyright": {
+    "text": "L.A.V. react starter ©2022 Created by L.A.V."
+  },
+  "theme": {
+    "options": {
+      "light": "light",
+      "dark": "dark"
+    }
   }
 }

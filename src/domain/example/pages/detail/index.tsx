@@ -7,3 +7,5 @@ const ExampleDetailPage: FC = () => {
 		</>
 	);
 };
+
+export default ExampleDetailPage;

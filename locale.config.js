@@ -1,6 +1,5 @@
 const ruRu = require('antd/lib/locale/ru_RU');
 const enUs = require('antd/lib/locale/en_US');
-const kkKZ = require('antd/lib/locale/kk_KZ');
 
 /** @type {import("./locale.config")} */
 const LOCALES = [
@@ -26,10 +25,6 @@ const ANT_LOCALES = [
 	{
 		code: 'en',
 		locale: enUs,
-	},
-	{
-		code: 'kz',
-		locale: kkKZ,
 	},
 ];
 

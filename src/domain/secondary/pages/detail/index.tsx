@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ISecondaryDetailProps } from '@domain/secondary/pages/detail/interface';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, withTranslation } from 'react-i18next';
 
 const SecondaryDetailPage: FC<ISecondaryDetailProps> = () => {
 	const { id } = useParams();
@@ -10,17 +10,17 @@ const SecondaryDetailPage: FC<ISecondaryDetailProps> = () => {
 	return (
 		<>
 			<h1>
-				{t('secondaryDetail.title', 'Detail page with id: {{id}}', {
+				{t('secondary:detailPage.title', 'Detail page with id: {{id}}', {
 					id,
 				})}
 			</h1>
 			<ul>
 				<li>
-					<Link to="/secondary">{t('nav.back', 'Back')}</Link>
+					<Link to="/secondary">{t('common:nav.back', 'Back')}</Link>
 				</li>
 			</ul>
 		</>
 	);
 };
 
-export default SecondaryDetailPage;
+export default withTranslation(['secondary'])(SecondaryDetailPage);

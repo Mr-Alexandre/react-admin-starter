@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { IExampleTodoDetailPageProps } from '@domain/example-todo/pages/detail/interface';
 import { toNumber } from '@utils/number';
 import { useTodo } from '@domain/example-todo/hooks/todo';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, withTranslation } from 'react-i18next';
 import { useQueryParams } from '@hooks/query-params';
 
 const ExampleTodoDetailPage: FC<IExampleTodoDetailPageProps> = () => {
@@ -52,4 +52,4 @@ const ExampleTodoDetailPage: FC<IExampleTodoDetailPageProps> = () => {
 	return <div>{t('exampleTodo:detailPage.empty', 'Undefined')}</div>;
 };
 
-export default ExampleTodoDetailPage;
+export default withTranslation(['exampleTodo'])(ExampleTodoDetailPage);

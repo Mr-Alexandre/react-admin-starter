@@ -43,6 +43,9 @@ i18n.use(initReactI18next)
 			escapeValue: false // not needed for react!!
 		},
 		resources: getResources(),
+		react: {
+			useSuspense: false
+		}
 	});
 
 export default i18n;

@@ -8,6 +8,7 @@ import LazyLoad from '@components/lazy-load';
 import Redirect from '@components/redirect';
 import { IRoute } from '@interfaces/route';
 import BaseLayout from '@layouts/base';
+import BreadcrumbItem from '@components/breadcrumb-item';
 
 export const routes: IRoute[] = [
 	{
@@ -15,7 +16,7 @@ export const routes: IRoute[] = [
 		children: [
 			{
 				index: true,
-				breadcrumb: 'Home',
+				breadcrumb: BreadcrumbItem,
 				element: (
 					<LazyLoad
 						loadComponent={() => import('@domain/home/pages')}
@@ -26,10 +27,11 @@ export const routes: IRoute[] = [
 			},
 			{
 				path: 'secondary',
-				breadcrumb: 'Secondary',
+				breadcrumb: BreadcrumbItem,
 				children: [
 					{
 						index: true,
+						breadcrumb: BreadcrumbItem,
 						element: (
 							<LazyLoad
 								loadComponent={() => import('@domain/secondary/pages')}
@@ -40,6 +42,7 @@ export const routes: IRoute[] = [
 					},
 					{
 						path: ':id',
+						breadcrumb: BreadcrumbItem,
 						element: (
 							<LazyLoad
 								loadComponent={() =>
@@ -54,7 +57,7 @@ export const routes: IRoute[] = [
 			},
 			{
 				path: 'post',
-				breadcrumb: 'Post',
+				breadcrumb: BreadcrumbItem,
 				element: (
 					<LazyLoad
 						loadComponent={() => import('@domain/post/pages')}
@@ -65,7 +68,7 @@ export const routes: IRoute[] = [
 			},
 			{
 				path: 'example',
-				breadcrumb: 'Example',
+				breadcrumb: BreadcrumbItem,
 				element: (
 					<LazyLoad
 						loadComponent={() => import('@domain/example/pages')}
@@ -76,6 +79,7 @@ export const routes: IRoute[] = [
 			},
 			{
 				path: '*',
+				breadcrumb: BreadcrumbItem,
 				element: <NotFoundPage />,
 			},
 		],
@@ -84,20 +88,22 @@ export const routes: IRoute[] = [
 		element: <AuthLayout />,
 		children: [
 			{
-				path: 'sign-in',
+				path: 'login',
+				breadcrumb: BreadcrumbItem,
 				element: (
 					<LazyLoad
-						loadComponent={() => import('@domain/auth/pages/sign-in')}
+						loadComponent={() => import('@domain/auth/pages/login')}
 						fallback={<LoaderComponent />}
 						error={<ErrorComponent />}
 					/>
 				),
 			},
 			{
-				path: 'sign-up',
+				path: 'registration',
+				breadcrumb: BreadcrumbItem,
 				element: (
 					<LazyLoad
-						loadComponent={() => import('@domain/auth/pages/sign-up')}
+						loadComponent={() => import('@domain/auth/pages/registration')}
 						fallback={<LoaderComponent />}
 						error={<ErrorComponent />}
 					/>
@@ -105,12 +111,14 @@ export const routes: IRoute[] = [
 			},
 			{
 				path: '*',
-				element: <Redirect to="/sign-in" />,
+				breadcrumb: BreadcrumbItem,
+				element: <Redirect to="/login" />,
 			},
 		],
 	},
 	{
 		path: '*',
+		breadcrumb: BreadcrumbItem,
 		element: <NotFoundPage />,
 	},
 ];

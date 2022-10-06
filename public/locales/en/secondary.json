@@ -1,0 +1,9 @@
+{
+  "detailPage": {
+    "title": "Detail page with id: {{id}}"
+  },
+  "indexPage": {
+    "title": "Secondary page",
+    "detail": "Detail"
+  }
+}

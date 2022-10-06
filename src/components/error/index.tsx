@@ -6,7 +6,7 @@ const Error: FC = () => {
 
 	return (
 		<div data-testid="error">
-			{t('errors.messages.componentLoading', 'Component loading error')}
+			{t('common:components.error.text', 'Component loading error')}
 			<span role="img" aria-label="sadness">
 				😔
 			</span>

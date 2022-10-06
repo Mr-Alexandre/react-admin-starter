@@ -6,7 +6,7 @@ const Loader: FC = () => {
 
 	return (
 		<div data-testid="loader">
-			{t('loading.messages.componentLoading', 'Component is loading...')}
+			{t('common:components.loading.text', 'Component is loading...')}
 		</div>
 	);
 };

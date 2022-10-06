@@ -10,6 +10,10 @@ i18n.use(Backend)
 	.init({
 		fallbackLng: DEFAULT_LOCALE_CODE,
 		defaultNS: DEFAULT_LOCALE_NAMESPACE,
+		ns: [
+			'common',
+			'breadcrumb'
+		],
 		debug: process.env.NODE_ENV === 'development',
 		supportedLngs: LOCALES.map((locale) => locale.code),
 		interpolation: {
@@ -18,6 +22,9 @@ i18n.use(Backend)
 		backend: {
 			loadPath: '/public/locales/{{lng}}/{{ns}}.json',
 		},
+		react: {
+			useSuspense: false
+		}
 	});
 
 export default i18n;

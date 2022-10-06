@@ -1,11 +1,16 @@
 import React, { FC } from 'react';
+import { useTranslation, withTranslation } from 'react-i18next';
 
 const PostPage: FC = () => {
+	const { t } = useTranslation();
+
 	return (
 		<>
-			<p>Post page</p>
+			<p>
+				{t('post:title', 'Post page')}
+			</p>
 		</>
 	);
 };
 
-export default PostPage;
+export default withTranslation(['post'])(PostPage);

@@ -1,0 +1,34 @@
+{
+  "clearBtn": {
+    "text": "Clear list"
+  },
+  "form": {
+    "name": {
+      "placeholder": "Enter name"
+    }
+  },
+  "item": {
+    "remove": "Remove",
+    "view": "View"
+  },
+  "detailPage": {
+    "loading": "Loading...",
+    "error": "Error",
+    "data": {
+      "text": {
+        "label": "Text"
+      },
+      "completed": {
+        "label": "Completed",
+        "true": "true",
+        "false": "false"
+      }
+    },
+    "empty": "Undefined"
+  },
+  "indexPage": {
+    "loading": "Loading...",
+    "error": "Error",
+    "empty": "Empty"
+  }
+}

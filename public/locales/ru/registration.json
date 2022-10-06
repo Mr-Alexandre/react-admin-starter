@@ -1,0 +1,20 @@
+{
+  "form": {
+    "title": "Регистрация",
+    "email": {
+      "placeholder": "Email"
+    },
+    "password": {
+      "placeholder": "Пароль"
+    },
+    "retryPassword": {
+      "placeholder": "Повторите пароль"
+    },
+    "submitBtn": {
+      "text": "Зарегистрироваться"
+    },
+    "login": {
+      "text": "Или <1>войдите!</1>"
+    }
+  }
+}

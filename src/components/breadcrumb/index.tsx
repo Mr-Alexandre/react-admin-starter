@@ -8,7 +8,6 @@ import styles from './index.module.scss';
 
 const Breadcrumb: FC<IBreadcrumbProps> = ({ className }) => {
 	const breadcrumbs = useBreadcrumbs(routes);
-	breadcrumbs.splice(0, breadcrumbs.length > 1 ? 1 : 0);
 
 	return (
 		<AntBreadcrumb className={classNames(className, styles.breadcrumb)}>
