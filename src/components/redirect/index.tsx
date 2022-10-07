@@ -7,7 +7,7 @@ const Redirect: FC<IRedirectProps> = ({ to }) => {
 
 	useEffect(() => {
 		navigate(to);
-	}, []);
+	}, [navigate, to]);
 
 	return <></>;
 };

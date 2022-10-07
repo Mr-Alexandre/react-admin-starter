@@ -1,5 +1,6 @@
 import { FieldPath } from 'react-hook-form';
 
+//eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface IValidationError<TFields extends Record<string, any>> {
 	title: string;
 	titleKey: string;

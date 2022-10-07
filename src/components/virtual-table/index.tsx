@@ -1,4 +1,4 @@
-import React, { FC, Ref, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import ResizeObserver from 'rc-resize-observer';
 import { IVirtualTableProps } from '@components/virtual-table/interface';
 import { Table } from 'antd';
@@ -9,20 +9,7 @@ import { CustomizeScrollBody } from 'rc-table/lib/interface';
 const VirtualTable: FC<IVirtualTableProps> = (props) => {
 	const { columns, scroll } = props;
 	const [tableWidth, setTableWidth] = useState(0);
-	const gridRef = useRef<VariableSizeGrid<unknown>>();
-	const [connectObject] = useState<Ref<{ scrollLeft: number; }>>(() => {
-		return new (class {
-			get scrollLeft() {
-				return 0;
-			}
-
-			set scrollLeft(scrollLeft: number) {
-				if (gridRef.current) {
-					gridRef.current?.scrollTo({ scrollLeft });
-				}
-			}
-		});
-	});
+	const gridRef = useRef<VariableSizeGrid>(null);
 	const widthColumnCount = columns?.filter(({ width }) => !width)?.length || 0;
 	const mergedColumns = columns?.map(column => {
 		if (column.width) {
@@ -34,6 +21,27 @@ const VirtualTable: FC<IVirtualTableProps> = (props) => {
 			width: Math.floor(tableWidth / widthColumnCount),
 		};
 	}) || [];
+	const [connectObject] = useState<{ scrollLeft: number; }>(() => {
+		return new (class {
+			get scrollLeft() {
+				if (gridRef.current) {
+					//eslint-disable-next-line @typescript-eslint/ban-ts-comment
+					// @ts-ignore
+					// eslint-disable-next-line @typescript-eslint/no-unsafe-return
+					return gridRef.current?.state?.scrollLeft;
+				}
+				//eslint-disable-next-line @typescript-eslint/ban-ts-comment
+				// @ts-ignore
+				return null;
+			}
+
+			set scrollLeft(scrollLeft: number) {
+				if (gridRef.current) {
+					gridRef.current.scrollTo({ scrollLeft });
+				}
+			}
+		});
+	});
 
 	const resetVirtualGrid = () => {
 		gridRef.current?.resetAfterIndices({
@@ -50,22 +58,24 @@ const VirtualTable: FC<IVirtualTableProps> = (props) => {
 		ref,
 		onScroll
 	}) => {
+		//eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
 		ref.current = connectObject;
 		const totalHeight = rawData.length * 54;
 
 		return (
 			<VariableSizeGrid
-				// @ts-ignore
 				ref={gridRef}
 				className="virtual-table__grid"
 				columnCount={mergedColumns.length}
 				columnWidth={(index: number) => {
 					const { width } = mergedColumns[index];
+					//eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 					return totalHeight > scroll!.y! && index === mergedColumns.length - 1
 						? (width as number) - scrollbarSize - 1
 						: (width as number);
 				}}
+				//eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 				height={scroll!.y as number}
 				rowCount={rawData.length}
 				rowHeight={() => 54}
@@ -89,7 +99,9 @@ const VirtualTable: FC<IVirtualTableProps> = (props) => {
 						})}
 						style={style}
 					>
-						{/*@ts-ignore*/}
+						{/* eslint-disable @typescript-eslint/no-unsafe-member-access */}
+						{/* eslint-disable-next-line @typescript-eslint/ban-ts-comment*/}
+						{/* @ts-ignore*/}
 						{rawData[rowIndex][mergedColumns[columnIndex]?.dataIndex]}
 					</div>
 				)}

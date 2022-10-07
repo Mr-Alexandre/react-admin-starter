@@ -31,9 +31,7 @@ const ExamplePage: FC = () => {
 	const dataSource = data?.map((post) => {
 		return {
 			key: post.id,
-			id: post.id,
-			userId: post.userId,
-			title: post.title
+			...post,
 		};
 	}) || [];
 

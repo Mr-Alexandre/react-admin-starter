@@ -29,14 +29,18 @@ const LanguageToggle: FC<ILanguageToggleProps> = ({ className }) => {
 	const { locale, setLocale, isLoading } = useLocaleContext();
 	const { locales } = useConfigContext();
 
+	const changeLanguage = async (languageKey: string) => {
+		const nextLocale = getLocaleByCode(languageKey, locales);
+		if (!nextLocale) {
+			return;
+		}
+		await setLocale(nextLocale);
+	};
+
 	const handleLanguageMenu = useCallback(
 		(event: MenuInfo) => changeLanguage(event.key),
 		[]
 	);
-
-	const changeLanguage = async (languageKey: string) => {
-		await setLocale(getLocaleByCode(languageKey, locales)!);
-	};
 
 	return (
 		<Dropdown

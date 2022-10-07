@@ -1,6 +1,10 @@
-import { Table } from 'antd';
+import { TableProps } from 'antd/lib/table/Table';
 
-type TableParams = Parameters<typeof Table>[0];
+//eslint-disable-next-line @typescript-eslint/no-explicit-any
+export interface IVirtualTableDataSource extends Record<string, any> {
+	key: string | number
+}
 
-export interface IVirtualTableProps extends TableParams {
+export interface IVirtualTableProps<TData = IVirtualTableDataSource> extends TableProps<TData> {
+
 }
