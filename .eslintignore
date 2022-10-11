@@ -1,6 +1,7 @@
 node_modules
 dist
-_server
+_mock-api-server
+server
 config
 webpack.config.js
 webpack-config

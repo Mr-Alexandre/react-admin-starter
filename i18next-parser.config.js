@@ -6,6 +6,8 @@ module.exports = {
 	defaultNamespace: DEFAULT_LOCALE_NAMESPACE,
 	// Default namespace used in your i18next config
 
+	keepRemoved: false,
+
 	lexers: {
 		js: ['JsxLexer'], // if you're writing jsx inside .js files, change this to JsxLexer
 		ts: ['JsxLexer'],

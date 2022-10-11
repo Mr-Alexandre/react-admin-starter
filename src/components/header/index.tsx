@@ -1,16 +1,27 @@
 import React, { FC } from 'react';
 import styles from './index.module.scss';
-import { Avatar, Dropdown, Layout, Menu } from 'antd';
+import { Avatar, Dropdown, Layout, Menu, MenuProps } from 'antd';
 import { IHeaderProps } from '@components/header/interface';
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from '@components/language-toggle';
 import classNames from 'classnames';
 import { MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined } from '@ant-design/icons';
+import { useAuth } from '@domain/auth/context/auth';
+import { useNavigate } from 'react-router-dom';
+import { useLogout } from '@domain/auth/hooks/auth';
 
 const { Header: AntHeader } = Layout;
 
 const UserMenu: FC = () => {
 	const { t } = useTranslation();
+	const { logout } = useAuth();
+	const navigate = useNavigate();
+	const { mutate: requestLogout } = useLogout({
+		onSuccess: () => {
+			logout();
+			navigate('/login');
+		}
+	});
 
 	const menuItems = [
 		{
@@ -23,8 +34,24 @@ const UserMenu: FC = () => {
 		}
 	];
 
+	const handleLogoutClick = () => {
+		requestLogout();
+	};
+
+	const handleMenuItemClick: MenuProps['onClick'] = (event) => {
+		switch (event.key) {
+		case 'logout':
+			handleLogoutClick();
+			return;
+		case 'personal-area':
+			return;
+		default:
+			return;
+		}
+	};
+
 	return (
-		<Menu items={menuItems} />
+		<Menu items={menuItems} onClick={handleMenuItemClick} />
 	);
 };
 

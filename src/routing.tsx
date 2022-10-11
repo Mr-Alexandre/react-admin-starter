@@ -9,10 +9,16 @@ import Redirect from '@components/redirect';
 import { IRoute } from '@interfaces/route';
 import BaseLayout from '@layouts/base';
 import BreadcrumbItem from '@components/breadcrumb-item';
+import AuthProtectedRoute from '@domain/auth/components/auth-protected-route';
+import AuthRedirectRoute from '@domain/auth/components/auth-redirect-route';
 
 export const routes: IRoute[] = [
 	{
-		element: <BaseLayout />,
+		element: (
+			<AuthProtectedRoute>
+				<BaseLayout />
+			</AuthProtectedRoute>
+		),
 		children: [
 			{
 				index: true,
@@ -85,7 +91,11 @@ export const routes: IRoute[] = [
 		],
 	},
 	{
-		element: <AuthLayout />,
+		element: (
+			<AuthRedirectRoute redirectUrl={'/'}>
+				<AuthLayout />
+			</AuthRedirectRoute>
+		),
 		children: [
 			{
 				path: 'login',

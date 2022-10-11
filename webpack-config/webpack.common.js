@@ -1,12 +1,19 @@
 const paths = require('./paths');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const fileConf = require('./config');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = (env) => {
-	const config = fileConf.getConfigs(env);
+	const additionalPlugins = [];
+	if (env.NODE_ENV === 'production') {
+		additionalPlugins.push(
+			new HtmlWebpackPlugin({
+				template: path.resolve(paths.public, 'index.html'),
+				filename: 'index.html',
+			}),
+		)
+	}
 
 	return {
 		entry: ['index.tsx'],
@@ -14,14 +21,14 @@ module.exports = (env) => {
 			path: paths.build,
 			filename: '[name].bundle.js',
 			chunkFilename: '[name].bundle.js',
-			publicPath: '/',
+			publicPath: '/'
 		},
 		module: {
 			rules: [
 				{
 					test: /\.tsx?$/,
 					loader: 'ts-loader',
-					exclude: /node_modules/,
+					exclude: /node_modules/
 				},
 				{
 					test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
@@ -34,19 +41,13 @@ module.exports = (env) => {
 				{
 					test: /\.svg$/,
 					issuer: /\.[jt]sx?$/,
-					use: ['@svgr/webpack'],
-				},
-				...config.fileReplacements,
-			],
+					use: ['@svgr/webpack']
+				}
+			]
 		},
 		plugins: [
 			new CleanWebpackPlugin(),
-			new HtmlWebpackPlugin({
-				title: 'React starter',
-				template: path.resolve(paths.public, 'index.html'),
-				filename: 'index.html',
-			}),
-		],
+		].concat(...additionalPlugins),
 		resolve: {
 			extensions: ['.ts', '.tsx', '.js', '.jsx'],
 			plugins: [new TsconfigPathsPlugin({})]

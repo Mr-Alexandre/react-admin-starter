@@ -12,6 +12,8 @@ import { StoreProvider } from '@context/store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import reactQueryConfig from '../react-query.config';
 import { I18nextProvider } from 'react-i18next';
+import { AuthProvider } from '@domain/auth/context/auth';
+import { IAppProps } from './interface';
 
 const queryClient = new QueryClient(reactQueryConfig);
 
@@ -23,28 +25,32 @@ const Base: FC = () => {
 		<AntConfigProvider
 			locale={getAntLocaleByCode(locale.code, antLocales)?.locale}
 		>
-			<BrowserRouter>
-				<AppRouting />
-			</BrowserRouter>
+			<AppRouting />
 		</AntConfigProvider>
 	);
 };
 
-const App: FC = () => {
+const App: FC<IAppProps> = ({
+	pageProps
+}) => {
 	return (
 		<React.StrictMode>
 			<Suspense fallback={<Bootstrap />}>
-				<I18nextProvider i18n={i18n}>
-					<ConfigProvider>
-						<LocaleProvider>
-							<QueryClientProvider client={queryClient}>
-								<StoreProvider>
-									<Base />
-								</StoreProvider>
-							</QueryClientProvider>
-						</LocaleProvider>
-					</ConfigProvider>
-				</I18nextProvider>
+				<BrowserRouter>
+					<I18nextProvider i18n={i18n}>
+						<ConfigProvider>
+							<LocaleProvider>
+								<QueryClientProvider client={queryClient}>
+									<StoreProvider>
+										<AuthProvider initialSession={pageProps?.session}>
+											<Base />
+										</AuthProvider>
+									</StoreProvider>
+								</QueryClientProvider>
+							</LocaleProvider>
+						</ConfigProvider>
+					</I18nextProvider>
+				</BrowserRouter>
 			</Suspense>
 		</React.StrictMode>
 	);

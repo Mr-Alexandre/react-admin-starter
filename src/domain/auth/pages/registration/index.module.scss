@@ -1,20 +1,15 @@
 @import 'src/styles/imports';
 
-.sing-up {
-	&__form {
-		min-width: 400px;
-		background-color: gray;
-		padding: 20px;
-	}
+.registration-page {
+	width: 100%;
+	height: 100%;
+	padding: 100px $grid-gutter-width;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-	&__header {
-		margin-bottom: 10px;
-	}
-
-	&__title {
-	}
-
-	&__btn {
-		margin-right: 10px;
+	&__container {
+		max-width: 400px;
+		width: 100%;
 	}
 }
