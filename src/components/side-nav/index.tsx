@@ -7,8 +7,7 @@ import {
 	DatabaseOutlined,
 	HomeOutlined,
 	OrderedListOutlined,
-	PauseOutlined,
-	UnorderedListOutlined
+	PauseOutlined
 } from '@ant-design/icons';
 import { ISideNavProps } from '@components/side-nav/interface';
 import { useTranslation } from 'react-i18next';
@@ -54,15 +53,6 @@ const SideNav: FC<ISideNavProps> = ({ isCollapsed, className }) => {
 				</Link>
 			),
 			icon: <PauseOutlined />
-		},
-		{
-			key: '/post',
-			label: (
-				<Link to="/post">
-					{t('common:components.sideNav.menu.options.post', 'Post')}
-				</Link>
-			),
-			icon: <UnorderedListOutlined />
 		},
 		{
 			key: '/example',

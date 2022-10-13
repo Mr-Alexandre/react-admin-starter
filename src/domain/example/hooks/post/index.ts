@@ -3,12 +3,14 @@ import { useMutation, UseMutationOptions, useQuery, UseQueryOptions } from '@tan
 import {
 	IPostChangeData,
 	IPostCreateData,
-	TPostCreateResponse, TPostDeleteResponse,
+	TPostCreateResponse,
+	TPostDeleteResponse,
 	TPostReadAllResponse,
-	TPostReadResponse, TPostUpdateResponse
+	TPostReadResponse,
+	TPostUpdateResponse
 } from '@domain/example/interfaces/post';
 import { thenAxiosResponseData } from '@utils/axios';
-import { IHttpClientError, IHttpClientResponse } from '@modules/http-client/interface';
+import { IHttpClientServiceError, IHttpClientServiceResponse } from '@services/http-client/interface';
 import { IValidationError } from '@interfaces/validation-error';
 
 export const usePostList = (
@@ -34,8 +36,8 @@ export const usePost = (
 
 export const useCreateAddress = (
 	options?: UseMutationOptions<
-		IHttpClientResponse<TPostCreateResponse>,
-		IHttpClientError<IValidationError<IPostCreateData>>,
+		IHttpClientServiceResponse<TPostCreateResponse>,
+		IHttpClientServiceError<IValidationError<IPostCreateData>>,
 		IPostCreateData
 		>
 ) => {
@@ -44,8 +46,8 @@ export const useCreateAddress = (
 
 export const useUpdatePost = (
 	options?: UseMutationOptions<
-		IHttpClientResponse<TPostUpdateResponse>,
-		IHttpClientError<IValidationError<IPostChangeData>>,
+		IHttpClientServiceResponse<TPostUpdateResponse>,
+		IHttpClientServiceError<IValidationError<IPostChangeData>>,
 		IPostChangeData
 		>
 ) => {
@@ -54,7 +56,7 @@ export const useUpdatePost = (
 
 export const useDeletePost = (
 	options?: UseMutationOptions<
-		IHttpClientResponse<TPostDeleteResponse>,
+		IHttpClientServiceResponse<TPostDeleteResponse>,
 		unknown,
 		string
 		>

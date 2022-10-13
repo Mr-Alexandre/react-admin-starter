@@ -1,11 +1,13 @@
 import { boundClass } from 'autobind-decorator';
-import type { IHttpClient } from '@modules/http-client/interface';
+import type { IHttpClientService } from '@services/http-client/interface';
 import {
 	IPostChangeData,
 	IPostCreateData,
-	TPostCreateResponse, TPostDeleteResponse,
+	TPostCreateResponse,
+	TPostDeleteResponse,
 	TPostReadAllResponse,
-	TPostReadResponse, TPostUpdateResponse
+	TPostReadResponse,
+	TPostUpdateResponse
 } from '@domain/example/interfaces/post';
 
 @boundClass
@@ -14,40 +16,40 @@ class PostApiService {
 	public readonly GET_REQUEST_KEY: string = 'post';
 	public readonly GET_ALL_REQUEST_KEY: string = 'posts';
 
-	protected httpClient: IHttpClient;
+	protected httpClientService: IHttpClientService;
 
-	constructor(httpClient: IHttpClient) {
-		this.httpClient = httpClient;
+	constructor(httpClientService: IHttpClientService) {
+		this.httpClientService = httpClientService;
 	}
 
 	public create(data: IPostCreateData) {
-		return this.httpClient.post<TPostCreateResponse>(
+		return this.httpClientService.post<TPostCreateResponse>(
 			`${this.API_URL}/customers/current/addresses/`,
 			data
 		);
 	}
 
 	public get(id: string) {
-		return this.httpClient.get<TPostReadResponse>(
+		return this.httpClientService.get<TPostReadResponse>(
 			`${this.API_URL}/posts/${id}`
 		);
 	}
 
 	public getAll() {
-		return this.httpClient.get<TPostReadAllResponse>(
+		return this.httpClientService.get<TPostReadAllResponse>(
 			`${this.API_URL}/posts`
 		);
 	}
 
 	public update(data: IPostChangeData) {
-		return this.httpClient.put<TPostUpdateResponse>(
+		return this.httpClientService.put<TPostUpdateResponse>(
 			`${this.API_URL}/posts/${data.id}`,
 			data
 		);
 	}
 
 	public delete(id: string) {
-		return this.httpClient.delete<TPostDeleteResponse>(
+		return this.httpClientService.delete<TPostDeleteResponse>(
 			`${this.API_URL}/posts/${id}`
 		);
 	}

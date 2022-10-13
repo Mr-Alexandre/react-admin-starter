@@ -1,4 +1,4 @@
-import { UseQueryOptions, useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, UseQueryOptions } from '@tanstack/react-query';
 import todoApiService from '@domain/example-todo/services/todo';
 import { thenAxiosResponseData } from '@utils/axios';
 import { toNumber } from '@utils/number';
@@ -10,13 +10,10 @@ import {
 	TTodoDeleteResponse,
 	TTodoReadAllResponse,
 	TTodoReadResponse,
-	TTodoUpdateResponse,
+	TTodoUpdateResponse
 } from '@domain/example-todo/interfaces/todo';
 import { UseMutationOptions } from '@tanstack/react-query/src/types';
-import {
-	IHttpClientError,
-	IHttpClientResponse,
-} from '@modules/http-client/interface';
+import { IHttpClientServiceError, IHttpClientServiceResponse } from '@services/http-client/interface';
 import { IValidationError } from '@interfaces/validation-error';
 
 export const useTodoList = (
@@ -42,8 +39,8 @@ export const useTodo = (
 
 export const useCreateTodo = (
 	options?: UseMutationOptions<
-		IHttpClientResponse<TTodoCreateResponse>,
-		IHttpClientError<IValidationError<IExampleTodoCreateData>>,
+		IHttpClientServiceResponse<TTodoCreateResponse>,
+		IHttpClientServiceError<IValidationError<IExampleTodoCreateData>>,
 		IExampleTodoCreateData
 	>
 ) => {
@@ -52,8 +49,8 @@ export const useCreateTodo = (
 
 export const useUpdateTodo = (
 	options?: UseMutationOptions<
-		IHttpClientResponse<TTodoUpdateResponse>,
-		IHttpClientError<IValidationError<IExampleTodoChangeData>>,
+		IHttpClientServiceResponse<TTodoUpdateResponse>,
+		IHttpClientServiceError<IValidationError<IExampleTodoChangeData>>,
 		IExampleTodoChangeData
 	>
 ) => {
@@ -62,7 +59,7 @@ export const useUpdateTodo = (
 
 export const useDeleteTodo = (
 	options?: UseMutationOptions<
-		IHttpClientResponse<TTodoDeleteResponse>,
+		IHttpClientServiceResponse<TTodoDeleteResponse>,
 		unknown,
 		number
 	>
@@ -72,7 +69,7 @@ export const useDeleteTodo = (
 
 export const useDeleteAllTodo = (
 	options?: UseMutationOptions<
-		IHttpClientResponse<TTodoDeleteAllResponse>,
+		IHttpClientServiceResponse<TTodoDeleteAllResponse>,
 		unknown,
 		void
 	>

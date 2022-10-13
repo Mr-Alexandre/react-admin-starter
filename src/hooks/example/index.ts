@@ -1,7 +1,7 @@
 import { useMutation, UseMutationOptions, useQuery, UseQueryOptions } from '@tanstack/react-query';
 import postApiService from '@domain/example/services/post';
 import { thenAxiosResponseData } from '@utils/axios';
-import { IHttpClientError, IHttpClientResponse } from '@modules/http-client/interface';
+import { IHttpClientServiceError, IHttpClientServiceResponse } from '@services/http-client/interface';
 import { IValidationError } from '@interfaces/validation-error';
 import {
 	IExampleChangeData,
@@ -37,8 +37,8 @@ export const useExample = (
 
 export const useCreateExample = (
 	options?: UseMutationOptions<
-		IHttpClientResponse<TExampleCreateResponse>,
-		IHttpClientError<IValidationError<IExampleCreateData>>,
+		IHttpClientServiceResponse<TExampleCreateResponse>,
+		IHttpClientServiceError<IValidationError<IExampleCreateData>>,
 		IExampleCreateData
 		>
 ) => {
@@ -47,8 +47,8 @@ export const useCreateExample = (
 
 export const useUpdateExample = (
 	options?: UseMutationOptions<
-		IHttpClientResponse<TExampleUpdateResponse>,
-		IHttpClientError<IValidationError<IExampleChangeData>>,
+		IHttpClientServiceResponse<TExampleUpdateResponse>,
+		IHttpClientServiceError<IValidationError<IExampleChangeData>>,
 		IExampleChangeData
 		>
 ) => {
@@ -57,7 +57,7 @@ export const useUpdateExample = (
 
 export const useDeleteExample = (
 	options?: UseMutationOptions<
-		IHttpClientResponse<TExampleDeleteResponse>,
+		IHttpClientServiceResponse<TExampleDeleteResponse>,
 		unknown,
 		number
 		>

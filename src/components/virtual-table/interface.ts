@@ -5,6 +5,6 @@ export interface IVirtualTableDataSource extends Record<string, any> {
 	key: string | number
 }
 
-export interface IVirtualTableProps<TData = IVirtualTableDataSource> extends TableProps<TData> {
+export interface IVirtualTableProps<TData extends IVirtualTableDataSource> extends TableProps<TData> {
 
 }

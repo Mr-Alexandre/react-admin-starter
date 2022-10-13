@@ -9,7 +9,7 @@ import {
 	TTodoReadResponse,
 	TTodoUpdateResponse
 } from '@domain/example-todo/interfaces/todo';
-import type { IHttpClient } from '@modules/http-client/interface';
+import type { IHttpClientService } from '@services/http-client/interface';
 import { API_URL } from '@constants/envrionment';
 
 @boundClass
@@ -18,46 +18,46 @@ class TodoApiService {
 	public readonly GET_REQUEST_KEY: string = 'todo';
 	public readonly GET_ALL_REQUEST_KEY: string = 'todos';
 
-	protected httpClient: IHttpClient;
+	protected httpClientService: IHttpClientService;
 
-	constructor(httpClient: IHttpClient) {
-		this.httpClient = httpClient;
+	constructor(httpClientService: IHttpClientService) {
+		this.httpClientService = httpClientService;
 	}
 
 	public create(data: IExampleTodoCreateData) {
-		return this.httpClient.post<TTodoCreateResponse>(
+		return this.httpClientService.post<TTodoCreateResponse>(
 			`${this.API_URL}/todo`,
 			data
 		);
 	}
 
 	public get(id: number) {
-		return this.httpClient.get<TTodoReadResponse>(
+		return this.httpClientService.get<TTodoReadResponse>(
 			`${this.API_URL}/todo/${id}`
 		);
 	}
 
 	public getAll() {
-		return this.httpClient.get<TTodoReadAllResponse>(
+		return this.httpClientService.get<TTodoReadAllResponse>(
 			`${this.API_URL}/todo`
 		);
 	}
 
 	public update(data: IExampleTodoChangeData) {
-		return this.httpClient.patch<TTodoUpdateResponse>(
+		return this.httpClientService.patch<TTodoUpdateResponse>(
 			`${this.API_URL}/todo/${data.id}`,
 			data
 		);
 	}
 
 	public delete(id: number) {
-		return this.httpClient.delete<TTodoDeleteResponse>(
+		return this.httpClientService.delete<TTodoDeleteResponse>(
 			`${this.API_URL}/todo/${id}`
 		);
 	}
 
 	public deleteAll() {
-		return this.httpClient.delete<TTodoDeleteAllResponse>(
+		return this.httpClientService.delete<TTodoDeleteAllResponse>(
 			`${this.API_URL}/todo/`
 		);
 	}

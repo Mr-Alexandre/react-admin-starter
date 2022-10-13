@@ -1,7 +1,7 @@
-import { IHttpClientInterceptorFunction } from '../interface';
+import { IHttpClientServiceInterceptorFunction } from '../interface';
 import { IHttpHeaders } from '@interfaces/http-headers';
 
-const jwtTokenInterceptor: IHttpClientInterceptorFunction = () => {
+const jwtTokenInterceptor: IHttpClientServiceInterceptorFunction = () => {
 	return {
 		request: {
 			onFulfilled: (config) => {

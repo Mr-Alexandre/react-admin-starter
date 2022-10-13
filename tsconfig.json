@@ -29,7 +29,6 @@
             "@hooks/*": ["src/hooks/*"],
             "@interfaces/*": ["src/interfaces/*"],
             "@layouts/*": ["src/layouts/*"],
-            "@modules/*": ["src/modules/*"],
             "@route-guards/*": ["src/route-guards/*"],
             "@services/*": ["src/services/*"],
             "@stores/*": ["src/stores/*"],

@@ -1,82 +1,81 @@
 import { boundClass } from 'autobind-decorator';
-import type {
-	IHttpClient,
-	IHttpClientInterceptor,
-	IHttpClientInterceptorIds,
-	IHttpClientRequestConfig,
-} from '@modules/http-client/interface';
-import { IHttpClientResponse } from '@modules/http-client/interface';
 import axios, { AxiosInstance } from 'axios';
+import type {
+	IHttpClientServiceInterceptor,
+	IHttpClientServiceInterceptorIds,
+	IHttpClientServiceRequestConfig,
+	IHttpClientServiceResponse
+} from '@services/http-client/interface';
 
 @boundClass
-class HttpClient implements IHttpClient {
+class HttpClientService {
 	private axiosInstance: AxiosInstance;
 
-	constructor(options?: IHttpClientRequestConfig) {
+	constructor(options?: IHttpClientServiceRequestConfig) {
 		this.axiosInstance = axios.create(options);
 	}
 
-	public get<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
+	public get<T = unknown, R = IHttpClientServiceResponse<T>, D = unknown>(
 		url: string,
-		config?: IHttpClientRequestConfig<D>
+		config?: IHttpClientServiceRequestConfig<D>
 	): Promise<R> {
 		return this.axiosInstance.get<T, R, D>(url, config);
 	}
 
-	public post<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
+	public post<T = unknown, R = IHttpClientServiceResponse<T>, D = unknown>(
 		url: string,
 		data?: D,
-		config?: IHttpClientRequestConfig<D>
+		config?: IHttpClientServiceRequestConfig<D>
 	): Promise<R> {
 		return this.axiosInstance.post<T, R, D>(url, data, config);
 	}
 
-	public put<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
+	public put<T = unknown, R = IHttpClientServiceResponse<T>, D = unknown>(
 		url: string,
 		data?: D,
-		config?: IHttpClientRequestConfig
+		config?: IHttpClientServiceRequestConfig
 	): Promise<R> {
 		return this.axiosInstance.put<T, R>(url, data, config);
 	}
 
-	public patch<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
+	public patch<T = unknown, R = IHttpClientServiceResponse<T>, D = unknown>(
 		url: string,
 		data?: D,
-		config?: IHttpClientRequestConfig
+		config?: IHttpClientServiceRequestConfig
 	): Promise<R> {
 		return this.axiosInstance.patch<T, R>(url, data, config);
 	}
 
-	public delete<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
+	public delete<T = unknown, R = IHttpClientServiceResponse<T>, D = unknown>(
 		url: string,
-		config?: IHttpClientRequestConfig<D>
+		config?: IHttpClientServiceRequestConfig<D>
 	): Promise<R> {
 		return this.axiosInstance.delete<T, R, D>(url, config);
 	}
 
-	public head<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
+	public head<T = unknown, R = IHttpClientServiceResponse<T>, D = unknown>(
 		url: string,
-		config?: IHttpClientRequestConfig<D>
+		config?: IHttpClientServiceRequestConfig<D>
 	): Promise<R> {
 		return this.axiosInstance.head<T, R, D>(url, config);
 	}
 
-	public options<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
+	public options<T = unknown, R = IHttpClientServiceResponse<T>, D = unknown>(
 		url: string,
-		config?: IHttpClientRequestConfig<D>
+		config?: IHttpClientServiceRequestConfig<D>
 	): Promise<R> {
 		return this.axiosInstance.options<T, R, D>(url, config);
 	}
 
-	public request<T = unknown, R = IHttpClientResponse<T>, D = unknown>(
-		config: IHttpClientRequestConfig<D>
+	public request<T = unknown, R = IHttpClientServiceResponse<T>, D = unknown>(
+		config: IHttpClientServiceRequestConfig<D>
 	): Promise<R> {
 		return this.axiosInstance.request<T, R, D>(config);
 	}
 
 	public addInterceptor(
-		interceptor: IHttpClientInterceptor
-	): IHttpClientInterceptorIds {
+		interceptor: IHttpClientServiceInterceptor
+	): IHttpClientServiceInterceptorIds {
 		if (interceptor?.request) {
 			this.axiosInstance.interceptors.request.use(
 				interceptor.request.onFulfilled,
@@ -92,7 +91,7 @@ class HttpClient implements IHttpClient {
 		return {};
 	}
 
-	public removeInterceptor(ids: IHttpClientInterceptorIds): void {
+	public removeInterceptor(ids: IHttpClientServiceInterceptorIds): void {
 		if (ids.request != null) {
 			this.axiosInstance.interceptors.request.eject(ids.request);
 		}
@@ -102,4 +101,4 @@ class HttpClient implements IHttpClient {
 	}
 }
 
-export default HttpClient;
+export default HttpClientService;

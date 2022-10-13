@@ -28,8 +28,15 @@
         "options": {
           "home": "Home",
           "secondary": "Secondary",
-          "post": "Post",
-          "example": "Example"
+          "example": "Example",
+          "exampleForm": {
+            "title": "Example form",
+            "options": {
+              "back": "Back",
+              "front": "Front"
+            }
+          },
+          "exampleTodo": "Example todo"
         }
       }
     }

@@ -1,6 +1,6 @@
 import ExampleApiService from '@services/example/example-api.service';
-import { httpClient } from '@modules/http-client';
+import { httpClientService } from '@services/http-client';
 
-const exampleApiService = new ExampleApiService(httpClient);
+const exampleApiService = new ExampleApiService(httpClientService);
 
 export default exampleApiService;

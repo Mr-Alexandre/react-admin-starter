@@ -1,27 +1,19 @@
-import {
-	useMutation,
-	UseMutationOptions,
-	useQuery,
-	UseQueryOptions,
-} from '@tanstack/react-query';
+import { useMutation, UseMutationOptions, useQuery, UseQueryOptions } from '@tanstack/react-query';
 import {
 	IAuthLoginByCredentialsData,
 	TAuthGetSessionResponse,
 	TAuthLoginByCredentialsResponse,
-	TAuthLogoutResponse,
+	TAuthLogoutResponse
 } from '@domain/auth/interfaces/auth';
-import {
-	IHttpClientError,
-	IHttpClientResponse,
-} from '@modules/http-client/interface';
+import { IHttpClientServiceError, IHttpClientServiceResponse } from '@services/http-client/interface';
 import { IValidationError } from '@interfaces/validation-error';
 import authApiService from '@domain/auth/services/auth';
 import { thenAxiosResponseData } from '@utils/axios';
 
 export const useLoginByCredentials = (
 	options?: UseMutationOptions<
-		IHttpClientResponse<TAuthLoginByCredentialsResponse>,
-		IHttpClientError<IValidationError<IAuthLoginByCredentialsData>>,
+		IHttpClientServiceResponse<TAuthLoginByCredentialsResponse>,
+		IHttpClientServiceError<IValidationError<IAuthLoginByCredentialsData>>,
 		IAuthLoginByCredentialsData
 	>
 ) => {
@@ -33,8 +25,8 @@ export const useLoginByCredentials = (
 
 export const useLogout = (
 	options?: UseMutationOptions<
-		IHttpClientResponse<TAuthLogoutResponse>,
-		IHttpClientError
+		IHttpClientServiceResponse<TAuthLogoutResponse>,
+		IHttpClientServiceError
 	>
 ) => {
 	return useMutation(authApiService.logout, {

@@ -28,8 +28,15 @@
         "options": {
           "home": "Главная",
           "secondary": "Вторичная",
-          "post": "Посты",
-          "example": "Пример"
+          "example": "Пример",
+          "exampleForm": {
+            "title": "Пример формы",
+            "options": {
+              "back": "Бэкенд",
+              "front": "Фронтенд"
+            }
+          },
+          "exampleTodo": "Пример списка дел"
         }
       }
     }

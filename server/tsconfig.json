@@ -24,7 +24,6 @@
 			"@domain/*": ["src/domain/*"],
 			"@hooks/*": ["src/hooks/*"],
 			"@interfaces/*": ["src/interfaces/*"],
-			"@modules/*": ["src/modules/*"],
 			"@services/*": ["src/services/*"],
 			"@styles/*": ["src/styles/*"],
 			"@utils/*": ["src/utils/*"],

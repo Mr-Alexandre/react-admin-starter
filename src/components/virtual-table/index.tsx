@@ -7,7 +7,7 @@ import { VariableSizeGrid } from 'react-window';
 import { CustomizeScrollBody } from 'rc-table/lib/interface';
 import styles from './index.module.scss';
 
-const VirtualTable: FC<IVirtualTableProps> = (props) => {
+const VirtualTable: FC<IVirtualTableProps<any>> = (props) => {
 	const { columns, scroll } = props;
 	const [tableWidth, setTableWidth] = useState(0);
 	const gridRef = useRef<VariableSizeGrid>(null);

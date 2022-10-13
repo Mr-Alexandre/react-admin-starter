@@ -62,17 +62,6 @@ export const routes: IRoute[] = [
 				],
 			},
 			{
-				path: 'post',
-				breadcrumb: BreadcrumbItem,
-				element: (
-					<LazyLoad
-						loadComponent={() => import('@domain/post/pages')}
-						fallback={<LoaderComponent />}
-						error={<ErrorComponent />}
-					/>
-				),
-			},
-			{
 				path: 'example',
 				breadcrumb: BreadcrumbItem,
 				children: [
