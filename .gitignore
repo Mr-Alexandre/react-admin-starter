@@ -58,3 +58,6 @@ Thumbs.db
 
 ### StorybookJs ###
 storybook-static/
+
+# local env files
+.env*.local

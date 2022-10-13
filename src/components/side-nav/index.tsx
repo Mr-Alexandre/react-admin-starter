@@ -2,59 +2,111 @@ import React, { FC } from 'react';
 import styles from './index.module.scss';
 import { Link, useLocation } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
-import { ISideNavMenuItem, ISideNavProps } from '@components/side-nav/interface';
+import {
+	BorderBottomOutlined,
+	DatabaseOutlined,
+	HomeOutlined,
+	OrderedListOutlined,
+	PauseOutlined,
+	UnorderedListOutlined
+} from '@ant-design/icons';
+import { ISideNavProps } from '@components/side-nav/interface';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
+import { ItemType } from 'antd/lib/menu/hooks/useItems';
 
 const { Sider } = Layout;
+
+const getSelectedKeys = (pathname: string) => {
+	return pathname.split('/')
+		.reduce<string[]>((previousValue, currentValue, currentIndex) => {
+			if (!currentIndex) {
+				return [
+					...previousValue,
+					currentValue
+				];
+			}
+			return [
+				...previousValue,
+				previousValue[previousValue.length - 1] + '/' + currentValue
+			];
+		}, []);
+};
 
 const SideNav: FC<ISideNavProps> = ({ isCollapsed, className }) => {
 	const { t } = useTranslation();
 	const location = useLocation();
-	const menuItems: ISideNavMenuItem[] = [
+	const menuItems: ItemType[] = [
 		{
-			href: '/',
-			exact: true,
-			title: t('common:components.sideNav.menu.options.home', 'Home'),
-			icon: <UserOutlined />,
+			key: '/',
+			label: (
+				<Link to="/">
+					{t('common:components.sideNav.menu.options.home', 'Home')}
+				</Link>
+			),
+			icon: <HomeOutlined />
 		},
 		{
-			href: '/secondary',
-			title: t('common:components.sideNav.menu.options.secondary', 'Secondary'),
-			icon: <UserOutlined />,
+			key: '/secondary',
+			label: (
+				<Link to="/secondary">
+					{t('common:components.sideNav.menu.options.secondary', 'Secondary')}
+				</Link>
+			),
+			icon: <PauseOutlined />
 		},
 		{
-			href: '/post',
-			title: t('common:components.sideNav.menu.options.post', 'Post'),
-			icon: <UserOutlined />,
+			key: '/post',
+			label: (
+				<Link to="/post">
+					{t('common:components.sideNav.menu.options.post', 'Post')}
+				</Link>
+			),
+			icon: <UnorderedListOutlined />
 		},
 		{
-			href: '/example',
-			title: t('common:components.sideNav.menu.options.example', 'Example'),
-			icon: <UserOutlined />,
+			key: '/example',
+			label: (
+				<Link to="/example">
+					{t('common:components.sideNav.menu.options.example', 'Example')}
+				</Link>
+			),
+			icon: <BorderBottomOutlined />
+		},
+		{
+			key: '/example-form',
+			label: t('common:components.sideNav.menu.options.exampleForm.title', 'Example form'),
+			icon: <DatabaseOutlined />,
+			children: [
+				{
+					key: '/example-form/back',
+					label: (
+						<Link to="/example-form/back">
+							{t('common:components.sideNav.menu.options.exampleForm.options.back', 'Back')}
+						</Link>
+					)
+				},
+				{
+					key: '/example-form/front',
+					label: (
+						<Link to="/example-form/front">
+							{t('common:components.sideNav.menu.options.exampleForm.options.front', 'Front')}
+						</Link>
+					)
+				}
+			]
+		},
+		{
+			key: '/example-todo',
+			label: (
+				<Link to="/example-todo">
+					{t('common:components.sideNav.menu.options.exampleTodo', 'Example todo')}
+				</Link>
+			),
+			icon: <OrderedListOutlined />
 		},
 	];
-
-	const getSelectedKeys = () => {
-		const match = menuItems.find((item) => {
-			if (item.exact) {
-				return new RegExp(location.pathname).exec(item.href);
-			}
-			return new RegExp(item.href).exec(location.pathname);
-		});
-		return match ? [match.href] : [];
-	};
-
-	const getMenuItems = (items: ISideNavMenuItem[]) => {
-		return items.map(item => {
-			return {
-				label: <Link to={item.href}>{item.title}</Link>,
-				key: item.href,
-				icon: item.icon,
-			}
-		})
-	}
+	const selectedKeys = getSelectedKeys(location.pathname);
 
 	return (
 		<Sider
@@ -67,8 +119,9 @@ const SideNav: FC<ISideNavProps> = ({ isCollapsed, className }) => {
 			<Menu
 				theme="dark"
 				mode="inline"
-				selectedKeys={getSelectedKeys()}
-				items={getMenuItems(menuItems)}
+				selectedKeys={selectedKeys}
+				defaultOpenKeys={selectedKeys}
+				items={menuItems}
 			/>
 		</Sider>
 	);

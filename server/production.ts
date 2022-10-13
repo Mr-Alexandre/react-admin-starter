@@ -6,6 +6,12 @@ import { getAuth } from './utils/auth';
 import { PORT } from './config';
 import fs from 'fs';
 import cors from 'cors';
+import * as dotenv from 'dotenv';
+import { getEnvFilePath } from '../env.utils';
+
+dotenv.config({
+	path: getEnvFilePath('production')
+});
 
 const app = express();
 

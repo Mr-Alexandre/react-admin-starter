@@ -75,13 +75,90 @@ export const routes: IRoute[] = [
 			{
 				path: 'example',
 				breadcrumb: BreadcrumbItem,
-				element: (
-					<LazyLoad
-						loadComponent={() => import('@domain/example/pages')}
-						fallback={<LoaderComponent />}
-						error={<ErrorComponent />}
-					/>
-				),
+				children: [
+					{
+						index: true,
+						breadcrumb: BreadcrumbItem,
+						element: (
+							<LazyLoad
+								loadComponent={() => import('@domain/example/pages')}
+								fallback={<LoaderComponent />}
+								error={<ErrorComponent />}
+							/>
+						),
+					},
+					{
+						path: ':id',
+						breadcrumb: BreadcrumbItem,
+						element: (
+							<LazyLoad
+								loadComponent={() =>
+									import('@domain/example/pages/detail')
+								}
+								fallback={<LoaderComponent />}
+								error={<ErrorComponent />}
+							/>
+						),
+					},
+				],
+			},
+			{
+				path: 'example-form',
+				breadcrumb: BreadcrumbItem,
+				children: [
+					{
+						path: 'back',
+						breadcrumb: BreadcrumbItem,
+						element: (
+							<LazyLoad
+								loadComponent={() => import('@domain/example-form/pages/back')}
+								fallback={<LoaderComponent />}
+								error={<ErrorComponent />}
+							/>
+						),
+					},
+					{
+						path: 'front',
+						breadcrumb: BreadcrumbItem,
+						element: (
+							<LazyLoad
+								loadComponent={() => import('@domain/example-form/pages/front')}
+								fallback={<LoaderComponent />}
+								error={<ErrorComponent />}
+							/>
+						),
+					}
+				]
+			},
+			{
+				path: 'example-todo',
+				breadcrumb: BreadcrumbItem,
+				children: [
+					{
+						index: true,
+						breadcrumb: BreadcrumbItem,
+						element: (
+							<LazyLoad
+								loadComponent={() => import('@domain/example-todo/pages')}
+								fallback={<LoaderComponent />}
+								error={<ErrorComponent />}
+							/>
+						),
+					},
+					{
+						path: ':id',
+						breadcrumb: BreadcrumbItem,
+						element: (
+							<LazyLoad
+								loadComponent={() =>
+									import('@domain/example-todo/pages/detail')
+								}
+								fallback={<LoaderComponent />}
+								error={<ErrorComponent />}
+							/>
+						),
+					},
+				],
 			},
 			{
 				path: '*',

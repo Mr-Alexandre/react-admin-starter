@@ -3,8 +3,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
+const { getEnvFilePath } = require('../env.utils');
 
-module.exports = (env) => {
+module.exports = (env, argv) => {
 	const additionalPlugins = [];
 	if (env.NODE_ENV === 'production') {
 		additionalPlugins.push(
@@ -47,6 +49,9 @@ module.exports = (env) => {
 		},
 		plugins: [
 			new CleanWebpackPlugin(),
+			new Dotenv({
+				path: getEnvFilePath(env.NODE_ENV)
+			}),
 		].concat(...additionalPlugins),
 		resolve: {
 			extensions: ['.ts', '.tsx', '.js', '.jsx'],

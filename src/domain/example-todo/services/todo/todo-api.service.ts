@@ -10,10 +10,11 @@ import {
 	TTodoUpdateResponse
 } from '@domain/example-todo/interfaces/todo';
 import type { IHttpClient } from '@modules/http-client/interface';
+import { API_URL } from '@constants/envrionment';
 
 @boundClass
 class TodoApiService {
-	public readonly API_URL: string = '';
+	public readonly API_URL: string = API_URL;
 	public readonly GET_REQUEST_KEY: string = 'todo';
 	public readonly GET_ALL_REQUEST_KEY: string = 'todos';
 

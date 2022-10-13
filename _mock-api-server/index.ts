@@ -8,13 +8,19 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import cookie from 'cookie';
 import * as https from 'https';
+import * as dotenv from 'dotenv';
+import { getEnvFilePath } from '../env.utils';
+
+dotenv.config({
+	path: getEnvFilePath('development')
+});
 
 export const PORT = 8181;
 export const DELAY = 1500; //milliseconds
 export const MEDIA_PATH = 'tmp/media';
 export const STATIC_URL_PREFIX = 'static';
 export const PRIVATE_KEY = 'eSuVuDj0cskWX3VWM3UflOLIPKEQPXdI';
-export const SIRE_URL = 'https://localhost:3000';
+export const SIRE_URL = process.env.SITE_URL;
 const key = fs.readFileSync(path.join(__dirname, './sert/key.pem'));
 const cert = fs.readFileSync(path.join(__dirname, './sert/cert.pem'));
 

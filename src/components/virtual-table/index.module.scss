@@ -1,0 +1,12 @@
+.virtual-table {
+	&__cell {
+		box-sizing: border-box;
+		padding: 16px;
+		border-bottom: 1px solid #e8e8e8;
+		background: #FFF;
+
+		&_last {
+
+		}
+	}
+}

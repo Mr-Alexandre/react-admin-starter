@@ -4,13 +4,23 @@ import { useTranslation, withTranslation } from 'react-i18next';
 import styles from './index.module.scss';
 import VirtualTable from '@components/virtual-table';
 import { usePostList } from '@domain/example/hooks/post';
+import { ColumnsType } from 'antd/es/table';
+import { Link } from 'react-router-dom';
+import { IPost } from '@domain/example/interfaces/post';
 
-const columns = [
+interface ITableData extends IPost {
+	key: number
+}
+
+const columns: ColumnsType<ITableData> = [
 	{
 		title: 'ID',
 		dataIndex: 'id',
 		key: 'id',
-		width: 100
+		width: 100,
+		render: (id: string) => (
+			<Link to={'/example/' + id}>{id}</Link>
+		)
 	},
 	{
 		title: 'User ID',
@@ -28,7 +38,7 @@ const columns = [
 const ExamplePage: FC = () => {
 	const { t } = useTranslation();
 	const { isLoading, error, data } = usePostList();
-	const dataSource = data?.map((post) => {
+	const dataSource: ITableData[] = data?.map((post) => {
 		return {
 			key: post.id,
 			...post,

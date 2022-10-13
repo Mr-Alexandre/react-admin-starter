@@ -5,6 +5,7 @@ import { Table } from 'antd';
 import classNames from 'classnames';
 import { VariableSizeGrid } from 'react-window';
 import { CustomizeScrollBody } from 'rc-table/lib/interface';
+import styles from './index.module.scss';
 
 const VirtualTable: FC<IVirtualTableProps> = (props) => {
 	const { columns, scroll } = props;
@@ -94,15 +95,15 @@ const VirtualTable: FC<IVirtualTableProps> = (props) => {
 					style: React.CSSProperties;
 				}) => (
 					<div
-						className={classNames('virtual-table__cell', {
-							'virtual-table__cell_last': columnIndex === mergedColumns.length - 1,
+						className={classNames(styles.virtualTable__cell, {
+							[styles.virtualTable__cell_last]: columnIndex === mergedColumns.length - 1,
 						})}
 						style={style}
 					>
 						{/* eslint-disable @typescript-eslint/no-unsafe-member-access */}
 						{/* eslint-disable-next-line @typescript-eslint/ban-ts-comment*/}
 						{/* @ts-ignore*/}
-						{rawData[rowIndex][mergedColumns[columnIndex]?.dataIndex]}
+						{mergedColumns[columnIndex]?.render?.(rawData[rowIndex][mergedColumns[columnIndex]?.dataIndex]) || rawData[rowIndex][mergedColumns[columnIndex]?.dataIndex]}
 					</div>
 				)}
 			</VariableSizeGrid>

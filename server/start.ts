@@ -7,6 +7,12 @@ import { PORT } from './config';
 import fs from 'fs';
 import cors from 'cors';
 import https from 'https';
+import * as dotenv from 'dotenv';
+import { getEnvFilePath } from '../env.utils';
+
+dotenv.config({
+	path: getEnvFilePath('production')
+});
 
 const key = fs.readFileSync(path.join(__dirname, './sert/dev/key.pem'));
 const cert = fs.readFileSync(path.join(__dirname, './sert/dev/cert.pem'));

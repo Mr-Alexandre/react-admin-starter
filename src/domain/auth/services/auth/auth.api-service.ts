@@ -6,10 +6,11 @@ import {
 	TAuthLoginByCredentialsResponse,
 	TAuthLogoutResponse
 } from '@domain/auth/interfaces/auth';
+import { API_URL } from '@constants/envrionment';
 
 @boundClass
 class AuthApiService {
-	public readonly API_URL: string = 'https://localhost:8181';
+	public readonly API_URL: string = API_URL;
 	protected httpClient: IHttpClient;
 
 	constructor(httpClient: IHttpClient) {

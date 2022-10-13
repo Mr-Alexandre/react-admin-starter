@@ -26,7 +26,7 @@ const ExampleTodoItem: FC<IExampleTodoItemProps> = ({
 			>
 				{t('exampleTodo:item.remove', 'Remove')}
 			</button>
-			<Link to={`/todo/${data.id}`}>
+			<Link to={`/example-todo/${data.id}`}>
 				<a className={styles.exampleTodoItem__link}>
 					{t('exampleTodo:item.view', 'View')}
 				</a>

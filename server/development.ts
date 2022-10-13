@@ -11,6 +11,12 @@ import { PORT } from './config';
 import cors from 'cors';
 import fs from 'fs';
 import https from 'https';
+import * as dotenv from 'dotenv';
+import { getEnvFilePath } from '../env.utils';
+
+dotenv.config({
+	path: getEnvFilePath('development')
+});
 
 const app = express();
 const devConfig = config({
@@ -114,7 +120,7 @@ app.use((req, res) => {
 
 		  ${normalizeAssets(assetsByChunkName.main)
 			?.filter((pth: string) => pth.endsWith('.js'))
-			?.map((pth) => `<script src='${pth}'></script>`)
+			?.map((pth) => `<script src='/${pth}'></script>`)
 			?.join('\n')}
 		  </body>
 		</html>

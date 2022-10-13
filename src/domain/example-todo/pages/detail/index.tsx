@@ -3,12 +3,11 @@ import { IExampleTodoDetailPageProps } from '@domain/example-todo/pages/detail/i
 import { toNumber } from '@utils/number';
 import { useTodo } from '@domain/example-todo/hooks/todo';
 import { useTranslation, withTranslation } from 'react-i18next';
-import { useQueryParams } from '@hooks/query-params';
+import { useParams } from 'react-router';
 
 const ExampleTodoDetailPage: FC<IExampleTodoDetailPageProps> = () => {
 	const { t } = useTranslation();
-	const query = useQueryParams();
-	const id = query.get('id');
+	const { id } = useParams();
 	const { isLoading, isError, isSuccess, data } = useTodo(toNumber(id));
 
 	if (isLoading) {

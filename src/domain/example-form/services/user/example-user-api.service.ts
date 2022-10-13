@@ -2,10 +2,11 @@ import { boundClass } from 'autobind-decorator';
 import type { IHttpClient } from '@modules/http-client/interface';
 import { TTodoCreateResponse } from '@domain/example-todo/interfaces/todo';
 import { IExampleUserCreateData } from '@domain/example-form/interfaces/example-user';
+import { API_URL } from '@constants/envrionment';
 
 @boundClass
 class ExampleUserApiService {
-	public readonly API_URL: string = '';
+	public readonly API_URL: string = API_URL;
 	public readonly GET_REQUEST_KEY: string = 'user';
 	public readonly GET_ALL_REQUEST_KEY: string = 'users';
 

@@ -1,5 +1,11 @@
 const { pathsToModuleNameMapper } = require('ts-jest');
 const { compilerOptions } = require('./tsconfig');
+const dotenv = require('dotenv');
+const path = require('path');
+
+dotenv.config({
+	path: path.join(__dirname, './.env.staging')
+});
 
 /** @type {import('jest').Config} */
 module.exports = {
