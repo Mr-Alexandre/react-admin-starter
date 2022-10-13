@@ -11,6 +11,7 @@ import BaseLayout from '@layouts/base';
 import BreadcrumbItem from '@components/breadcrumb-item';
 import AuthProtectedRoute from '@domain/auth/components/auth-protected-route';
 import AuthRedirectRoute from '@domain/auth/components/auth-redirect-route';
+import { default as AuthLoaderPage } from '@domain/auth/pages/loader';
 
 export const routes: IRoute[] = [
 	{
@@ -169,7 +170,7 @@ export const routes: IRoute[] = [
 				element: (
 					<LazyLoad
 						loadComponent={() => import('@domain/auth/pages/login')}
-						fallback={<LoaderComponent />}
+						fallback={<AuthLoaderPage />}
 						error={<ErrorComponent />}
 					/>
 				),
@@ -180,7 +181,7 @@ export const routes: IRoute[] = [
 				element: (
 					<LazyLoad
 						loadComponent={() => import('@domain/auth/pages/registration')}
-						fallback={<LoaderComponent />}
+						fallback={<AuthLoaderPage />}
 						error={<ErrorComponent />}
 					/>
 				),
