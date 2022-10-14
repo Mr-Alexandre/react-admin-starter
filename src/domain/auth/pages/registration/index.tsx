@@ -13,4 +13,4 @@ const registrationCredentialsForm: FC = () => {
 	);
 };
 
-export default withTranslation(['registration'])(registrationCredentialsForm);
+export default withTranslation(['auth'])(registrationCredentialsForm);

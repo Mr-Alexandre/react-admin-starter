@@ -13,4 +13,4 @@ const LoginPage: FC = () => {
 	);
 };
 
-export default withTranslation(['login'])(LoginPage);
+export default withTranslation(['auth'])(LoginPage);
