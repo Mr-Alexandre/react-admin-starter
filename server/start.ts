@@ -27,9 +27,9 @@ app.use(express.static(path.resolve(__dirname, "../dist"), {
 useExpressServer(app, {
 	classTransformer: true,
 	routePrefix: 'api',
-	controllers: [path.join(__dirname + '/controllers/*.ts')] // we specify controllers we want to use
-	// middlewares: [path.join(__dirname, '/middlewares/**/*.js')],
-	// interceptors: [path.join(__dirname, '/interceptors/**/*.js')],
+	controllers: [path.join(__dirname + '/controllers/*.*')] // we specify controllers we want to use
+	// middlewares: [path.join(__dirname, '/middlewares/**/*.*')],
+	// interceptors: [path.join(__dirname, '/interceptors/**/*.*')],
 });
 
 app.use((req, res) => {

@@ -9,7 +9,7 @@ export default class AuthController {
 		@Req() request: Request,
 		@Res() response: Response
 	) {
-		response
+		return response
 			.clearCookie('access_token')
 			.clearCookie('refresh_token')
 			.status(200)

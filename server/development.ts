@@ -39,9 +39,9 @@ app.use('/public', express.static('public'));
 useExpressServer(app, {
 	classTransformer: true,
 	routePrefix: '/api',
-	controllers: [path.join(__dirname + '/controllers/*.ts')] // we specify controllers we want to use
-	// middlewares: [path.join(__dirname, '/middlewares/**/*.js')],
-	// interceptors: [path.join(__dirname, '/interceptors/**/*.js')],
+	controllers: [path.join(__dirname + '/controllers/*.*')] // we specify controllers we want to use
+	// middlewares: [path.join(__dirname, '/middlewares/**/*.*')],
+	// interceptors: [path.join(__dirname, '/interceptors/**/*.*')],
 });
 
 function isObject(x: unknown): x is object {
@@ -58,7 +58,7 @@ function normalizeAssets(assets: any): any[] {
 }
 
 // The following middleware would not be invoked until the latest build is finished.
-app.use((req, res) => {
+app.use('*', (req, res) => {
 	const { devMiddleware } = res.locals.webpack;
 	const outputFileSystem = devMiddleware.outputFileSystem;
 	const jsonWebpackStats = devMiddleware.stats.toJson();
