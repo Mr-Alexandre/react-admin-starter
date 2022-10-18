@@ -25,12 +25,14 @@ const devConfig = config({
 const compiler = webpack(devConfig);
 const key = fs.readFileSync(path.join(__dirname, './sert/dev/key.pem'));
 const cert = fs.readFileSync(path.join(__dirname, './sert/dev/cert.pem'));
-
-app.use(cors())
-app.use(webpackDevMiddleware(compiler, {
+const devWebpackMiddleware = webpackDevMiddleware(compiler, {
 	publicPath: devConfig.output.publicPath,
 	serverSideRender: true
-}));
+});
+const URL = `https://localhost:${PORT}/`;
+
+app.use(cors());
+app.use(devWebpackMiddleware);
 app.use(webpackHotMiddleware(compiler));
 app.use('/public', express.static('public'));
 
@@ -72,13 +74,13 @@ app.use((req, res) => {
 		<html>
 		  <head lang='en'>
 			<title>React admin starter</title>
-			<meta charset="UTF-8">
-  			<meta name="viewport" content="width=device-width,initial-scale=1">
+			<meta charset='UTF-8'>
+  			<meta name='viewport' content='width=device-width,initial-scale=1'>
 			<style>
 				${normalizeAssets(assetsByChunkName.main)
-				?.filter((pth: string) => pth.endsWith('.css'))
-				?.map((pth: any) => outputFileSystem.readFileSync(pth.join(outputPath, pth)))
-				?.join('\n')}
+		?.filter((pth: string) => pth.endsWith('.css'))
+		?.map((pth: any) => outputFileSystem.readFileSync(pth.join(outputPath, pth)))
+		?.join('\n')}
 			</style>
 			<style id='critical-loader-style'>
 				html, body {
@@ -119,17 +121,18 @@ app.use((req, res) => {
 		  <script id='__SSR_DATA__' type='application/json'>${JSON.stringify(SSR_DATA)}</script>
 
 		  ${normalizeAssets(assetsByChunkName.main)
-			?.filter((pth: string) => pth.endsWith('.js'))
-			?.map((pth) => `<script src='/${pth}'></script>`)
-			?.join('\n')}
+		?.filter((pth: string) => pth.endsWith('.js'))
+		?.map((pth) => `<script src='/${pth}'></script>`)
+		?.join('\n')}
 		  </body>
 		</html>
   `);
 });
 
-const server = https.createServer({key: key, cert: cert }, app);
-server.listen(PORT, () => {
-	console.log(
-		`Dev server started, Available on: https://localhost:${PORT}/`
-	);
-});
+https.createServer({ key: key, cert: cert }, app)
+	.listen(PORT, () => {
+		console.log('> Starting dev server');
+		devWebpackMiddleware.waitUntilValid(() => {
+			console.log('> Listening at ' + URL + '\n');
+		});
+	});

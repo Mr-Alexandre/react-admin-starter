@@ -12,9 +12,9 @@ module.exports = (env, argv) => {
 		additionalPlugins.push(
 			new HtmlWebpackPlugin({
 				template: path.resolve(paths.public, 'index.html'),
-				filename: 'index.html',
-			}),
-		)
+				filename: 'index.html'
+			})
+		);
 	}
 
 	return {
@@ -51,11 +51,18 @@ module.exports = (env, argv) => {
 			new CleanWebpackPlugin(),
 			new Dotenv({
 				path: getEnvFilePath(env.NODE_ENV)
-			}),
+			})
 		].concat(...additionalPlugins),
 		resolve: {
 			extensions: ['.ts', '.tsx', '.js', '.jsx'],
-			plugins: [new TsconfigPathsPlugin({})]
+			plugins: [new TsconfigPathsPlugin({})],
+			fallback: {
+				// /https://webpack.js.org/configuration/resolve/#resolvefallback
+				stream: require.resolve('stream-browserify'),
+				zlib: require.resolve('browserify-zlib'),
+				http: require.resolve('stream-http'),
+				https: require.resolve('https-browserify'),
+			}
 		}
 	};
 };

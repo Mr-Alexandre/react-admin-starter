@@ -1,6 +1,5 @@
 import { Controller, Get, Post, Req, Res } from 'routing-controllers';
 import { Request, Response } from 'express';
-import cookie from 'cookie';
 import { getAuth } from '../utils/auth';
 
 @Controller('/auth')
@@ -10,20 +9,9 @@ export default class AuthController {
 		@Req() request: Request,
 		@Res() response: Response
 	) {
-		return response.setHeader('Set-Cookie', [
-			cookie.serialize('access_token', '', {
-				httpOnly: true,
-				secure: process.env.NODE_ENV !== 'development',
-				maxAge: -1,
-				path: '/'
-			}),
-			cookie.serialize('refresh_token', '', {
-				httpOnly: true,
-				secure: process.env.NODE_ENV !== 'development',
-				maxAge: -1,
-				path: '/'
-			})
-		])
+		response
+			.clearCookie('access_token')
+			.clearCookie('refresh_token')
 			.status(200)
 			.end();
 	}
