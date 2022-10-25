@@ -1,28 +1,10 @@
-const ip = require('ip');
-const paths = require('./paths');
 const baseCssModuleOptions = require('./css-loader.options');
+const webpack = require('webpack');
 
 module.exports = () => ({
 	mode: 'development',
 	devtool: 'inline-source-map',
-	devServer: {
-		historyApiFallback: true,
-		open: true,
-		hot: true,
-		host: ip.address(),
-		port: 8080,
-		client: {
-			overlay: {
-				errors: true,
-				warnings: false
-			}
-		},
-		static: [
-			{
-				directory: paths.root,
-			},
-		],
-	},
+	entry: ['react-hot-loader/patch', 'webpack-hot-middleware/client'],
 	module: {
 		rules: [
 			{
@@ -51,8 +33,40 @@ module.exports = () => ({
 						}
 					}
 				]
+			},
+			{
+				test: /\.less$/,
+				use: [
+					{
+						loader: 'style-loader'
+					},
+					{
+						loader: 'css-loader',
+						options: {
+							...baseCssModuleOptions,
+							sourceMap: true,
+						}
+					},
+					{
+						loader: 'postcss-loader',
+						options: {
+							sourceMap: true
+						}
+					},
+					{
+						loader: "less-loader",
+						options: {
+							sourceMap: true,
+							lessOptions: {
+								javascriptEnabled: true
+							}
+						}
+					}
+				]
 			}
 		]
 	},
-	plugins: []
+	plugins: [
+		new webpack.HotModuleReplacementPlugin()
+	]
 });

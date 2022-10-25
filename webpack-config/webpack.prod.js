@@ -3,6 +3,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const baseCssModuleOptions = require('./css-loader.options');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = () => ({
 	mode: 'production',
@@ -15,22 +19,11 @@ module.exports = () => ({
 	optimization: {
 		minimize: true,
 		minimizer: [
-			new CssMinimizerPlugin()
+			new CssMinimizerPlugin(),
+			new TerserPlugin(),
 		],
 		splitChunks: {
-			cacheGroups: {
-				vendor: {
-					test: /[\\/]node_modules[\\/]/,
-					name: 'vendors',
-					chunks: 'all'
-				},
-				// Пример с выноской конкретной библиотеки
-				antd: {
-					test: /node_modules\/(antd\/).*/,
-					name: 'antd',
-					chunks: 'all'
-				}
-			}
+			chunks: "all"
 		},
 		runtimeChunk: {
 			name: 'runtime'
@@ -51,16 +44,43 @@ module.exports = () => ({
 					'postcss-loader',
 					'sass-loader'
 				]
+			},
+			{
+				test: /\.less$/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					{
+						loader: 'css-loader',
+						options: {
+							...baseCssModuleOptions,
+						}
+					},
+					'postcss-loader',
+					{
+						loader: "less-loader",
+						options: {
+							lessOptions: {
+								javascriptEnabled: true
+							}
+						}
+					}
+				]
 			}
 		]
 	},
 	plugins: [
+		new HtmlWebpackPlugin({
+			template: path.resolve(paths.public, 'index.html'),
+			filename: 'index.html'
+		}),
 		new MiniCssExtractPlugin({
 			filename: '[name].[contenthash].css',
 			chunkFilename: '[id].css'
 		}),
-		new CompressionPlugin({
-			test: /\.js(\?.*)?$/i
+		new CompressionPlugin(),
+		new BundleAnalyzerPlugin({
+			analyzerMode: 'static',
+			openAnalyzer: false,
 		})
 	]
 });

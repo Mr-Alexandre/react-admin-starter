@@ -14,6 +14,7 @@ import reactQueryConfig from '../react-query.config';
 import { I18nextProvider } from 'react-i18next';
 import { AuthProvider } from '@domain/auth/context/auth';
 import { IAppProps } from './interface';
+import { hot } from 'react-hot-loader';
 
 const queryClient = new QueryClient(reactQueryConfig);
 
@@ -56,4 +57,4 @@ const App: FC<IAppProps> = ({
 	);
 };
 
-export default App;
+export default hot(module)(App);

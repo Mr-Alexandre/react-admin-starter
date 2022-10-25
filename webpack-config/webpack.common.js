@@ -1,22 +1,10 @@
 const paths = require('./paths');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const { getEnvFilePath } = require('../env.utils');
 
 module.exports = (env, argv) => {
-	const additionalPlugins = [];
-	if (env.NODE_ENV === 'production') {
-		additionalPlugins.push(
-			new HtmlWebpackPlugin({
-				template: path.resolve(paths.public, 'index.html'),
-				filename: 'index.html'
-			})
-		);
-	}
-
 	return {
 		entry: ['index.tsx'],
 		output: {
@@ -28,10 +16,11 @@ module.exports = (env, argv) => {
 		module: {
 			rules: [
 				{
-					test: /\.tsx?$/,
-					loader: 'ts-loader',
-					exclude: /node_modules/
+					test: /\.(t|j)sx?$/,
+					use: 'babel-loader',
+					exclude: /node_modules/,
 				},
+
 				{
 					test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
 					type: 'asset/resource'
@@ -52,7 +41,7 @@ module.exports = (env, argv) => {
 			new Dotenv({
 				path: getEnvFilePath(env.NODE_ENV)
 			})
-		].concat(...additionalPlugins),
+		],
 		resolve: {
 			extensions: ['.ts', '.tsx', '.js', '.jsx'],
 			plugins: [new TsconfigPathsPlugin({})],
