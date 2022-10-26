@@ -20,7 +20,6 @@ module.exports = (env, argv) => {
 					use: 'babel-loader',
 					exclude: /node_modules/,
 				},
-
 				{
 					test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
 					type: 'asset/resource'
@@ -30,9 +29,46 @@ module.exports = (env, argv) => {
 					type: 'asset/inline'
 				},
 				{
-					test: /\.svg$/,
+					test: /\.svg$/i,
+					type: 'asset',
+					resourceQuery: /url/, // *.svg?url
+				},
+				{
+					test: /\.svg$/i,
 					issuer: /\.[jt]sx?$/,
-					use: ['@svgr/webpack']
+					resourceQuery: /icon/, // *.svg?icon
+					use: [
+						{
+							loader: '@svgr/webpack',
+							options: {
+								icon: true,
+							}
+						}
+					]
+				},
+				{
+					test: /\.svg$/i,
+					issuer: /\.[jt]sx?$/,
+					resourceQuery: { not: [/(url|icon)/] }, // exclude react component if *.svg?url or *.svg?icon
+					use: [
+						{
+							loader: '@svgr/webpack',
+							options: {
+								svgoConfig: {
+									plugins: [
+										{
+											name: 'preset-default',
+											params: {
+												overrides: {
+													removeViewBox: false
+												},
+											},
+										}
+									]
+								}
+							}
+						}
+					],
 				}
 			]
 		},
